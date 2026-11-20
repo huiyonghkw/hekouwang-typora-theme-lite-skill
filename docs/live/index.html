@@ -23,6 +23,15 @@
         <button type="button" data-mode="dark">深色</button>
       </div>
     </div>
+    <label class="grp doc-pick">
+      <span class="lbl">文件</span>
+      <select id="doc-select" aria-label="切换演示文稿">
+        <option value="metrics">阅读指标.md</option>
+        <option value="install">安装说明.md</option>
+        <option value="compare">版本对比.md</option>
+        <option value="paid">付费包说明.md</option>
+      </select>
+    </label>
     <label class="grp">
       <span class="lbl">正文字号</span>
       <select id="size">
@@ -43,83 +52,85 @@
 </header>
 
 <div class="stage">
-  <aside class="side">
+  <aside class="side" aria-label="文件列表">
     <h2>文件</h2>
-    <ul>
-      <li class="current">阅读指标.md</li>
-      <li>安装说明.md</li>
-      <li>版本对比.md</li>
-      <li>付费包说明.md</li>
+    <ul id="file-list" role="listbox" aria-label="演示文稿">
+      <li role="option"><button type="button" class="file on" data-doc="metrics" aria-current="page">阅读指标.md</button></li>
+      <li role="option"><button type="button" class="file" data-doc="install">安装说明.md</button></li>
+      <li role="option"><button type="button" class="file" data-doc="compare">版本对比.md</button></li>
+      <li role="option"><button type="button" class="file" data-doc="paid">付费包说明.md</button></li>
     </ul>
   </aside>
 
   <content>
-    <div id="write">
+    <div class="docs">
 
-      <h1>hekouwang：给中文长文一套固定的阅读指标</h1>
+      <article class="doc-panel" data-doc="metrics" id="write">
 
-      <blockquote>
-        <p>先把正文 <code>1rem</code>、行高 <code>1.65</code>、阅读列宽钉死，再在这套指标上换皮肤。</p>
-      </blockquote>
+        <h1>hekouwang：给中文长文一套固定的阅读指标</h1>
 
-      <p>这一页不是截图，也不是复刻样式：它直接加载仓库里 <code>theme/hekouwang.css</code> 的构建产物，用 Typora 同款的 <code>#write</code> 结构渲染。你在上面切换的每一个开关，改的都是这份 CSS 自己的变量。</p>
-
-      <p>它想解决的问题很具体：<strong>中文长文读两小时不累</strong>。行高偏紧、行宽乱跑、行内代码把行距顶开——单看一条都不致命，连读十几页就是疲劳。</p>
-
-      <h2>一、为什么只修三项指标</h2>
-
-      <p>主题最容易做的事是加装饰，最难的事是让所有块共享同一套节奏。所以先把三件事钉死，其余都在这套节奏里做加减。</p>
-
-      <h3>正文与阅读列</h3>
-
-      <p>正文 <code>1rem</code>，行高 <code>1.65</code>，段距 <code>0.85rem</code>；阅读列从 <code>48rem</code> 随窗口扩到 <code>96rem</code>，纸面再额外留 <code>6rem</code> 给代码和宽表格。窗口超过 <code>1800px</code> 时，行高放宽到 <code>1.78</code>、段距到 <code>1rem</code>——否则一行九十字会读成扫视。</p>
-
-      <h3>中英混排</h3>
-
-      <p>西文走随包的 Inter 可变字重（约 <code>100KB</code>，只含拉丁），中文 fallback 到系统字体。不打包中文字体，既避开授权边界，也不用下载 20MB 字库。数字按比例对齐：2026 年、1,247 次、99.8%。</p>
-
-      <h2>二、行内样式一次过</h2>
-
-      <p><strong>加粗看字重是不是真的</strong>、<em>斜体</em>、<del>删除线</del>、<code>行内代码</code>、<a href="https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill">一个链接</a>，以及 <mark>高亮</mark>。行内代码只换字色和底色，不改变行高——长段落里夹十个术语也不会把行撑开。</p>
-
-      <blockquote>
-        <p>引用块刻意不用品牌色竖条，也不铺沉底。边界来自一条浅灰竖线，字色降一档，金句自己会浮出来。</p>
         <blockquote>
-          <p>嵌套引用继续保持缩进，但不叠加更重的视觉。</p>
+          <p>先把正文 <code>1rem</code>、行高 <code>1.65</code>、阅读列宽钉死，再在这套指标上换皮肤。</p>
         </blockquote>
-      </blockquote>
 
-      <h2>三、列表与任务</h2>
+        <p>这一页不是截图，也不是复刻样式：它直接加载仓库里 <code>theme/hekouwang.css</code> 的构建产物，用 Typora 同款的 <code>#write</code> 结构渲染。你在上面切换的每一个开关，改的都是这份 CSS 自己的变量。</p>
 
-      <p>无序列表的 marker 要够淡，序号要等宽，多位数不跳位：</p>
+        <p>它想解决的问题很具体：<strong>中文长文读两小时不累</strong>。行高偏紧、行宽乱跑、行内代码把行距顶开——单看一条都不致命，连读十几页就是疲劳。</p>
 
-      <ul>
-        <li>第一项，看 marker 是否够淡</li>
-        <li>第二项，带 <code>行内代码</code> 看行高有没有被顶开</li>
-        <li>第三项，带<strong>加粗引导语</strong>：后面跟说明文字
-          <ul>
-            <li>嵌套一层</li>
-            <li>再来一条，含 <code>npm run build</code></li>
-          </ul>
-        </li>
-      </ul>
+        <h2>一、为什么只修三项指标</h2>
 
-      <ol>
-        <li>序号用等宽数字</li>
-        <li>第二条看段距</li>
-        <li>第三条对齐仍稳定</li>
-      </ol>
+        <p>主题最容易做的事是加装饰，最难的事是让所有块共享同一套节奏。所以先把三件事钉死，其余都在这套节奏里做加减。</p>
 
-      <ul class="task-list">
-        <li class="md-task-list-item"><input type="checkbox" checked><p>已完成项：文字淡化，不加删除线</p></li>
-        <li class="md-task-list-item"><input type="checkbox"><p>未完成项：只有细边框</p></li>
-      </ul>
+        <h3>正文与阅读列</h3>
 
-      <h2>四、代码块</h2>
+        <p>正文 <code>1rem</code>，行高 <code>1.65</code>，段距 <code>0.85rem</code>；阅读列从 <code>48rem</code> 随窗口扩到 <code>96rem</code>，纸面再额外留 <code>6rem</code> 给代码和宽表格。窗口超过 <code>1800px</code> 时，行高放宽到 <code>1.78</code>、段距到 <code>1rem</code>——否则一行九十字会读成扫视。</p>
 
-      <p>代码块 <code>0.9375rem</code>，比正文小一档，改用等宽字体；圆角与正文一致，边框只留发丝线。</p>
+        <h3>中英混排</h3>
 
-      <pre class="md-fences" lang="css"><code class="cm-s-inner"><span class="cm-comment">/* 用户级覆盖：写在主题目录的 hekouwang.user.css 里 */</span>
+        <p>西文走随包的 Inter 可变字重（约 <code>100KB</code>，只含拉丁），中文 fallback 到系统字体。不打包中文字体，既避开授权边界，也不用下载 20MB 字库。数字按比例对齐：2026 年、1,247 次、99.8%。</p>
+
+        <h2>二、行内样式一次过</h2>
+
+        <p><strong>加粗看字重是不是真的</strong>、<em>斜体</em>、<del>删除线</del>、<code>行内代码</code>、<a href="https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill">一个链接</a>，以及 <mark>高亮</mark>。行内代码只换字色和底色，不改变行高——长段落里夹十个术语也不会把行撑开。</p>
+
+        <blockquote>
+          <p>引用块刻意不用品牌色竖条，也不铺沉底。边界来自一条浅灰竖线，字色降一档，金句自己会浮出来。</p>
+          <blockquote>
+            <p>嵌套引用继续保持缩进，但不叠加更重的视觉。</p>
+          </blockquote>
+        </blockquote>
+
+        <h2>三、列表与任务</h2>
+
+        <p>无序列表的 marker 要够淡，序号要等宽，多位数不跳位：</p>
+
+        <ul>
+          <li>第一项，看 marker 是否够淡</li>
+          <li>第二项，带 <code>行内代码</code> 看行高有没有被顶开</li>
+          <li>第三项，带<strong>加粗引导语</strong>：后面跟说明文字
+            <ul>
+              <li>嵌套一层</li>
+              <li>再来一条，含 <code>npm run build</code></li>
+            </ul>
+          </li>
+        </ul>
+
+        <ol>
+          <li>序号用等宽数字</li>
+          <li>第二条看段距</li>
+          <li>第三条对齐仍稳定</li>
+        </ol>
+
+        <ul class="task-list">
+          <li class="md-task-list-item"><input type="checkbox" checked><p>已完成项：文字淡化，不加删除线</p></li>
+          <li class="md-task-list-item"><input type="checkbox"><p>未完成项：只有细边框</p></li>
+        </ul>
+
+        <h2>四、代码块</h2>
+
+        <p>代码块 <code>0.9375rem</code>，比正文小一档，改用等宽字体；圆角与正文一致，边框只留发丝线。</p>
+
+        <pre class="md-fences" lang="css"><code class="cm-s-inner"><span class="cm-comment">/* 用户级覆盖：写在主题目录的 hekouwang.user.css 里 */</span>
 <span class="cm-selector">:root</span> {
   <span class="cm-property">--hk-reading-measure</span>: <span class="cm-number">40rem</span>;  <span class="cm-comment">/* 约 40 字宽的中文阅读列 */</span>
 }
@@ -130,62 +141,174 @@
 }
 </code></pre>
 
-      <h2>五、表格</h2>
+        <h2>五、表格</h2>
 
-      <p>三列以内的小表最多 <code>48rem</code>，左对齐正文，不拉成一张大网；四列以上填满阅读列。</p>
+        <p>三列以内的小表最多 <code>48rem</code>，左对齐正文，不拉成一张大网；四列以上填满阅读列。</p>
 
-      <figure class="md-table-fig">
-        <table>
-          <thead>
-            <tr><th>版本</th><th>视觉方向</th><th>适用场景</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>V2 · 编辑（免费）</td><td>素白纸面、墨绿点缀、直角纸卡</td><td>日常写作、通用长文</td></tr>
-            <tr><td>V1 · 石墨青绿</td><td>冷蓝灰、薄荷青、紫色链接</td><td>技术笔记、产品文档</td></tr>
-            <tr><td>V2 Pro · 典藏编辑</td><td>胡桃墨、古铜、暖纸色</td><td>随笔、长篇评论</td></tr>
-          </tbody>
-        </table>
-      </figure>
+        <figure class="md-table-fig">
+          <table>
+            <thead>
+              <tr><th>版本</th><th>视觉方向</th><th>适用场景</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>V2 · 编辑（免费）</td><td>素白纸面、墨绿点缀、直角纸卡</td><td>日常写作、通用长文</td></tr>
+              <tr><td>V1 · 石墨青绿</td><td>冷蓝灰、薄荷青、紫色链接</td><td>技术笔记、产品文档</td></tr>
+              <tr><td>V2 Pro · 典藏编辑</td><td>胡桃墨、古铜、暖纸色</td><td>随笔、长篇评论</td></tr>
+            </tbody>
+          </table>
+        </figure>
 
-      <p>数据表则按列数分配画布，不放任横向滚动把表头甩出屏幕。</p>
+        <p>数据表则按列数分配画布，不放任横向滚动把表头甩出屏幕。</p>
 
-      <figure class="md-table-fig">
-        <table>
-          <thead>
-            <tr><th>指标</th><th>正文</th><th>代码</th><th>表格</th><th>导出 PDF</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>字号</td><td><code>1rem</code></td><td><code>0.9375rem</code></td><td><code>0.875rem</code></td><td>随导出设置</td></tr>
-            <tr><td>行高</td><td><code>1.65</code></td><td><code>1.55</code></td><td><code>1.6</code></td><td><code>1.65</code></td></tr>
-            <tr><td>宽度</td><td>阅读列</td><td>纸面 − 6rem</td><td>≤9 列填满阅读列</td><td>A4 页边距</td></tr>
-            <tr><td>强调</td><td>墨绿</td><td>低饱和语义色</td><td>只留横线</td><td>压平浮层</td></tr>
-          </tbody>
-        </table>
-      </figure>
+        <figure class="md-table-fig">
+          <table>
+            <thead>
+              <tr><th>指标</th><th>正文</th><th>代码</th><th>表格</th><th>导出 PDF</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>字号</td><td><code>1rem</code></td><td><code>0.9375rem</code></td><td><code>0.875rem</code></td><td>随导出设置</td></tr>
+              <tr><td>行高</td><td><code>1.65</code></td><td><code>1.55</code></td><td><code>1.6</code></td><td><code>1.65</code></td></tr>
+              <tr><td>宽度</td><td>阅读列</td><td>纸面 − 6rem</td><td>≤9 列填满阅读列</td><td>A4 页边距</td></tr>
+              <tr><td>强调</td><td>墨绿</td><td>低饱和语义色</td><td>只留横线</td><td>压平浮层</td></tr>
+            </tbody>
+          </table>
+        </figure>
 
-      <h2>六、分隔与脚注</h2>
+        <h2>六、分隔与脚注</h2>
 
-      <p>本页就是主题 CSS 的真渲染，不再内嵌整窗截图——否则截图里的侧栏与纸面会让人误以为演示页版面坏了。需要看实机窗，请回落地页预览区。</p>
+        <p>本页就是主题 CSS 的真渲染。左侧可切换其它演示文稿；需要看实机窗，请回<a href="../">落地页</a>预览区。</p>
 
-      <hr>
-
-      <p>构建时逐套检查文字与控件的颜色对比度<sup class="md-footnote"><a href="#fn-1" id="fnref-1">[1]</a></sup>，低于 AA 直接让构建失败——这是仓库里唯一不接受「看着还行」的地方。</p>
-
-      <div class="footnotes">
         <hr>
+
+        <p>构建时逐套检查文字与控件的颜色对比度<sup class="md-footnote"><a href="#fn-1" id="fnref-1">[1]</a></sup>，低于 AA 直接让构建失败——这是仓库里唯一不接受「看着还行」的地方。</p>
+
+        <div class="footnotes">
+          <hr>
+          <ol>
+            <li class="footnote-line" id="fn-1">对比度按 WCAG 2.1 计算，正文 4.5:1、大字 3:1；审计脚本为 <code>scripts/contrast_check.py</code>。 <a href="#fnref-1">↩</a></li>
+          </ol>
+        </div>
+
+      </article>
+
+      <article class="doc-panel" data-doc="install" hidden>
+
+        <h1>安装说明</h1>
+
+        <blockquote>
+          <p>两分钟把免费 V2 装进 Typora。改 CSS 后必须完全退出再重开，主题菜单才会加载新文件。</p>
+        </blockquote>
+
+        <h2>macOS</h2>
+
+        <pre class="md-fences" lang="bash"><code class="cm-s-inner">git clone https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill.git
+cd hekouwang-typora-theme-lite-skill
+./scripts/install.sh
+</code></pre>
+
+        <h2>Windows</h2>
+
+        <pre class="md-fences" lang="powershell"><code class="cm-s-inner">git clone https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill.git
+cd hekouwang-typora-theme-lite-skill
+.\scripts\install-windows.ps1
+</code></pre>
+
+        <p>若策略拦住脚本：<code>powershell -ExecutionPolicy Bypass -File .\scripts\install-windows.ps1</code>（只影响本次进程）。自定义主题目录用 <code>-ThemeDir</code>。</p>
+
+        <h2>装完之后</h2>
+
         <ol>
-          <li class="footnote-line" id="fn-1">对比度按 WCAG 2.1 计算，正文 4.5:1、大字 3:1；审计脚本为 <code>scripts/contrast_check.py</code>。 <a href="#fnref-1">↩</a></li>
+          <li>完全退出 Typora（不是只关窗口）</li>
+          <li>重开后，主题菜单选 <strong>Hekouwang</strong> 或 <strong>Hekouwang Dark</strong></li>
+          <li>也可手动复制 <code>theme/hekouwang.css</code>、<code>theme/hekouwang-dark.css</code> 与 <code>theme/hekouwang/</code> 到主题文件夹</li>
         </ol>
-      </div>
+
+        <h2>可选：更窄阅读列</h2>
+
+        <p>在主题目录新建 <code>hekouwang.user.css</code>（深色用 <code>hekouwang-dark.user.css</code>）：</p>
+
+        <pre class="md-fences" lang="css"><code class="cm-s-inner"><span class="cm-selector">:root</span> {
+  <span class="cm-property">--hk-reading-measure</span>: <span class="cm-number">40rem</span>;
+}
+</code></pre>
+
+      </article>
+
+      <article class="doc-panel" data-doc="compare" hidden>
+
+        <h1>版本对比</h1>
+
+        <blockquote>
+          <p>免费版是完整长文主题；专业版换的是六套独立视觉，阅读指标相同。</p>
+        </blockquote>
+
+        <figure class="md-table-fig">
+          <table>
+            <thead>
+              <tr><th></th><th>免费 V2</th><th>专业版</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>菜单名</td><td>Hekouwang / Dark</td><td>Hekouwang V1…V6 及 Dark</td></tr>
+              <tr><td>CSS 数量</td><td>2</td><td>12（六套 × 浅深）</td></tr>
+              <tr><td>阅读指标</td><td>完整</td><td>与免费版相同</td></tr>
+              <tr><td>授权</td><td>MIT</td><td>SkillPay 买断 ¥9.9</td></tr>
+              <tr><td>获取</td><td>本仓 / GitHub</td><td><a href="../#buy">体验站购买区</a></td></tr>
+            </tbody>
+          </table>
+        </figure>
+
+        <h2>专业版视觉方向</h2>
+
+        <ul>
+          <li><strong>V1 · 石墨青绿</strong> — 冷蓝灰、薄荷青、紫链</li>
+          <li><strong>V2 Pro · 典藏编辑</strong> — 胡桃墨、古铜、暖纸（≠ 免费 V2）</li>
+          <li><strong>V3 · 财经</strong> — 海军蓝与黄铜</li>
+          <li><strong>V4 · 玻璃</strong> — 冰蓝、雾面叠片</li>
+          <li><strong>V5 · HUD</strong> — 紫晶外壳、青色信号</li>
+          <li><strong>V6 · 焰彩</strong> — 李紫、珊瑚橙与粉</li>
+        </ul>
+
+        <p>实机对比见<a href="../#compare-shots">落地页预览</a>。</p>
+
+      </article>
+
+      <article class="doc-panel" data-doc="paid" hidden>
+
+        <h1>付费包说明</h1>
+
+        <blockquote>
+          <p>支付宝 SkillPay 一次性买断。权益以平台履约为准；包内含专业版 Skill 与 12 个 CSS。</p>
+        </blockquote>
+
+        <h2>你拿到什么</h2>
+
+        <ul>
+          <li>专业版 Agent Skill（<code>hekouwang-typora-theme-skill</code>）</li>
+          <li>V1 / V2 Pro / V3–V6 各浅色 + 深色，共 12 个 CSS</li>
+          <li><code>unlock.sh</code>：把主题装进 Typora 主题目录</li>
+        </ul>
+
+        <h2>怎么装</h2>
+
+        <ol>
+          <li>在 SkillPay 完成购买与 onboarding</li>
+          <li>按履约拿到 <code>*-paid.zip</code></li>
+          <li>解压后按包内 <code>SKILL.md</code> / <code>unlock.sh</code> 说明安装</li>
+          <li>完全退出并重开 Typora，选对应 <strong>Hekouwang Vn</strong> 菜单项</li>
+        </ol>
+
+        <p>价格与条款以<a href="../#buy">购买页</a>和 SkillPay 商品页为准。个人使用，勿二次分发。</p>
+
+      </article>
 
     </div>
+
+    <footer class="foot">
+      <p><strong>这一页看的不是效果图，是 CSS 本身。</strong>页面通过 <code>&lt;link&gt;</code> 引入 <code>theme/hekouwang.css</code> 或 <code>theme/hekouwang-dark.css</code>，正文结构照抄 Typora 的 <code>#write</code>。装进 Typora 后得到的是同一份文件。</p>
+      <p>安装：<code>git clone …/hekouwang-typora-theme-lite-skill.git &amp;&amp; cd hekouwang-typora-theme-lite-skill &amp;&amp; ./scripts/install.sh</code>，完全退出 Typora 后重开，主题菜单选 <strong>Hekouwang</strong> 或 <strong>Hekouwang Dark</strong>。免费版为 MIT 许可。 · <a href="../">返回体验站</a></p>
+    </footer>
   </content>
 </div>
-
-<footer class="foot">
-  <p><strong>这一页看的不是效果图，是 CSS 本身。</strong>页面只通过 <code>&lt;link&gt;</code> 引入 <code>theme/hekouwang.css</code> 或 <code>theme/hekouwang-dark.css</code>，正文结构照抄 Typora 的 <code>#write</code>，没有任何针对演示页的样式补丁。装进 Typora 后得到的是同一份文件。</p>
-  <p>安装：<code>git clone https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill.git &amp;&amp; cd hekouwang-typora-theme-lite-skill &amp;&amp; ./scripts/install.sh</code>，完全退出 Typora 后重开，主题菜单选 <strong>Hekouwang</strong> 或 <strong>Hekouwang Dark</strong>。免费版为 MIT 许可。</p>
-</footer>
 
 <script>
 (function () {
@@ -196,6 +319,8 @@
   var measureOut = document.getElementById("measure-out");
   var size = document.getElementById("size");
   var sideBtn = document.getElementById("side");
+  var docSelect = document.getElementById("doc-select");
+  var fileList = document.getElementById("file-list");
 
   function setMode(mode) {
     themeLink.href = mode === "dark" ? "theme/hekouwang-dark.css" : "theme/hekouwang.css";
@@ -221,6 +346,35 @@
     sideBtn.textContent = pinned ? "收起侧栏" : "展开侧栏";
   }
 
+  function showDoc(id) {
+    var panels = document.querySelectorAll(".doc-panel");
+    var active = null;
+    Array.prototype.forEach.call(panels, function (panel) {
+      var on = panel.dataset.doc === id;
+      panel.hidden = !on;
+      panel.removeAttribute("id");
+      if (on) active = panel;
+    });
+    if (!active) return;
+    active.id = "write";
+    active.hidden = false;
+
+    Array.prototype.forEach.call(fileList.querySelectorAll(".file"), function (btn) {
+      var on = btn.dataset.doc === id;
+      btn.classList.toggle("on", on);
+      if (on) btn.setAttribute("aria-current", "page");
+      else btn.removeAttribute("aria-current");
+    });
+    if (docSelect.value !== id) docSelect.value = id;
+    if (history.replaceState) {
+      try {
+        var url = new URL(location.href);
+        url.searchParams.set("doc", id);
+        history.replaceState(null, "", url);
+      } catch (e) {}
+    }
+  }
+
   document.getElementById("mode").addEventListener("click", function (e) {
     var btn = e.target.closest("[data-mode]");
     if (btn) setMode(btn.dataset.mode);
@@ -238,6 +392,15 @@
     setSide(!body.classList.contains("pin-outline"));
   });
 
+  fileList.addEventListener("click", function (e) {
+    var btn = e.target.closest(".file[data-doc]");
+    if (btn) showDoc(btn.dataset.doc);
+  });
+
+  docSelect.addEventListener("change", function () {
+    showDoc(docSelect.value);
+  });
+
   document.getElementById("reset").addEventListener("click", function () {
     setMode("light");
     doc.style.removeProperty("font-size");
@@ -245,9 +408,16 @@
     measure.value = "72";
     setMeasure(0);
     setSide(true);
+    showDoc("metrics");
   });
 
   setMode(/mode=dark/.test(location.search) ? "dark" : "light");
+  var initialDoc = "metrics";
+  try {
+    var q = new URL(location.href).searchParams.get("doc");
+    if (q && document.querySelector('.doc-panel[data-doc="' + q + '"]')) initialDoc = q;
+  } catch (e) {}
+  showDoc(initialDoc);
 })();
 </script>
 

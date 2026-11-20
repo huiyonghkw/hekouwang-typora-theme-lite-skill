@@ -1,14 +1,20 @@
 /* ==========================================================================
    hekouwang · 在线体验页外壳
    只画「编辑器窗口」这一层：工具条、文件树、页脚说明。
-   正文样式一律来自 theme/hekouwang.css（构建产物），本文件不覆盖 #write 内任何规则。
+   正文样式一律来自 theme/hekouwang.css（构建产物），本文件不覆盖 #write 内排版规则。
    颜色全部走主题变量，切换浅/深色外壳随之换肤。
    ========================================================================== */
 
 * { box-sizing: border-box; }
 
-body {
+html, body {
   margin: 0;
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
 }
 
@@ -17,6 +23,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 20;
+  flex: 0 0 auto;
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem 1.25rem;
@@ -112,16 +119,21 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
+/* 宽屏用左侧文件树；窄屏用工具条里的下拉 */
+.doc-pick { display: none; }
+
 /* —— 窗口主体：文件树 + 纸面 —— */
 .stage {
   display: flex;
   align-items: stretch;
-  min-height: calc(100vh - 3rem);
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 .side {
-  flex: 0 0 12.5rem;
-  padding: 1rem 0.85rem 3rem;
+  flex: 0 0 13rem;
+  align-self: stretch;
+  padding: 1rem 0.65rem 1.5rem;
   background: var(--side-bar-bg-color);
   border-right: 1px solid var(--window-border);
   font-family: var(--hk-sans);
@@ -134,7 +146,7 @@ body:not(.pin-outline) .side {
 }
 
 .side h2 {
-  margin: 0 0 0.6rem;
+  margin: 0 0 0.6rem 0.45rem;
   font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -149,26 +161,55 @@ body:not(.pin-outline) .side {
 }
 
 .side li {
-  padding: 0.3rem 0.45rem;
+  margin: 0;
+  padding: 0;
+}
+
+.side .file {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0.4rem 0.55rem;
+  border: 0;
   border-radius: var(--hk-r-sm);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease;
 }
 
-.side li.current {
+.side .file:hover {
+  background: var(--item-hover-bg-color);
+  color: var(--item-hover-text-color);
+}
+
+.side .file.on {
   background: var(--active-file-bg-color);
   color: var(--active-file-text-color);
   box-shadow: inset 2px 0 0 var(--active-file-border-color);
 }
 
 .stage content {
-  display: block;
+  display: flex;
+  flex-direction: column;
   flex: 1 1 auto;
   min-width: 0;
   max-width: 100%;
-  padding-bottom: 3rem;
   overflow-x: clip;
+}
+
+.docs {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.doc-panel[hidden] {
+  display: none !important;
 }
 
 /* 演示页兜底：禁止子元素把纸面撑出视口（主题 CSS 在 Typora 外偶发） */
@@ -182,16 +223,32 @@ body:not(.pin-outline) .side {
   height: auto !important;
 }
 
-/* —— 页脚说明 —— */
+/* —— 页脚：落在内容列 gutter 内，与纸面对齐，不再整页居中错位 —— */
 .foot {
-  max-width: 48rem;
-  margin: 0 auto;
-  padding: 0 1.5rem 3rem;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 1rem 1.5rem 1.75rem;
+  border-top: 1px solid var(--window-border);
   font-family: var(--hk-sans);
   font-size: 0.8125rem;
-  line-height: 1.7;
+  line-height: 1.65;
   color: var(--hk-muted);
+  background: transparent;
 }
+
+.foot p {
+  margin: 0 0 0.55rem;
+  max-width: 52rem;
+}
+
+.foot p:last-child { margin-bottom: 0; }
+
+.foot a {
+  color: var(--text-color);
+  text-underline-offset: 0.15em;
+}
+
+.foot a:hover { color: var(--hk-accent); }
 
 .foot code {
   font-family: var(--monospace);
@@ -201,6 +258,7 @@ body:not(.pin-outline) .side {
   border-radius: var(--hk-r-sm);
   background: var(--hk-sunken);
   color: var(--text-color);
+  word-break: break-all;
 }
 
 .foot strong { color: var(--text-color); }
@@ -208,5 +266,7 @@ body:not(.pin-outline) .side {
 @media (max-width: 760px) {
   .bar { padding: 0.5rem 0.75rem; }
   .bar-r { width: 100%; flex-wrap: wrap; }
-  .side { display: none; }
+  .side { display: none !important; }
+  .doc-pick { display: flex; }
+  .foot { padding: 0.9rem 1rem 1.5rem; }
 }
