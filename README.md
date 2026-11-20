@@ -9,7 +9,7 @@
   <a href="README.en.md">English</a>
   · <a href="https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/"><b>体验站</b></a>
   · <a href="https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/live/">在线真 CSS</a>
-  · <a href="https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/#buy">购买专业版</a>
+  · <a href="https://skillpay.alipay.com/shelf/product?productId=P0806000213890180&amp;merchantCode=huiyonghkw">SkillPay · ¥9.9</a>
   · <a href="README.zh.md">技术说明</a>
 </p>
 
@@ -76,7 +76,7 @@ cd hekouwang-typora-theme-lite-skill
 | **免费 V2** | `Hekouwang` / `Hekouwang Dark`（本仓） | MIT |
 | **专业版** | V1 / V2 Pro / V3–V6，各浅+深共 12 个 CSS | SkillPay 买断 ¥9.9 · 许可见专业包内 `LICENSE-PRO.txt` |
 
-免费版是完整长文主题，不是功能阉割。专业版换的是六套独立色彩与标题工艺，阅读指标与免费版相同。菜单名：**Hekouwang V1**、**Hekouwang V1 Dark** 等。购买与解锁说明：[体验站 · 购买](https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/#buy)。
+免费版是完整长文主题，不是功能阉割。专业版换的是六套独立色彩与标题工艺，阅读指标与免费版相同。菜单名：**Hekouwang V1**、**Hekouwang V1 Dark** 等。购买：[SkillPay · ¥9.9](https://skillpay.alipay.com/shelf/product?productId=P0806000213890180&merchantCode=huiyonghkw) · [体验站说明](https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/#buy)。
 
 | 主题 | 视觉方向 |
 |---|---|

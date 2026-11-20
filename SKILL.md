@@ -30,7 +30,8 @@ clone / 打开本仓后直接读根 `SKILL.md` 即可；本仓不维护 `.claude
 - **改哪个文件**（⚠️ 改错 = 静默失败，全绿但不生效）：
   - 改**排版**（行高 / 字号 / 段距 / 栏宽 / 断点）→ `scripts/tokens.json` 的 `_presets.work`
   - 改**配色 / 纸感 / 圆角 / 语法色** → `scripts/palettes.json`
-- **开源仓库**：https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill （免费 V2 · MIT；付费见落地页 `#buy`）
+- **开源仓库**：https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill （免费 V2 · MIT）
+- **专业版购买**：支付宝 SkillPay · https://skillpay.alipay.com/shelf/product?productId=P0806000213890180&merchantCode=huiyonghkw （说明见落地页 `#buy`）
 
 ## 常用命令
 

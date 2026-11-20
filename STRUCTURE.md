@@ -13,8 +13,8 @@
 
 | 档 | 本仓状态 |
 |---|---|
-| **现况** | **L2+ / 冲 L3** + 付费化 **E0→E1**：主仓 = Lite；Pro ∈ `edition/`；白名单 Pro Skill 包；Lite ClawHub/SkillHub 包；bump；`dist/<version>/`；日常 `git push origin`；Pages = `docs/` |
-| **L3 未闭环** | SkillPay 商品深链未上架（E1）；`HKW_URL_SKILLPAY` 暂为商店货架 |
+| **现况** | **L3** + 付费化 **E1 已过门**：主仓 = Lite；Pro ∈ `edition/`；白名单 Pro Skill 包；Lite ClawHub/SkillHub；SkillPay 买断已上架；bump；`dist/<version>/`；日常 `git push origin`；Pages = `docs/` |
+| **商品深链** | `scripts/links.sh` → `HKW_URL_SKILLPAY`（P0806000213890180） |
 
 ---
 

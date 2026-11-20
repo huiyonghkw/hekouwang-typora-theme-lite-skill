@@ -390,21 +390,6 @@
 })();
 
 (function () {
-  document.querySelectorAll('a[href="#skillpay-pending"]').forEach(function (a) {
-    a.addEventListener("click", function (ev) {
-      ev.preventDefault();
-      var buy = document.getElementById("buy");
-      if (buy) buy.scrollIntoView({ behavior: "smooth", block: "start" });
-      var tip = document.getElementById("skillpay-tip");
-      if (tip) {
-        tip.classList.remove("hidden");
-        tip.focus();
-      }
-    });
-  });
-})();
-
-(function () {
   if (!navigator.clipboard || typeof navigator.clipboard.writeText !== "function") return;
   document.querySelectorAll("pre.sc").forEach(function (pre) {
     var wrap = document.createElement("div");

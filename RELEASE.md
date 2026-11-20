@@ -2,9 +2,9 @@
 
 > 组织标准：structure · monetize · playbook  
 > 本仓特例：[`STRUCTURE.md`](STRUCTURE.md) · 技术方案：`roadmap/产品技术方案-typora-theme-2.1.md`  
-> 公开面 = **策略 A**。拍板 **A1+B1+C1**（SkillPay 买断 ¥9.9；E1 前邮件过渡同一 paid zip；无按次）。  
+> 公开面 = **策略 A**。拍板 **A1+B1+C1**（SkillPay 买断 ¥9.9；无按次）。  
 > 双产物：`python3 scripts/bump_version.py --check`  
-> 更新：2026-11-20（链接 / CTA 对齐 lite；废止微信收银主路径）
+> 更新：2026-11-20（**E1 过门**：SkillPay 商品已过审上架）
 
 ## 一、产品
 
@@ -20,13 +20,14 @@
 |---|---|---|---|---|
 | GitHub / Pages | 免费版 | `origin` → `*-lite-skill`；Pages = **`docs/`** | MIT | 已上线 |
 | ClawHub | 免费版 | `./scripts/pack-skill-zip.sh` → `dist/<v>/…-lite-skill-….zip` | 免费 | 随发版上传 |
-| 腾讯 SkillHub（社区） | 免费版 | 同上 Lite zip（须剔无扩展名 LICENSE/VERSION、`docs/fonts/`） | 免费 | **2.0.3 已发** `@indiv-huiyonghkw/…-lite-skill` |
-| 支付宝 SkillPay | 专业版 | `listing-skillpay.md` → `./scripts/pack.sh` → `dist/<v>/…-skill-…-paid.zip` | **¥9.9 买断** | E1 待上架 |
-| 过渡交付（E1 前） | 专业版 | **同一** paid zip；CTA = 体验站 `#buy` → 邮件 | 同价 | 邮件过渡，**非**微信收银 |
+| 腾讯 SkillHub（社区） | 免费版 | 同上 Lite zip | 免费 | **2.0.3 已发** `@indiv-huiyonghkw/…-lite-skill` |
+| 支付宝 SkillPay | 专业版 | `listing-skillpay.md` → `./scripts/pack.sh` → `dist/<v>/…-paid.zip` | **¥9.9 买断** | **已过审上架** |
 | SkillHub 按次 | — | — | — | **不做**（C1） |
 
-过渡句（三处须一致：本文件 / `docs/index.html` / README）：  
-> 主 CTA 为支付宝 SkillPay。通道开放前如需专业版，邮件 `huiyonghkw@gmail.com` 交付同一 `dist/<version>/*-paid.zip`。微信仅人工答疑，不作为收银。
+SkillPay 商品深链（真源亦见 `scripts/links.sh` → `HKW_URL_SKILLPAY`）：  
+https://skillpay.alipay.com/shelf/product?productId=P0806000213890180&merchantCode=huiyonghkw  
+
+商品名：**会勇禾口王 · Typora 主题工程**。官网 `#buy` CTA 直达本链。
 
 ## 三、远程
 
@@ -37,17 +38,17 @@
 
 ## 四、`dist/<version>/`
 
-目录内**默认只放 zip**（不对齐 SHA256SUMS / MANIFEST；校验结果写 `roadmap/evidence/`）：
+目录内**默认只放 zip**（校验结果写 `roadmap/evidence/`）：
 
 - `hekouwang-typora-theme-lite-skill-<version>.zip`  
-- `hekouwang-typora-theme-skill-<version>-paid.zip`（专业版 `SKILL.md` + unlock + 12 CSS）
+- `hekouwang-typora-theme-skill-<version>-paid.zip`
 
 ## 五、发版摘要
 
 1. bump → `--check`  
-2. `build.py --tier free`（有 edition 时再 `--tier paid` 打 Pro 包）  
+2. `build.py --tier free`（有 edition 时再 `--tier paid`）  
 3. 对账 `listing-skillpay.md` ↔ 平台 ↔ 官网价  
-4. `pack.sh` / `pack-skill-zip.sh` → 只写入 `dist/<version>/`  
-5. `git push origin`（只推 Lite 面；勿把 `edition/` 推进 origin）  
-6. SkillHub：`skillhub publish` Lite zip 或等价干净目录  
-7. SkillPay：上传 paid zip（E1，本人）；回执放 `roadmap/evidence/`  
+4. `pack.sh` / `pack-skill-zip.sh` → `dist/<version>/`  
+5. `git push origin`  
+6. SkillHub：publish Lite（同 version 不重复发）  
+7. SkillPay：上传 / 更新 paid zip；回执 `roadmap/evidence/`  

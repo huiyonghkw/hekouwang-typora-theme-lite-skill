@@ -4,8 +4,9 @@
 
 ## 2.0.3 — 2026-11-20
 
-- 付费化 E0（拍板 A1+B1+C1）：`pack.sh` 产出 SkillPay 专业版 Skill 白名单包（Pro `SKILL.md` + Lite 运行面 ∪ `edition` + unlock + 12 CSS）；`listing-skillpay.md` 对齐买断 ¥9.9；Pages 购买区标明 SkillPay 为目标、私发为过渡。
-- 版本同号 2.0.3；`dist/2.0.3/` 含 lite + paid zip。roadmap 技术方案 / 执行计划 / `evidence/e0-build-2.0.3.txt`（仅本机）。
+- 付费化 E0→**E1**：`pack.sh` 产出 SkillPay 专业版 Skill 白名单包；`listing-skillpay.md` 对齐买断 ¥9.9。
+- **SkillPay 已过审上架**：商品「会勇禾口王 · Typora 主题工程」· [商品页](https://skillpay.alipay.com/shelf/product?productId=P0806000213890180&merchantCode=huiyonghkw)；官网 `#buy` CTA / `scripts/links.sh` / README 已接深链。
+- 版本同号 2.0.3；`dist/2.0.3/` 含 lite + paid zip。SkillHub 社区已发 Lite `hekouwang-typora-theme-lite-skill@2.0.3`。
 
 
 ## 1.6.1 — 2026-10-21

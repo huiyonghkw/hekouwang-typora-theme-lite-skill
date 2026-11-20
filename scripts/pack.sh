@@ -173,7 +173,8 @@ Typora 安装
 
 授权：LICENSE-PRO.txt（个人使用，禁止二次分发）
 免费主题与脚本条款见 LICENSE（MIT）
-落地页：$HKW_URL_BUY
+SkillPay：$HKW_URL_SKILLPAY
+落地页说明：$HKW_URL_BUY
 EOF
 ok "README / 许可"
 
@@ -230,6 +231,7 @@ if "name: hekouwang-typora-theme-lite-skill" in skill.split("---", 2)[1]:
 print(len(need), "required ok; no leaks; Pro SKILL name ok")
 PY
 ok "验包通过 → $OUT"
-printf "\n${g}SkillPay：上传此 zip（路径 dist/<version>/）；E1 前过渡可邮件交付同一文件${o}\n"
+printf "\n${g}SkillPay：上传/更新此 zip → dist/<version>/${o}\n"
+printf "  商品页：%s\n" "$HKW_URL_SKILLPAY"
 printf "  大小：%s\n" "$(du -h "$OUT" | cut -f1 | tr -d ' ')"
-printf "  ${b}上传后必查：${o}商品名称改回「会勇禾口王 · Typora 主题工程」；描述清空后只贴 listing-skillpay.md（防叠加超 500 字）\n"
+printf "  ${b}上传后必查：${o}商品名称「会勇禾口王 · Typora 主题工程」；描述清空后只贴 listing-skillpay.md\n"

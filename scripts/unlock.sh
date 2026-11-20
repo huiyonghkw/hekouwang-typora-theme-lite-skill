@@ -32,6 +32,7 @@ else
   HKW_URL_BUY="https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/#buy"
   HKW_URL_SITE="https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/"
   HKW_URL_REPO="https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill"
+  HKW_URL_SKILLPAY="https://skillpay.alipay.com/shelf/product?productId=P0806000213890180&merchantCode=huiyonghkw"
 fi
 
 THEME_DIR="$HOME/Library/Application Support/abnerworks.Typora/themes"
@@ -205,5 +206,5 @@ echo "  Themes menu · Pack："
 echo "    • Hekouwang V1 / V2 Pro / V3–V6  (+ Dark)"
 echo "  Free V2（若还没装）：clone 公开仓后 ./scripts/install.sh"
 echo "  图文安装手册：${HKW_URL_SITE}#unlock"
-echo "  购买 / 更新：${HKW_URL_BUY}"
-echo "  售后邮件：huiyonghkw@gmail.com（微信仅人工答疑，非收银）"
+echo "  购买（SkillPay）：${HKW_URL_SKILLPAY:-$HKW_URL_BUY}"
+echo "  售后邮件：huiyonghkw@gmail.com"

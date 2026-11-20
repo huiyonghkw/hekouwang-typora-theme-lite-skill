@@ -8,7 +8,7 @@
 - **体验站：** https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/
 - **仓库：** https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill
 - **免费档：** Hekouwang / Hekouwang Dark（V2 编辑 · MIT）
-- **付费档：** V1 / V2 Pro / V3–V6 共六套皮肤（¥9.9 买断 · SkillPay；E1 前邮件交付同一 paid zip）
+- **付费档：** V1 / V2 Pro / V3–V6（¥9.9 买断 · [SkillPay 已上架](https://skillpay.alipay.com/shelf/product?productId=P0806000213890180&merchantCode=huiyonghkw)）
 
 ## 首发顺序（建议）
 

@@ -1,9 +1,10 @@
 # SkillPay 商品文案（仓库副本）
 
-> 支付宝 SkillPay · **专业版买断**。ClawHub / SkillHub 社区 = 免费 Lite。  
+> 支付宝 SkillPay · **专业版买断 · 已过审上架**。ClawHub / SkillHub 社区 = 免费 Lite。  
 > **本期不做** SkillHub 按次。  
 > 改版本前先改本文件，再改平台，再上传包。不进安装包。  
-> 平台商品描述上限 **500 字**（去换行计）；上传包常把 `SKILL.md` 的 description **叠加上去**导致超长——上传后必须清空再粘贴。
+> 平台商品描述上限 **500 字**（去换行计）；上传包常把 `SKILL.md` 的 description **叠加上去**导致超长——上传后必须清空再粘贴。  
+> **商品页：** https://skillpay.alipay.com/shelf/product?productId=P0806000213890180&merchantCode=huiyonghkw
 
 ## 商品名称
 
