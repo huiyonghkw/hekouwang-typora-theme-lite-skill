@@ -27,10 +27,10 @@
 
 | 用途 | URL |
 |---|---|
-| 中文验收样张 | `https://raw.githubusercontent.com/huiyonghkw/hekouwang-typora-theme-lite-skill/main/docs/screenshot-zh.png` |
-| 整窗侧栏 | `https://raw.githubusercontent.com/huiyonghkw/hekouwang-typora-theme-lite-skill/main/docs/screenshot-window.png` |
-| 连续代码块 | `https://raw.githubusercontent.com/huiyonghkw/hekouwang-typora-theme-lite-skill/main/docs/screenshot-fences-zh.png` |
-| V1 科技 | `https://raw.githubusercontent.com/huiyonghkw/hekouwang-typora-theme-lite-skill/main/docs/V1.png` |
+| 免费 V2 浅色 | `https://raw.githubusercontent.com/huiyonghkw/hekouwang-typora-theme-lite-skill/main/docs/previews/r/v2-light.webp` |
+| 免费 V2 深色 | `https://raw.githubusercontent.com/huiyonghkw/hekouwang-typora-theme-lite-skill/main/docs/previews/r/v2-dark.webp` |
+| V1 浅色 | `https://raw.githubusercontent.com/huiyonghkw/hekouwang-typora-theme-lite-skill/main/docs/previews/r/v1-light.webp` |
+| SkillPay 官网图 | 本仓 `materials/skillpay/02-site-hero-2880x2000.jpg` |
 
 知乎 / 掘金：**必须下载 PNG 本地上传**，外链会裂。
 

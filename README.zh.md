@@ -181,7 +181,7 @@ cd hekouwang-typora-theme-lite-skill
 收到 zip 后：
 
 ```bash
-./scripts/unlock.sh ~/Downloads/hekouwang-typora-theme-pack-v2.0.2-YYYYMMDD.zip
+./scripts/unlock.sh ~/Downloads/hekouwang-typora-theme-skill-2.0.3-paid.zip
 # 或解压后在包内：./unlock.sh
 ```
 

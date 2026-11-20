@@ -1,8 +1,15 @@
-# 升级说明 · 2.0.2
+# 升级说明
 
-发布日期：2026-10-21 · [返回主题首页](README.md) · [查看全部浅色与深色预览](https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/#compare-shots)
+当前专业版包名：`hekouwang-typora-theme-skill-<version>-paid.zip`（SkillPay 履约）。  
+购买：[SkillPay · ¥9.9](https://skillpay.alipay.com/shelf/product?productId=P0806000213890180&merchantCode=huiyonghkw) · [返回主题首页](README.md) · [预览](https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/#compare-shots)
 
-## 2.0.2 · 修「折叠侧栏后整页发白」
+## 2.0.3 · SkillPay 上架与仓名对齐（2026-11-20）
+
+- 公开仓迁至 `hekouwang-typora-theme-lite-skill`；专业版走 SkillPay 买断。
+- 付费 zip 文件名改为 `…-skill-<version>-paid.zip`（不再用 `…-theme-pack-…`）。
+- 装付费：`./scripts/unlock.sh ~/Downloads/hekouwang-typora-theme-skill-2.0.3-paid.zip`，然后 Cmd+Q 重开 Typora。
+
+## 2.0.2 · 修「折叠侧栏后整页发白」（2026-10-21）
 
 - **症状。** 深色主题（V2 Dark / V1 Dark / V6 Dark 等）折叠左侧导航栏后，整页几乎
   看不见 —— 浅色纸面配浅色正文，对比度掉到约 1.05:1。侧栏展开时一切正常，
@@ -89,7 +96,7 @@ git pull
 
 ```bash
 ./scripts/install.sh
-./scripts/unlock.sh ~/Downloads/hekouwang-typora-theme-pack-v2.0.2-YYYYMMDD.zip
+./scripts/unlock.sh ~/Downloads/hekouwang-typora-theme-skill-2.0.3-paid.zip
 ```
 
 也可以解压付费包，在包内执行 `./unlock.sh`。安装器会检查 zip 完整性和 12 份付费 CSS，并直接覆盖同名旧文件。菜单名与 1.2.0 相同。购买、交付与图文安装说明见 [体验站](https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/#unlock)。

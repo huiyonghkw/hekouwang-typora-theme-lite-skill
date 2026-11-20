@@ -98,6 +98,21 @@ text = text.replace("edition/SKILL.paid-section.md", "下文「专业版增量�
 text = text.replace("# Typora 主题工程（Lite）", "# Typora 主题工程（专业版）", 1)
 text = text.replace("**Lite** Skill 入口（`hekouwang-typora-theme-lite-skill`）",
                     "**专业版** Skill 入口（`hekouwang-typora-theme-skill`）", 1)
+# 包内已含付费源：删掉 Lite「本仓不含付费」口径与仅公开仓才有的文档链
+text = re.sub(
+    r"(?m)^专业版六套走私有仓 / SkillPay zip（`hekouwang-typora-theme-skill`），本仓不含付费源码。\n?",
+    "本包已含专业版色板/工艺与 12 个 CSS；用包内 `./unlock.sh` 装进 Typora。\n",
+    text,
+    count=1,
+)
+text = text.replace("[`STRUCTURE.md`](STRUCTURE.md)", "仓库 STRUCTURE.md（公开仓）")
+text = text.replace("[LICENSE.txt](LICENSE.txt)", "`LICENSE`（MIT 部分）与 `LICENSE-PRO.txt`")
+text = re.sub(r"(?m)^\*\*主题产物（本仓 · 免费）\*\*.+$",
+              "**主题产物（本包）**：免费 V2 + 付费 V1/V2 Pro/V3–V6（见 `theme/`）",
+              text, count=1)
+text = re.sub(r"(?m)^\*\*付费六套\*\*.+$",
+              "**付费六套**：已在本包；`./unlock.sh` 或公开仓 `./scripts/unlock.sh 本zip`。",
+              text, count=1)
 if not text.endswith("\n"):
     text += "\n"
 text = text.rstrip() + "\n\n" + paid
@@ -114,11 +129,18 @@ data = json.loads(open(src, encoding="utf-8").read())
 data["version"] = ver
 data["slug"] = "hekouwang-typora-theme-skill"
 data["name"] = "hekouwang-typora-theme-skill"
+data["displayName"] = "会勇禾口王 · Typora 主题工程"
 open(dst, "w", encoding="utf-8").write(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
 PY
 
 cp "$EDITION/LICENSE-PRO.txt" "$DEST/LICENSE-PRO.txt"
+# SkillPay 允许无扩展名 LICENSE；同时放 LICENSE.txt 以免 SKILL 断链
 cp "$ROOT/LICENSE" "$DEST/LICENSE"
+if [ -f "$ROOT/LICENSE.txt" ]; then
+  cp "$ROOT/LICENSE.txt" "$DEST/LICENSE.txt"
+else
+  cp "$ROOT/LICENSE" "$DEST/LICENSE.txt"
+fi
 cp "$EDITION/VERSION" "$DEST/VERSION"
 cp "$SCRIPT_DIR/unlock.sh" "$DEST/unlock.sh"
 chmod +x "$DEST/unlock.sh"
@@ -227,6 +249,12 @@ if "name: hekouwang-typora-theme-skill" not in skill.split("---", 2)[1]:
     sys.exit(1)
 if "name: hekouwang-typora-theme-lite-skill" in skill.split("---", 2)[1]:
     print("SKILL still has lite name in frontmatter")
+    sys.exit(1)
+if "本仓不含付费源码" in skill:
+    print("SKILL still says Lite '本仓不含付费源码'")
+    sys.exit(1)
+if f"{top}/LICENSE.txt" not in names:
+    print("MISSING LICENSE.txt")
     sys.exit(1)
 print(len(need), "required ok; no leaks; Pro SKILL name ok")
 PY

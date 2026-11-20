@@ -6,8 +6,8 @@
 #   ./scripts/install.sh                          # install free themes (recommended)
 #   ./scripts/install.sh --use-local-anthropic    # additionally link Anthropic fonts (see below)
 #
-# 付费六套（V1/V2 Pro/V3–V6）不在公开仓。买完用：
-#   ./scripts/unlock.sh ~/Downloads/hekouwang-typora-theme-pack-*.zip
+# 付费六套（V1/V2 Pro/V3–V6）不在公开仓。SkillPay 买完用：
+#   ./scripts/unlock.sh ~/Downloads/hekouwang-typora-theme-skill-*-paid.zip
 # 购买页见 scripts/links.sh → HKW_URL_BUY
 #
 # ---------------------------------------------------------------------------
@@ -130,8 +130,8 @@ echo "  Themes menu · Free："
 echo "    • Hekouwang / Hekouwang Dark   （skill V2 编辑）"
 echo
 echo "  Pack · V1 / V2 Pro / V3–V6（¥9.9）："
-echo "    $HKW_URL_BUY"
-echo "    买完：./scripts/unlock.sh ~/Downloads/hekouwang-typora-theme-pack-*.zip"
+echo "    ${HKW_URL_SKILLPAY:-$HKW_URL_BUY}"
+echo "    买完：./scripts/unlock.sh ~/Downloads/hekouwang-typora-theme-skill-*-paid.zip"
 echo
 echo "  Note: switching themes does NOT reload a modified CSS file."
 echo "  You must fully quit and relaunch Typora."
