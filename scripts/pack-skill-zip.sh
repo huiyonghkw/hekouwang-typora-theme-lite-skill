@@ -54,7 +54,7 @@ rsync -a \
   "$ROOT/" "$DEST/"
 
 # 强制再剔（与标准铁律对账）
-for p in materials listing-skillpay.md edition roadmap services dist archive \
+for p in materials listing-skillpay.md edition roadmap plans services dist archive \
   STRUCTURE.md RELEASE.md .clawhubignore .gitignore .github; do
   rm -rf "$DEST/$p"
 done
@@ -93,7 +93,7 @@ python3 - "$OUT" "$TOP" <<'PY'
 import sys, zipfile
 out, top = sys.argv[1], sys.argv[2]
 need = [f"{top}/SKILL.md", f"{top}/_meta.json", f"{top}/references/tokens.md"]
-forbid_substr = ("/materials/", "/edition/", "/listing-skillpay.md", "/roadmap/", "/docs/fonts/")
+forbid_substr = ("/materials/", "/edition/", "/listing-skillpay.md", "/roadmap/", "/plans/", "/docs/fonts/")
 z = zipfile.ZipFile(out)
 if z.testzip():
     print("CORRUPT:", z.testzip())

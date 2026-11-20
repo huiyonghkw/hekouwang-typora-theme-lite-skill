@@ -13,6 +13,7 @@ __pycache__/
 # 标准挂载：Pro / 作战地图 / 产物（均不进主仓 git）
 edition/
 roadmap/
+plans/  # 已废止，真源用 roadmap/；误建即忽略
 dist/
 archive/
 # 官网旧页归档在 docs/archive/，须进主仓 Pages
