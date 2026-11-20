@@ -6,7 +6,7 @@ summary: Typora theme engineering / CJK long-form markdown — tokens.json CSS b
 license: MIT
 homepage: https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill
 version: 2.0.3
-description: "Typora 主题工程：改配色字号行高、tokens 生成 CSS、采样真实色值、排查主题不生效、发布主题库"
+description: "当需要改 Typora 主题配色/字号/行高、用 tokens 生成 CSS、采样真实色值、排查主题不生效或发布主题库时使用"
 allowed-tools: Bash, Read, Write, Edit, Glob, Grep
 ---
 
