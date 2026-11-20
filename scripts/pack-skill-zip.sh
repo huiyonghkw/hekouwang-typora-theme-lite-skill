@@ -59,18 +59,27 @@ for p in materials listing-skillpay.md edition roadmap services dist archive \
   rm -rf "$DEST/$p"
 done
 
-# 维护者工具不进 ClawHub 包
+# SkillHub：无扩展名顶层文件 / 字体二进制会 400（保留 LICENSE.txt）
+rm -f "$DEST/LICENSE" "$DEST/VERSION"
+rm -rf "$DEST/docs/fonts"
+
+# 维护者工具不进 ClawHub / SkillHub 包
 for p in scripts/pack.sh scripts/pack-skill-zip.sh scripts/bump_version.py \
-  scripts/unlock.sh scripts/shoot_previews.sh scripts/sync_preview.py; do
+  scripts/unlock.sh scripts/shoot_previews.sh scripts/shoot_formats.sh \
+  scripts/sync_preview.py; do
   rm -f "$DEST/$p"
 done
 
 [ -f "$DEST/SKILL.md" ] || { bad "包内缺 SKILL.md"; exit 1; }
 [ -f "$DEST/_meta.json" ] || { bad "包内缺 _meta.json"; exit 1; }
+[ -f "$DEST/LICENSE.txt" ] || { bad "包内缺 LICENSE.txt"; exit 1; }
+[ ! -e "$DEST/LICENSE" ] || { bad "包内不得含无扩展名 LICENSE（SkillHub 拒收）"; exit 1; }
+[ ! -e "$DEST/VERSION" ] || { bad "包内不得含无扩展名 VERSION（SkillHub 拒收）"; exit 1; }
+[ ! -e "$DEST/docs/fonts" ] || { bad "包内不得含 docs/fonts/（SkillHub 拒收字体）"; exit 1; }
 [ ! -e "$DEST/materials" ] || { bad "包内不得含 materials/"; exit 1; }
 [ ! -e "$DEST/edition" ] || { bad "包内不得含 edition/"; exit 1; }
 [ ! -e "$DEST/listing-skillpay.md" ] || { bad "包内不得含 listing-skillpay.md"; exit 1; }
-ok "舞台树就绪（已剔 materials/edition/listing/维护者脚本）"
+ok "舞台树就绪（已剔 materials/edition/listing/SkillHub 拒收项/维护者脚本）"
 
 mkdir -p "$DIST_DIR"
 # 只保留当前版目录下的 zip；不清空同目录其他当前版产物（paid 可共存）
@@ -84,7 +93,7 @@ python3 - "$OUT" "$TOP" <<'PY'
 import sys, zipfile
 out, top = sys.argv[1], sys.argv[2]
 need = [f"{top}/SKILL.md", f"{top}/_meta.json", f"{top}/references/tokens.md"]
-forbid_substr = ("/materials/", "/edition/", "/listing-skillpay.md", "/roadmap/")
+forbid_substr = ("/materials/", "/edition/", "/listing-skillpay.md", "/roadmap/", "/docs/fonts/")
 z = zipfile.ZipFile(out)
 if z.testzip():
     print("CORRUPT:", z.testzip())
@@ -95,10 +104,23 @@ if missing:
     print("MISSING:", *missing, sep="\n  ")
     sys.exit(1)
 leaked = [n for n in names if any(s in n for s in forbid_substr)]
-if leaked:
-    print("LEAKED:")
-    for n in leaked[:20]:
+# SkillHub 拒收：顶层无扩展名 LICENSE/VERSION；任意字体二进制
+bad_ext = []
+for n in names:
+    if n.endswith("/"):
+        continue
+    rel = n[len(top) + 1 :] if n.startswith(top + "/") else n
+    base = rel.split("/")[-1]
+    if rel in ("LICENSE", "VERSION") or base.endswith((".woff2", ".woff", ".otf", ".ttf")):
+        bad_ext.append(n)
+if leaked or bad_ext:
+    print("LEAKED / SkillHub-reject:")
+    for n in (leaked + bad_ext)[:30]:
         print(" ", n)
+    sys.exit(1)
+lic_txt = f"{top}/LICENSE.txt"
+if lic_txt not in names:
+    print("MISSING:", lic_txt)
     sys.exit(1)
 print(len(names), "entries; required ok; no leaks")
 PY

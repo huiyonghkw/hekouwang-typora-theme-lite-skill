@@ -17,11 +17,16 @@ public/
 docs/previews/
 docs/images/
 docs/live/
+docs/fonts/
 docs/*.html
 
 # 主题成品与 demo（clone 仓库用；ClawHub 瘦身包可另裁）
 theme/
 demo/
+
+# SkillHub 拒收无扩展名顶层文件（保留 LICENSE.txt；版本见 SKILL.md / _meta.json）
+/LICENSE
+/VERSION
 
 # 维护者工具（ClawHub 运行时不需要）
 scripts/pack.sh
@@ -29,6 +34,7 @@ scripts/pack-skill-zip.sh
 scripts/bump_version.py
 scripts/unlock.sh
 scripts/shoot_previews.sh
+scripts/shoot_formats.sh
 scripts/sync_preview.py
 
 # 仓务与杂物
