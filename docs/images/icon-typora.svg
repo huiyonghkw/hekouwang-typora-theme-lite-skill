@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="512" height="512" role="img" aria-label="会勇禾口王 · Typora 主题">
+  <title>会勇禾口王 · Typora 主题</title>
+  <desc>青绿圆环内阅读曲线，取长文阅读指标之意。</desc>
+  <circle cx="32" cy="32" r="30" fill="#0c1612" stroke="#1f6b52" stroke-width="2.5"/>
+  <path d="M14 42 L24 28 L32 36 L42 18 L50 30" fill="none" stroke="#3dd6a5" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

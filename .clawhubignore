@@ -1,0 +1,49 @@
+# ClawHub / Skill 安装包排除清单（与组织标准对账）
+# materials/、listing 可留主仓 git，但不得进安装包。
+
+# 货架与商品文案（非运行时）
+materials/
+listing-skillpay.md
+
+# 本地/私有挂载与产物
+edition/
+roadmap/
+services/
+dist/
+archive/
+public/
+
+# 站点大资产（Lite 包不必带齐 Pages）
+docs/previews/
+docs/images/
+docs/live/
+docs/*.html
+
+# 主题成品与 demo（clone 仓库用；ClawHub 瘦身包可另裁）
+theme/
+demo/
+
+# 维护者工具（ClawHub 运行时不需要）
+scripts/pack.sh
+scripts/pack-skill-zip.sh
+scripts/bump_version.py
+scripts/unlock.sh
+scripts/shoot_previews.sh
+scripts/sync_preview.py
+
+# 仓务与杂物
+.git/
+.github/
+.claude/
+.cursor/
+.gitignore
+STRUCTURE.md
+RELEASE.md
+AGENTS.md
+UPGRADE.md
+README.en.md
+README.zh.md
+CHANGELOG.md
+skill-card.md
+.env
+*.zip

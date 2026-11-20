@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>归档页（非正式官网）· hekouwang Typora 主题</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="历史落地页存档，非正式产品官网。请访问上级 docs/index.html。">
+<meta property="og:title" content="归档页（非正式官网）">
+<meta property="og:description" content="历史落地页存档，非正式产品官网。">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f1320'/%3E%3Cpath d='M8 22l4-8 3 4 5-9 4 6' fill='none' stroke='%2306a88c' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+/* 字体策略对齐 terminal-kit，并修「大号英文走 Noto 拉丁」：
+   - 拉丁（含标题里的 Typora / Skill）优先 -apple-system → 本机 SF Pro
+   - 中文落到自托管 HKW Sans SC（真 800/900，不靠苹方假粗）
+   - 等宽：Geist Mono 自托管（命令卡），与 terminal 观感接近
+   - ⛔ 不走 Google Fonts */
+@font-face{
+  font-family:'HKW Sans SC';
+  src:url('../fonts/hkw-sans-sc-subset.woff2') format('woff2-variations'),
+      url('../fonts/hkw-sans-sc-subset.woff2') format('woff2');
+  font-weight:100 900;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:'Geist Mono';
+  src:url('../fonts/GeistMono-Regular.otf') format('opentype');
+  font-weight:400;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:'Geist Mono';
+  src:url('../fonts/GeistMono-Bold.otf') format('opentype');
+  font-weight:700;font-style:normal;font-display:swap;
+}
+:root{
+  --bg:#f4f6f9;--surface:#ffffff;--surface2:#eef1f5;
+  --border:rgba(15,20,30,.08);--border2:rgba(15,20,30,.14);
+  --text:#0f1320;--read:#2b3242;--text2:#535b6b;--text3:#8a92a3;
+  --accent:#06a88c;--accent2:#6a45e0;--accent3:#bf7d1a;
+  --accent-rgb:6,168,140;--accent2-rgb:106,69,224;--accent3-rgb:191,125,26;
+  --grid-rgb:15,20,30;--danger:#d23f4d;
+  /* 拉丁先系统；中文再 HKW。别把 HKW 放第一，否则英文变成 Noto 拉丁 */
+  --font:-apple-system,BlinkMacSystemFont,'HKW Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',system-ui,sans-serif;
+  --font-display:-apple-system,BlinkMacSystemFont,'HKW Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',system-ui,sans-serif;
+  --mono:'Geist Mono','SF Mono',SFMono-Regular,ui-monospace,Menlo,Consolas,monospace;
+  --brand:-apple-system,BlinkMacSystemFont,'HKW Sans SC','PingFang SC',system-ui,sans-serif;
+  --shadow:0 1px 2px rgba(20,30,50,.05),0 8px 24px rgba(20,30,50,.06);
+  --shadow2:0 2px 4px rgba(20,30,50,.05),0 16px 36px rgba(20,30,50,.09);
+  --flare:linear-gradient(100deg,var(--accent),var(--accent2));
+  --flare-cta:linear-gradient(135deg,var(--accent),var(--accent2));
+  --hero-bg:radial-gradient(1100px 650px at 50% -12%,#e9edf6 0%,transparent 60%),
+             radial-gradient(900px 550px at 82% 6%,#e3f2ee 0%,transparent 55%),
+             linear-gradient(180deg,#ffffff 0%,#f8fafc 60%,#f4f6f9 100%);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--font);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.7;overflow-x:hidden}
+h1,h2,h3,.sec,.foot-brand{font-family:var(--font-display);font-weight:800}
+a{color:inherit}
+.prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:50;
+  background:var(--flare);transition:width .1s linear}
+
+.topnav{position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:12px 28px;background:rgba(255,255,255,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border)}
+.topnav .brand{display:flex;align-items:center;gap:11px;font-family:var(--brand);font-size:16.5px;font-weight:800;
+  color:var(--text);text-decoration:none}
+.topnav .mark{width:26px;height:26px;border-radius:8px;
+  background:conic-gradient(from 200deg,var(--accent2),var(--accent3),var(--accent),var(--accent2));
+  box-shadow:0 4px 12px rgba(var(--accent-rgb),.28)}
+.topnav .links{display:flex;align-items:center;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+.topnav .links a{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--text2);
+  text-decoration:none;padding:7px 11px;border-radius:999px}
+.topnav .links a:hover{color:var(--text);background:var(--surface2)}
+.topnav .cta{background:var(--flare-cta)!important;color:#fff!important;font-weight:700;
+  box-shadow:0 6px 18px rgba(var(--accent-rgb),.22)}
+.topnav .buy-link{color:var(--accent)!important;font-weight:700}
+.topnav .unlock-link{color:var(--text)!important;font-weight:700}
+
+.hero{position:relative;background:var(--hero-bg);padding:88px 28px 72px;text-align:center;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(circle,rgba(var(--grid-rgb),.05) 1px,transparent 1px);
+  background-size:22px 22px;
+  -webkit-mask-image:radial-gradient(78% 82% at 50% 0%,#000 20%,transparent 100%);
+          mask-image:radial-gradient(78% 82% at 50% 0%,#000 20%,transparent 100%)}
+.hero>*{position:relative}
+.eyebrow{font-family:var(--mono);font-size:12.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--accent);display:inline-flex;align-items:center;gap:10px;
+  background:rgba(var(--accent-rgb),.08);border:1px solid var(--border2);border-radius:999px;padding:8px 18px}
+.eyebrow i{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--accent2),var(--accent3));display:inline-block}
+.hero h1{font-size:clamp(36px,5.8vw,64px);font-weight:800;line-height:1.16;letter-spacing:-.02em;
+  margin:28px auto 0;max-width:920px;text-wrap:balance}
+.hero h1 .hl{background:var(--flare);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{font-size:18.5px;line-height:1.75;color:var(--text2);max-width:600px;margin:22px auto 0}
+.hero .sub b{color:var(--read);font-weight:600}
+.actions{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:999px;
+  font-size:15.5px;font-weight:800;text-decoration:none;border:none;cursor:pointer}
+.btn-primary{background:var(--flare-cta);color:#fff;box-shadow:0 14px 32px rgba(var(--accent-rgb),.28)}
+.btn-ghost{background:var(--surface);color:var(--text);border:1px solid var(--border2);box-shadow:var(--shadow)}
+.hero-meta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:28px}
+.hero-meta span{font-family:var(--mono);font-size:12px;color:var(--text3);
+  background:rgba(255,255,255,.78);border:1px solid var(--border);border-radius:999px;padding:6px 14px}
+
+.stage-wrap{position:relative;z-index:5;width:min(980px,calc(100% - 40px));margin:-28px auto 0}
+.stage{background:var(--surface);border:1px solid var(--border);border-radius:22px;overflow:hidden;box-shadow:var(--shadow2)}
+.stage-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  padding:12px 18px;background:var(--surface2);border-bottom:1px solid var(--border)}
+.stage-bar .dots{display:flex;gap:7px}
+.stage-bar .dots i{width:10px;height:10px;border-radius:50%;background:rgba(15,20,30,.12)}
+.stage-bar .dots i:nth-child(1){background:#ff5f57}
+.stage-bar .dots i:nth-child(2){background:#febc2e}
+.stage-bar .dots i:nth-child(3){background:#28c840}
+.stage-bar .title{font-family:var(--mono);font-size:12px;color:var(--text3);letter-spacing:.04em}
+.tog{display:inline-flex;padding:3px;background:rgba(15,20,30,.05);border-radius:999px;border:1px solid var(--border)}
+.tog button{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;border:0;background:transparent;
+  color:var(--text3);padding:7px 14px;border-radius:999px;cursor:pointer;font-weight:600}
+.tog button.on{background:var(--surface);color:var(--text);box-shadow:var(--shadow)}
+.chrome{padding:18px 16px 28px;transition:background .35s ease}
+.chrome[data-mode="light"]{background:#f8f8f5}
+.chrome[data-mode="dark"]{background:#0c0e0d}
+.paper{margin:0 auto;max-width:min(52em,calc(100% - 1.5rem));box-sizing:border-box;
+  padding:2rem 1.75rem 2.75rem;border-radius:0;font-size:1rem;line-height:1.65;
+  font-family:-apple-system,BlinkMacSystemFont,'HKW Sans SC','PingFang SC','Hiragino Sans GB',system-ui,sans-serif;
+  overflow-wrap:break-word;transition:background .35s ease,color .35s ease,box-shadow .35s ease}
+.chrome[data-mode="light"] .paper{
+  color:#37413c;
+  background:radial-gradient(140% 95% at 50% -8%,#ffffff 0%,#ffffff 48%,#fbfbf8 100%);
+  box-shadow:0 1px 2px rgba(20,26,23,.04)}
+.chrome[data-mode="dark"] .paper{
+  color:#c2c8c2;
+  background:radial-gradient(140% 95% at 50% -8%,#1a1e1a 0%,#151816 48%,#111411 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04),
+             0 1px 2px rgba(0,0,0,.30),0 4px 14px -10px rgba(0,0,0,.40)}
+.paper h2{font-size:2.125rem;line-height:1.2;font-weight:700;letter-spacing:-.025em;margin:0 0 1rem;color:#141a17}
+.chrome[data-mode="dark"] .paper h2{color:#eef2ee;font-weight:650}
+.paper .lede{margin:0 0 1.15rem;padding:0;border:0;font-size:.95rem;line-height:1.6}
+.chrome[data-mode="light"] .lede{color:#59635d}
+.chrome[data-mode="dark"] .lede{color:#a9b1ab}
+.paper p{margin:0 0 .85rem}
+.paper p:last-child{margin-bottom:0}
+.paper strong{font-weight:600}
+.chrome[data-mode="light"] .paper strong{color:#141a17}
+.chrome[data-mode="dark"] .paper strong{color:#eef2ee}
+.paper code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.875em;
+  padding:.12em .34em;border-radius:0}
+.chrome[data-mode="light"] .paper code{color:#37413c;background:rgba(20,26,23,.04)}
+.chrome[data-mode="dark"] .paper code{color:#c2c8c2;background:rgba(255,255,255,.06)}
+.paper h3{font-size:1.25rem;line-height:1.35;font-weight:650;margin:1.4rem 0 .5rem;letter-spacing:-.01em;color:#141a17}
+.chrome[data-mode="dark"] .paper h3{color:#eef2ee}
+.paper h4{font-size:1.0625rem;line-height:1.4;font-weight:700;margin:1.15rem 0 .35rem;color:#141a17}
+.chrome[data-mode="dark"] .paper h4{color:#eef2ee}
+.metrics-chip{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;padding:0 4px}
+.metrics-chip span{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;
+  padding:6px 12px;border-radius:999px;border:1px solid var(--border);background:var(--surface);color:var(--text2)}
+
+main{position:relative;z-index:1;max-width:800px;margin:0 auto;padding:64px 28px 100px}
+section{margin-top:80px}
+.sec-label{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:14px}
+h2.sec{font-size:clamp(26px,4vw,34px);font-weight:800;line-height:1.28;letter-spacing:-.015em;text-wrap:balance}
+.prose{font-size:16.5px;line-height:1.85;color:var(--read);margin-top:18px}
+.prose b{color:var(--text);font-weight:600}
+.prose + .prose{margin-top:12px}
+
+.readout{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.gauge{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:22px 20px;box-shadow:var(--shadow)}
+.gauge .gl{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text3);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.gauge .gl::before{content:'';width:8px;height:8px;border-radius:2px;background:var(--accent)}
+.gauge:nth-child(2) .gl::before{background:var(--accent2)}
+.gauge:nth-child(3) .gl::before{background:var(--accent3)}
+.gauge .gv{font-family:var(--mono);font-size:28px;font-weight:700;color:var(--text);line-height:1.1}
+.gauge .gu{font-size:13px;color:var(--text2);margin-top:10px;line-height:1.55}
+
+.hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.hl-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:22px 22px 20px;
+  box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hl-card .tag{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:10px}
+.hl-card:nth-child(2) .tag{color:var(--accent2)}
+.hl-card:nth-child(3) .tag{color:var(--accent3)}
+.hl-card:nth-child(4) .tag{color:var(--accent)}
+.hl-card:nth-child(5) .tag{color:var(--accent2)}
+.hl-card:nth-child(6) .tag{color:var(--accent3)}
+.hl-card h3{font-size:17.5px;font-weight:800;line-height:1.35;margin-bottom:8px}
+.hl-card p{font-size:14px;line-height:1.7;color:var(--text2)}
+.hl-card p b{color:var(--text);font-weight:600}
+.hl-card .num{font-family:var(--mono);font-size:22px;font-weight:700;color:var(--text);margin:4px 0 8px}
+.hl-card .num small{font-size:13px;font-weight:500;color:var(--text3)}
+
+.shots{display:grid;grid-template-columns:1fr;gap:18px;margin-top:28px}
+.shot{background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.shot img{display:block;width:100%;height:auto;vertical-align:middle}
+.shot figcaption{font-family:var(--mono);font-size:12.5px;color:var(--text3);padding:14px 18px 16px;line-height:1.55;
+  border-top:1px solid var(--border);background:var(--surface2)}
+.shot figcaption b{color:var(--text2);font-weight:600}
+
+.premium-gallery{display:grid;gap:18px;margin-top:18px}
+.premium-card{min-width:0;padding:18px;background:var(--surface);border:1px solid var(--border);
+  border-radius:18px;box-shadow:var(--shadow)}
+.premium-card h3{font-size:18px;line-height:1.35;margin:0 0 5px}
+.premium-card p{font-size:14px;line-height:1.6;color:var(--text2);margin:0}
+.premium-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
+.premium-pair figure{min-width:0;margin:0}
+.premium-pair a{display:block;overflow:hidden;border-radius:10px;border:1px solid var(--border)}
+.premium-pair a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.premium-pair img{display:block;width:100%;height:auto}
+.premium-pair figcaption{font-size:12.5px;line-height:1.45;color:var(--text3);padding:7px 2px 0}
+
+.tiers{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.tier{display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:center;
+  background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}
+.tier .n{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--accent)}
+.tier h3{font-size:15.5px;font-weight:800}
+.tier p{font-size:13px;color:var(--text2);margin-top:2px;line-height:1.5}
+.tier .badge{font-family:var(--mono);font-size:11px;color:var(--text3);white-space:nowrap;
+  background:var(--surface2);border:1px solid var(--border);border-radius:999px;padding:5px 10px}
+
+.cmp-wrap{margin-top:28px;overflow-x:auto;border:1px solid var(--border);border-radius:16px;background:var(--surface);box-shadow:var(--shadow)}
+.cmp{width:100%;border-collapse:collapse;font-size:14px;min-width:520px}
+.cmp th,.cmp td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.55}
+.cmp th{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);
+  background:var(--surface2)}
+.cmp td:first-child{color:var(--text2);font-weight:600;white-space:nowrap}
+.cmp tr:last-child td{border-bottom:0}
+.cmp .win{color:var(--accent);font-weight:700}
+.cmp .mute{color:var(--text3)}
+
+.skill-when{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.skill-when span{font-family:var(--mono);font-size:12px;color:var(--text2);background:var(--surface);
+  border:1px solid var(--border);border-radius:999px;padding:7px 14px}
+
+.cmd-list{display:flex;flex-direction:column;gap:14px;margin-top:24px}
+/* 深色终端窗 · 对齐 terminal-kit 命令卡 */
+.cmd,.install{background:#0c0e0d;border:1px solid rgba(15,20,30,.35);border-radius:12px;overflow:hidden;
+  box-shadow:0 12px 32px rgba(15,20,30,.18),0 2px 6px rgba(15,20,30,.08)}
+.cmd .ch,.install .ch{display:flex;align-items:center;gap:8px;padding:10px 14px;
+  background:#1b1f1c;border-bottom:1px solid rgba(255,255,255,.06)}
+.cmd .ch .dots,.install .ch .dots{display:flex;gap:6px;flex:none}
+.cmd .ch .dots i,.install .ch .dots i{width:11px;height:11px;border-radius:50%;display:block}
+.cmd .ch .dots i:nth-child(1),.install .ch .dots i:nth-child(1){background:#ff5f57}
+.cmd .ch .dots i:nth-child(2),.install .ch .dots i:nth-child(2){background:#febc2e}
+.cmd .ch .dots i:nth-child(3),.install .ch .dots i:nth-child(3){background:#28c840}
+.cmd .ch .lab,.install .ch .lab{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.04em;
+  color:#7b8499;margin-left:4px}
+.cmd .ch .why{margin-left:auto;font-family:var(--mono);font-size:11px;color:#5c6578;max-width:52%;
+  text-align:right;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cmd pre,.install pre{font-family:var(--mono);font-size:13px;line-height:1.85;padding:16px 18px;
+  overflow-x:auto;color:#c8cdd8;margin:0;white-space:pre}
+.cmd .cm,.install .cm{color:#6b7488}
+.cmd .p,.install .p{color:#06d3ae;font-weight:600}
+.cmd .o,.install .o{color:#f0a050}
+.cmd .arg,.install .arg{color:#c8cdd8}
+.cmd .kw,.install .kw{color:#f0a050}
+.cmd .ok,.install .ok{color:#28c840;font-weight:600}
+.cmd .hi,.install .hi{color:#06d3ae}
+
+.rules{display:flex;flex-direction:column;gap:12px;margin-top:24px;counter-reset:rule}
+.rule{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px 20px 18px 64px;
+  box-shadow:var(--shadow);position:relative}
+.rule::before{counter-increment:rule;content:counter(rule,decimal-leading-zero);
+  position:absolute;left:18px;top:18px;font-family:var(--mono);font-size:15px;font-weight:700;color:var(--accent)}
+.rule h3{font-size:15.5px;font-weight:800;margin-bottom:6px}
+.rule p{font-size:14px;line-height:1.7;color:var(--text2)}
+.rule p b{color:var(--text);font-weight:600}
+
+.refs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.ref{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow);
+  text-decoration:none;display:block;transition:border-color .15s}
+.ref:hover{border-color:rgba(var(--accent-rgb),.4)}
+.ref .k{font-family:var(--mono);font-size:11.5px;color:var(--accent);letter-spacing:.06em;margin-bottom:6px}
+.ref h3{font-size:14.5px;font-weight:800;margin-bottom:4px}
+.ref p{font-size:13px;color:var(--text2);line-height:1.55}
+
+.tree{margin-top:24px;background:#0f1320;border-radius:16px;padding:20px 22px;overflow-x:auto;
+  box-shadow:var(--shadow2)}
+.tree pre{font-family:var(--mono);font-size:12.5px;line-height:1.75;color:#c8cdd8;margin:0;white-space:pre}
+.tree .d{color:var(--accent)}
+.tree .c{color:#8a92a3}
+
+.install{margin-top:28px}
+.install-note{font-size:14px;color:var(--text2);margin-top:16px;line-height:1.7}
+.install-note code{font-family:var(--mono);font-size:.9em;background:var(--surface2);border:1px solid var(--border);
+  border-radius:6px;padding:1px 7px;color:var(--accent)}
+
+.principles{display:flex;flex-direction:column;gap:12px;margin-top:26px}
+.pr{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px 22px;box-shadow:var(--shadow)}
+.pr h3{font-size:16.5px;font-weight:800;margin-bottom:6px}
+.pr p{font-size:14.5px;line-height:1.75;color:var(--text2)}
+.pr p b{color:var(--text);font-weight:600}
+
+.sources{margin-top:40px;font-family:var(--mono);font-size:12.5px;color:var(--text3);line-height:1.9}
+.sources a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(var(--accent-rgb),.35)}
+.sources b{color:var(--text2);font-weight:600}
+
+/* 购买区 · 对齐 terminal-kit：付款码只写在落地页 */
+.buy-sub{font-family:var(--mono);font-size:13px;color:var(--text3);margin-top:10px;letter-spacing:.04em}
+.buy-steps{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.buy-step{display:grid;grid-template-columns:48px 1fr;gap:14px;align-items:start;
+  background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px 20px;box-shadow:var(--shadow)}
+.buy-step .sq{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--accent);
+  width:40px;height:40px;border-radius:12px;background:rgba(var(--accent-rgb),.1);
+  display:flex;align-items:center;justify-content:center}
+.buy-step .tt{font-size:16px;font-weight:800;margin-bottom:4px}
+.buy-step .ds{font-size:14px;line-height:1.65;color:var(--text2)}
+.buy-step code{font-family:var(--mono);font-size:.92em;background:var(--surface2);border:1px solid var(--border);
+  border-radius:6px;padding:1px 7px;color:var(--accent)}
+.qrgrp{margin-top:28px}
+.qrgrp .ghd{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--text3);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.qrgrp .ghd .n{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:6px;
+  background:rgba(var(--accent-rgb),.12);color:var(--accent);font-size:11px}
+.qr{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.qrbox{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:16px;text-align:center;box-shadow:var(--shadow)}
+.qrbox img{width:100%;max-width:240px;height:auto;display:block;margin:0 auto;border-radius:8px}
+.qrbox .lbl{font-family:var(--mono);font-size:12.5px;color:var(--text2);margin-top:12px;line-height:1.45}
+.qrbox .lbl b{color:var(--text)}
+.wxid{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px 20px;box-shadow:var(--shadow);
+  display:flex;flex-direction:column;justify-content:center;gap:8px}
+.wxid .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.wxid .id{font-family:var(--mono);font-size:28px;font-weight:700;color:var(--text);letter-spacing:.02em}
+.wxid .n{font-size:13.5px;line-height:1.65;color:var(--text2)}
+.ask{margin-top:18px;background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:16px 18px}
+.ask .lb{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);display:block;margin-bottom:8px}
+.ask p,.ask{font-size:14px;line-height:1.7;color:var(--text2)}
+.ask b{color:var(--text)}
+.ask a{color:var(--accent)}
+.unlock-check{margin:14px 0 0;padding-left:1.1em;font-size:14.5px;line-height:1.75;color:var(--text2)}
+.unlock-check li{margin:6px 0}
+.tier-table{margin-top:24px;width:100%;border-collapse:collapse;font-size:14px;
+  background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.tier-table th,.tier-table td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.55}
+.tier-table th{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);background:var(--surface2)}
+.tier-table tr:last-child td{border-bottom:0}
+.tier-table .y{color:var(--accent);font-weight:700}
+.tier-table .n{color:var(--text3)}
+
+footer{margin-top:56px;border-top:1px solid var(--border);padding-top:24px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.foot-brand{font-family:var(--brand);font-size:16px;font-weight:700}
+.foot-meta{font-family:var(--mono);font-size:12.5px;color:var(--text3)}
+.foot-meta a{color:var(--text2);text-decoration:none}
+.foot-meta a:hover{color:var(--accent)}
+
+@media(max-width:720px){
+  .topnav{padding:10px 16px}
+  .topnav .links a:not(.cta):not(.buy-link):not(.unlock-link){display:none}
+  .hero{padding:64px 20px 56px}
+  .stage-wrap{width:calc(100% - 24px)}
+  .paper{padding:1.5rem 1.15rem 2rem;max-width:min(52em,calc(100% - .5rem))}
+  .readout,.hl-grid,.refs{grid-template-columns:1fr}
+  .premium-pair{grid-template-columns:1fr}
+  .tier{grid-template-columns:48px 1fr;grid-template-rows:auto auto}
+  .tier .badge{grid-column:2}
+  .cmd .ch .why{display:none}
+  .qr{grid-template-columns:1fr}
+  main{padding:48px 20px 80px}
+}
+</style>
+</head>
+<body>
+<div style="position:sticky;top:0;z-index:100;background:#1a1f18;color:#e8ece6;padding:10px 16px;font:14px/1.5 -apple-system,sans-serif;text-align:center">
+此页为历史落地页存档，非正式产品官网。请前往 <a href="../index.html" style="color:#7dcea0">正式官网</a>。
+</div>
+
+<div class="prog" id="prog"></div>
+
+<nav class="topnav">
+  <a class="brand" href="#">
+    <span class="mark" aria-hidden="true"></span>
+    hekouwang
+  </a>
+  <div class="links">
+    <a href="#highlights">亮点</a>
+    <a href="#pdf">PDF 导出</a>
+    <a href="#stage">阅读台</a>
+    <a href="#skill">Skill</a>
+    <a class="buy-link" href="#buy">¥9.9</a>
+    <a class="unlock-link" href="#unlock">装付费包</a>
+    <a href="https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill" target="_blank" rel="noopener">GitHub</a>
+    <a class="cta" href="#install">Install</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow"><i></i> Typora theme · CJK long-form · Skill included</div>
+  <h1>写中文长文时的<br><span class="hl">阅读指标</span></h1>
+  <p class="sub">不是聊天气泡密度。正文 <b>1rem</b> · 行高 <b>1.65</b> · 居中的 <b>48–96rem</b> 响应式阅读列 · 纸面随窗口铺满、两侧各留 <b>3rem</b>——再附一套主题工程 Skill。</p>
+  <div class="actions">
+    <a class="btn btn-primary" href="#install">安装免费 V2</a>
+    <a class="btn btn-ghost" href="../live/">在线体验 · 真 CSS</a>
+    <a class="btn btn-ghost" href="#buy">六套皮肤 · ¥9.9</a>
+  </div>
+  <div class="hero-meta">
+    <span>Free · V2 编辑</span>
+    <span>Pack · V1 / V2 Pro / V3–V6 · ¥9.9</span>
+    <span>1rem · 1.65 · 48–96rem 阅读列</span>
+    <span>MIT · V2</span>
+  </div>
+</header>
+
+<div class="stage-wrap" id="stage">
+  <div class="stage">
+    <div class="stage-bar">
+      <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="title">验收样张 · 纸感阅读台</div>
+      <div class="tog" role="group" aria-label="浅色 / 深色">
+        <button type="button" class="on" data-mode="light">Light</button>
+        <button type="button" data-mode="dark">Dark</button>
+      </div>
+    </div>
+    <div class="chrome" data-mode="light" id="chrome">
+      <article class="paper">
+        <h2>hekouwang 主题验收样张</h2>
+        <p class="lede">——用来验收排版，也适合直接截进 README（浅色 / 深色各一张）</p>
+        <p>这一份把 Typora 常渲染的块基本铺满。中英混排是重点：西文走 Anthropic Sans / Inter，中文 fallback 到苹方——<strong>这不是妥协，桌面端本身就是这个机制</strong>。我自己验收时会把本文件开着，浅深各盯三分钟。</p>
+        <p><strong>阅读指标（Hekouwang）</strong>：正文 <code>1rem</code> · 行高 <code>1.65</code> · 居中的 <code>48–96rem</code> 响应式阅读列；纸面随窗口铺满、两侧各留 <code>3rem</code>，比阅读列宽 <code>6rem</code> 供代码与宽表 · <code>#write</code> 纸感卡片。</p>
+        <h3>一、正文与中英混排</h3>
+        <p>我写这段是为了看长段落的呼吸感。并排对照时，西文字形应接近 Anthropic Sans / Inter，中文走苹方；行距要像在读文章，不是在扫聊天气泡。</p>
+        <p>比如这句里混着 <code>variable font</code>、opsz 轴、以及 300→800 的字重范围，看看西文和苹方交接得顺不顺。数字也要对齐：2026 年、1,247 次、99.8% 的占比、测得 <code>font-size: 16px</code> 根字号。</p>
+        <h4>四级标题：接近正文字号</h4>
+        <p>到这一级应该已经接近正文字号，靠字重和间距区分，而不是继续放大。行内代码用中性浅灰底 + 深灰字，一段里七八个 <code>code</code> 仍读得像文字。</p>
+      </article>
+    </div>
+  </div>
+  <div class="metrics-chip" aria-hidden="true">
+    <span>body 1rem</span>
+    <span>leading 1.65</span>
+    <span>read 48 → 96rem · gutter 3rem</span>
+  </div>
+</div>
+
+<main>
+  <section id="highlights">
+    <div class="sec-label">Core highlights</div>
+    <h2 class="sec">主题真正值钱的不是皮肤，是这些硬约束</h2>
+    <p class="prose">做主题最费时间的不是写 CSS，是一类<strong>不报错的失败</strong>——改了没变化、字体没上屏、配色凭直觉对不上参照。下面六条是我踩完坑以后钉死的产品决策。</p>
+    <div class="hl-grid">
+      <div class="hl-card">
+        <div class="tag">Metrics</div>
+        <h3>中文长文阅读指标</h3>
+        <div class="num">1rem · 1.65 · 48–96rem</div>
+        <p>浅色 / 深色共用随窗口伸缩的居中阅读列；纸面铺满窗口，代码和宽表比正文多出 6rem。构建逐套审计对比度：公开仓 2 套，付费包另有 12 套，共 14 套。</p>
+      </div>
+      <div class="hl-card">
+        <div class="tag">Tokens</div>
+        <h3>别手改 CSS</h3>
+        <p>真相源是 <b>scripts/tokens.json</b> → <b>build.py</b> 一次出两份 CSS。手改生成物，下次构建就没了。</p>
+      </div>
+      <div class="hl-card">
+        <div class="tag">Build</div>
+        <h3>正文零 !important</h3>
+        <div class="num">0 <small>编辑态</small></div>
+        <p>靠 <b>#write</b> 特异性。除根字号外全 rem。<b>仅导出段</b>允许 !important——压过 Typora 注入规则与纸感浮卡片。</p>
+      </div>
+      <div class="hl-card">
+        <div class="tag">Fonts</div>
+        <h3>~100 KB，不塞中文宋</h3>
+        <p>只随包 Inter latin（OFL）。中文走系统苹方——Anthropic Sans 实测 <b>CJK 汉字 0 个</b>，打包宋体是错方向。</p>
+      </div>
+      <div class="hl-card">
+        <div class="tag">Sample</div>
+        <h3>配色采样，不许猜</h3>
+        <p>V2 纸面采到 <b>#ffffff</b>，正文 <b>#37413c</b>，壳层 <b>#f8f8f5</b>，强调绿 <b>#2e6f5e</b> 取自功能建议板；中性色与强调绿同族，不再用冷灰。深色不是浅色取反——取反必错。</p>
+      </div>
+      <div class="hl-card">
+        <div class="tag">Paper</div>
+        <h3>纸感画在 #write 上</h3>
+        <p>纯白纸面 + 直角 + 轻阴影；常规窗口纸面与顶栏留 <b>1rem</b> 间距，壳层是暖灰。侧栏收起时 <code>body.pin-outline</code> 消失，纸边与 gutter 一并收起，白纸全幅铺满。层级靠字重间距，<b>不靠左边竖条</b>。</p>
+      </div>
+      <div class="hl-card">
+        <div class="tag">PDF</div>
+        <h3>导出整页一色 + 精装</h3>
+        <p>画布跟 gutter 同色，禁内容区纯白柱。纸张和页边距遵循 Typora 导出设置；H2 签名线 · 抬升 fence · 直角表——<b>14 套共用导出排版规则</b>。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pdf">
+    <div class="sec-label">Export · PDF</div>
+    <h2 class="sec">导出 PDF：先压平，再精装</h2>
+    <p class="prose">Typora 的 PDF 不是「把编辑器截下来」，而是写出独立 HTML（<code>body.typora-export</code>）再 <code>printToPDF</code>。编辑器纸感（gutter + <code>#write</code> 浮卡片）若原样带进 PDF，就会变成<strong>外圈底色 + 中间白柱</strong>。本主题对<strong>免费 V2 两套与付费 V1 / V2 Pro / V3–V6 十二套</strong>共用导出排版规则，颜色跟各皮肤走。</p>
+    <div class="hl-grid">
+      <div class="hl-card">
+        <div class="tag">1 · Flatten</div>
+        <h3>整页画布同色</h3>
+        <p>浅色默认 <b>#f8f8f5</b>（gutter）；深色跟正文底。拆掉 <code>#write</code> 浮卡片；纸张尺寸、页边距和页眉页脚由 Typora 导出设置决定。</p>
+      </div>
+      <div class="hl-card">
+        <div class="tag">2 · Craft</div>
+        <h3>块级精装</h3>
+        <p>H2 底部品牌色签名线（⛔ 无左边竖条）；标题 fence 抬升为略亮于画布的纸面卡；表格细边（全档直角）+ 浅表头 + 斑马纹；分隔线 1px 细线，上下留足呼吸。</p>
+      </div>
+      <div class="hl-card">
+        <div class="tag">3 · Reload</div>
+        <h3>改完必须 Cmd+Q</h3>
+        <p>切换主题<strong>不会</strong>重载已改 CSS。不退出重开，导出仍是内存里的旧样式——这是静默失败。</p>
+      </div>
+    </div>
+    <p class="prose" style="margin-top:22px">验收目标：打开 <code>demo/验收样张.md</code> → 导出 A4 多页 PDF → 检查首页、第二页和末页的上下留白，以及跨页表格、代码和图片。下方是 <code>demo/主题展示样张.md</code> 使用定稿免费 V2 CSS 从 Typora 原生导出的 A4 首页；也可<a href="../previews/r/export-a4.pdf">打开原始 PDF</a>。</p>
+    <div class="shots" style="margin-top:28px">
+      <figure class="shot">
+        <a href="../previews/r/export-a4.webp"><img src="../previews/r/export-a4.webp" alt="免费 V2 使用 macOS Typora 原生导出的 A4 PDF 首页：标题、正文、代码与表格" width="1241" height="1754" loading="lazy" decoding="async"></a>
+        <figcaption><b>免费 V2 · 定稿 A4 导出</b> · Typora 原生 PDF 首页，展示标题、代码与表格排版</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="shots">
+    <div class="sec-label">Free V2 · 2.0.2</div>
+    <h2 class="sec">免费 V2 · 浅色与深色实机截图</h2>
+    <p class="prose">下图使用定稿 CSS 在 macOS Typora 中拍摄，展示标题、中英混排、引用、代码和表格。点击图片可查看原图；六套付费主题的浅深截图见<a href="#compare-shots">下方图库</a>。</p>
+    <div class="premium-gallery">
+      <article class="premium-card">
+        <h3>Hekouwang · 免费 V2</h3><p>同一套阅读指标下，浅色暖纸与深色阅读面分别展示。</p>
+        <div class="premium-pair">
+          <figure><a href="../previews/r/v2-light.webp"><img src="../previews/r/v2-light.webp" alt="免费 V2 浅色主题在 macOS Typora 中的实机截图" width="1921" height="1028" loading="lazy" decoding="async"></a><figcaption>浅色 · 点图放大</figcaption></figure>
+          <figure><a href="../previews/r/v2-dark.webp"><img src="../previews/r/v2-dark.webp" alt="免费 V2 深色主题在 macOS Typora 中的实机截图" width="1921" height="1028" loading="lazy" decoding="async"></a><figcaption>深色 · 点图放大</figcaption></figure>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="metrics">
+    <div class="sec-label">Reading metrics</div>
+    <h2 class="sec">三项指标，决定你能不能盯几个小时</h2>
+    <p class="prose">我调主题时几乎不先碰颜色——先把字号、行高、行宽钉死。颜色再漂亮，行距不对，中文长文也会像在扫弹幕。</p>
+    <div class="readout">
+      <div class="gauge">
+        <div class="gl">Body</div>
+        <div class="gv">1rem</div>
+        <div class="gu">根字号 16px；长时间写作不累眼的基准。</div>
+      </div>
+      <div class="gauge">
+        <div class="gl">Leading</div>
+        <div class="gv">1.65</div>
+        <div class="gu">汉字密度高于西文 UI 文案，行高要留呼吸。</div>
+      </div>
+      <div class="gauge">
+        <div class="gl">Measure</div>
+        <div class="gv">48–96rem / 3rem</div>
+        <div class="gu">正文阅读列居中，宽度为窗口宽度 − 16rem（48–96rem）；纸面随窗口铺满、两侧各留约 3rem，比阅读列宽 6rem 供代码与宽表使用。</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fonts">
+    <div class="sec-label">Typography</div>
+    <h2 class="sec">中英混排：三级降级，不打包中文</h2>
+    <p class="prose">Anthropic Sans 有 <b>581 字符、CJK 0 个</b>（连中文标点都没有）。正确做法是西文 + 系统中文配对。</p>
+    <div class="tiers">
+      <div class="tier">
+        <div class="n">01</div>
+        <div>
+          <h3>Anthropic Sans</h3>
+          <p>仅当你本机已有（Claude 桌面端）</p>
+        </div>
+        <span class="badge">不随包</span>
+      </div>
+      <div class="tier">
+        <div class="n">02</div>
+        <div>
+          <h3>Inter variable · latin</h3>
+          <p>真可变 300–800 + opsz；绝大多数人看到的是这一层</p>
+        </div>
+        <span class="badge">~100 KB · OFL</span>
+      </div>
+      <div class="tier">
+        <div class="n">03</div>
+        <div>
+          <h3>系统 UI / 苹方</h3>
+          <p>中文 fallback；截图也按第 2 层校对</p>
+        </div>
+        <span class="badge">系统自带</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="compare">
+    <div class="sec-label">vs Gallery</div>
+    <h2 class="sec">和 Gallery「Claude Theme」差在哪</h2>
+    <p class="prose">目标相近，但是<strong>独立实现，不是 fork</strong>。我对照过公开数字——最刺眼的是 <b>!important</b> 数量和字体包体积。</p>
+    <div class="cmp-wrap">
+      <table class="cmp">
+        <thead>
+          <tr><th>维度</th><th>Gallery Claude Theme</th><th>hekouwang</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>写法</td><td class="mute">手写约 3158 行</td><td class="win">token 生成</td></tr>
+          <tr><td>!important</td><td class="mute">397 处</td><td class="win">0（构建强制）</td></tr>
+          <tr><td>字号</td><td class="mute">部分 px</td><td class="win">除根字号外全 rem</td></tr>
+          <tr><td>打包字体</td><td class="mute">~24 MB（含 Noto Serif SC）</td><td class="win">~100 KB Inter latin</td></tr>
+          <tr><td>Anthropic 字体</td><td class="mute">再分发</td><td class="win">不打包；local() + Inter</td></tr>
+          <tr><td>正文中文</td><td class="mute">Noto Serif SC 宋</td><td class="win">系统无衬线</td></tr>
+          <tr><td>西文字重</td><td class="mute">单一 400，粗体合成</td><td class="win">可变 300–800 + opsz</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="skill">
+    <div class="sec-label">Skill · Lite · v2.0.2</div>
+    <h2 class="sec">主题工程 Skill：clone 就能用</h2>
+    <p class="prose">Lite Skill 真源就在仓库根 <b>SKILL.md</b>（<code>hekouwang-typora-theme-lite-skill</code>），不是另开 skill 仓。clone / 打开项目后，Claude Code / Cursor 能加载项目 skill 的 Agent 可直接用——<b>无需再单独安装</b>。</p>
+    <p class="prose">什么时候叫它：</p>
+    <div class="skill-when">
+      <span>改配色 / 字号 / 行高</span>
+      <span>主题不生效</span>
+      <span>字体没上屏</span>
+      <span>按参照 App 采样做新主题</span>
+      <span>加深色变体</span>
+      <span>提交 theme.typora.io</span>
+    </div>
+
+    <p class="prose" style="margin-top:28px"><b>最常用的三条命令</b>（Agent 或你自己在仓库根跑）：</p>
+    <div class="cmd-list">
+      <div class="cmd">
+        <div class="ch">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="lab">01 · build</span>
+          <span class="why">生成浅色 + 深色 CSS，含自检</span>
+        </div>
+        <pre><span class="cm"># 公开仓 → 仅免费 V2（hekouwang.css + dark）</span>
+<span class="p">$</span> <span class="o">python3 scripts/build.py</span>
+<span class="cm"># 断言：零 !important · 除根字号外零 px · 纸感在位</span>
+<span class="cm"># 付费肤需本机色板 + craft，或不走 build、直接 unlock.zip</span></pre>
+      </div>
+      <div class="cmd">
+        <div class="ch">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="lab">02 · install</span>
+          <span class="why">装进 Typora；直接覆盖</span>
+        </div>
+        <pre><span class="p">$</span> <span class="o">./scripts/install.sh</span>
+<span class="cm"># 可选：--use-local-anthropic（默认关，仅个人本机）</span></pre>
+      </div>
+      <div class="cmd">
+        <div class="ch">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="lab">03 · verify fonts</span>
+          <span class="why">带「不存在的字体」作 fallback 基准</span>
+        </div>
+        <pre><span class="p">$</span> <span class="o">python3 scripts/verify_render.py</span> <span class="kw">--css</span> <span class="arg">theme/hekouwang.css</span> \
+  <span class="kw">--fonts</span> <span class="arg">"Hekouwang Sans,Hekouwang Sans Fb"</span> \
+  <span class="kw">--vars</span> <span class="arg">bg-color,text-color</span>
+<span class="cm"># 宽度 ≈ 不存在字体 → 说明你要的字体没上屏</span></pre>
+      </div>
+    </div>
+  </section>
+
+  <section id="iron">
+    <div class="sec-label">Iron rules</div>
+    <h2 class="sec">六条铁律——全是静默失败</h2>
+    <p class="prose">这些坑不报错，页面照常渲染。Skill 把它们写成工具约束；你自己改主题时也别跳过。</p>
+    <div class="rules">
+      <div class="rule">
+        <h3>改完必须 Cmd+Q 再开</h3>
+        <p>切换主题<strong>不会</strong>重载已改的 CSS。不这么做，你会在一个用户根本没看到的版本上反复调参数。</p>
+      </div>
+      <div class="rule">
+        <h3>备份绝不能留在 themes 根目录</h3>
+        <p>Typora 把根目录下任何文件名含 <b>.css</b> 的都列进菜单，<strong>包括隐藏文件</strong>。安装器不再自动备份；如需自己留副本，必须进子目录。</p>
+      </div>
+      <div class="rule">
+        <h3>正文零 !important（导出段除外）</h3>
+        <p>编辑态靠 <b>#write</b> 特异性。构建时断言。导出 PDF 段允许 !important——否则压不住 Typora 注入规则与纸感浮卡片。</p>
+      </div>
+      <div class="rule">
+        <h3>除根字号外零 px 字号</h3>
+        <p>否则偏好里的字号调节失效。构建时断言。</p>
+      </div>
+      <div class="rule">
+        <h3>配色不许猜，要采样</h3>
+        <p>窗口色 ≠ 编辑区色；深色侧栏比正文更亮。用 <b>sample_colors.py</b>，必要时 <b>--solve-alpha</b> 反解叠加。</p>
+      </div>
+      <div class="rule">
+        <h3>headless 全绿 ≠ Typora 里对</h3>
+        <p>系统 Chrome 比 Typora 内嵌 Chromium 新得多。最终验收必须在 Typora 里肉眼看。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="sample">
+    <div class="sec-label">Sample · don’t guess</div>
+    <h2 class="sec">从参照截图采真实色值</h2>
+    <p class="prose">做浅色时我笃定底色是品牌米色，采样后发现对话区才是纸色。深色更极端——靠「把浅色取反」一定会做错。</p>
+    <div class="cmd-list">
+      <div class="cmd">
+        <div class="ch">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="lab">sample_colors</span>
+          <span class="why">按常见布局给候选 / 指定框</span>
+        </div>
+        <pre><span class="p">$</span> <span class="o">python3 scripts/sample_colors.py</span> <span class="arg">参照截图.png</span>
+<span class="p">$</span> <span class="o">python3 scripts/sample_colors.py</span> <span class="arg">图.png</span> <span class="kw">--box</span> <span class="arg">700,640,1700,700</span> <span class="kw">--label</span> <span class="arg">正文背景</span>
+<span class="p">$</span> <span class="o">python3 scripts/sample_colors.py</span> <span class="arg">图.png</span> <span class="kw">--text-box</span> <span class="arg">690,300,1500,345</span> <span class="kw">--label</span> <span class="arg">正文文字</span></pre>
+      </div>
+      <div class="cmd">
+        <div class="ch">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="lab">solve-alpha</span>
+          <span class="why">底色 · 结果色 · 候选 — 三通道一致才真</span>
+        </div>
+        <pre><span class="p">$</span> <span class="o">python3 scripts/sample_colors.py</span> <span class="kw">--solve-alpha</span> <span class="arg">1f1f1e 272725 ffffff,d97757</span>
+<span class="ok">✓</span> <span class="cm">白叠加 0.036/0.036/0.031 一致 · 品牌橙通道不一致 ❌</span></pre>
+      </div>
+    </div>
+  </section>
+
+  <section id="refs">
+    <div class="sec-label">References</div>
+    <h2 class="sec">按需展开的四份说明书</h2>
+    <p class="prose">Agent 读 Skill 后按任务打开对应 reference；你也可以自己点开。</p>
+    <div class="refs">
+      <a class="ref" href="https://github.com/huiyonghkw/hekouwang-typora-theme-skill/blob/main/references/tokens.md" target="_blank" rel="noopener">
+        <div class="k">tokens.md</div>
+        <h3>改配色 / 字号 / 行高</h3>
+        <p>tokens.json 字段与构建约定</p>
+      </a>
+      <a class="ref" href="https://github.com/huiyonghkw/hekouwang-typora-theme-skill/blob/main/references/typora-spec.md" target="_blank" rel="noopener">
+        <div class="k">typora-spec.md</div>
+        <h3>选择器地图 · 六个静默坑</h3>
+        <p>官方规范与 Typora 特有行为</p>
+      </a>
+      <a class="ref" href="https://github.com/huiyonghkw/hekouwang-typora-theme-skill/blob/main/references/fonts.md" target="_blank" rel="noopener">
+        <div class="k">fonts.md</div>
+        <h3>字体策略 · 授权红线</h3>
+        <p>三级降级与 Anthropic 字体边界</p>
+      </a>
+      <a class="ref" href="https://github.com/huiyonghkw/hekouwang-typora-theme-skill/blob/main/references/workflow.md" target="_blank" rel="noopener">
+        <div class="k">workflow.md</div>
+        <h3>新主题 / 变体 / 发布</h3>
+        <p>做到 theme.typora.io 的完整流程</p>
+      </a>
+    </div>
+    <div class="tree">
+      <pre><span class="d">SKILL.md · references/</span>   <span class="c">← Lite Skill 真源（仓库根）</span>
+<span class="d">edition/</span>                 <span class="c">← Pro 增量（本地；不进公开 git）</span>
+<span class="d">scripts/tokens.json</span>      <span class="c">阅读指标真源</span>
+<span class="d">scripts/build.py</span>         <span class="c">生成 CSS + 构建自检</span>
+<span class="d">scripts/install.sh</span>       <span class="c">装进 Typora</span>
+<span class="d">scripts/sample_colors.py</span> <span class="c">截图采样</span>
+<span class="d">scripts/verify_render.py</span> <span class="c">字体 / 渲染探针</span>
+<span class="d">theme/</span>                   <span class="c">成品 CSS + Inter</span>
+<span class="d">demo/ · docs/ · materials/</span>  <span class="c">样张 / Pages / 货架</span></pre>
+    </div>
+  </section>
+
+  <section id="customize">
+    <div class="sec-label">Customize</div>
+    <h2 class="sec">自己改：只动 tokens，再 build + install</h2>
+    <div class="install">
+      <div class="ch">
+        <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="lab">customize · tokens → build → install</span>
+      </div>
+      <pre><span class="cm"># 编辑 scripts/tokens.json 后：</span>
+<span class="p">$</span> <span class="o">python3 scripts/build.py</span>
+<span class="p">$</span> <span class="o">./scripts/install.sh</span>
+<span class="cm"># 然后 Cmd+Q 完全退出 Typora 再重开</span></pre>
+    </div>
+    <p class="install-note"><code>dark</code> 段只覆盖 <code>color</code> / <code>alpha</code>；边框与浅底由 <code>border_base</code> / <code>shadow_base</code> 派生。别直接改 <code>theme/*.css</code>。</p>
+  </section>
+
+  <section id="install">
+    <div class="sec-label">Install · Free</div>
+    <h2 class="sec">免费默认：Hekouwang / Dark（V2）</h2>
+    <p class="prose">公开仓只装 <b>Hekouwang</b> 与 <b>Hekouwang Dark</b>（skill V2 编辑）。装完请 <b>Cmd+Q 完全退出</b> 再开。六套付费皮肤走下面 <a href="#buy">购买区</a>，用 <code>unlock.sh</code> 装，不混进这条命令。</p>
+    <div class="install">
+      <div class="ch">
+        <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="lab">hekouwang-typora-theme-skill · free</span>
+      </div>
+      <pre><span class="cm"># clone &amp; install · macOS</span>
+<span class="p">$</span> <span class="o">git clone</span> <span class="arg">https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill.git</span>
+<span class="p">$</span> <span class="o">cd</span> <span class="arg">hekouwang-typora-theme-skill</span> <span class="o">&amp;&amp;</span> <span class="o">./scripts/install.sh</span>
+<span class="ok">✓</span> <span class="cm">Cmd+Q 退出再开 · 主题菜单选 Hekouwang / Hekouwang Dark</span></pre>
+    </div>
+    <p class="install-note">也可只拷 <code>theme/hekouwang.css</code>、<code>theme/hekouwang-dark.css</code> 和 <code>theme/hekouwang/</code> 到 Typora 主题文件夹（Preferences → Open Theme Folder）。</p>
+    <p class="install-note">从旧版升级？先看 <a href="https://github.com/huiyonghkw/hekouwang-typora-theme-skill/blob/main/UPGRADE.md">2.0.2 升级说明</a>，其中列出免费版、付费包的安装与重启步骤。</p>
+  </section>
+
+  <section id="buy">
+    <div class="sec-label">Pack · ¥9.9 · 买断</div>
+    <h2 class="sec">怎么买六套皮肤</h2>
+    <p class="buy-sub">three steps · WeChat Pay or Alipay · 一年更新</p>
+    <p class="prose">免费版是完整的 V2 编辑主题（公开仓 MIT）。付费包在相同阅读指标上提供六套分别设计的视觉系统：V1 石墨青绿、V2 Pro 典藏编辑、V3 海军蓝财经、V4 冰蓝玻璃、V5 紫晶电青 HUD、V6 李紫焰彩，各有浅色与深色。<b>V2 Pro 与免费 V2 是不同的菜单项和 CSS</b>；付费色板与工艺源码只随 zip 私发。clone 公开仓跑 <code>build.py</code> 只会出免费 V2。</p>
+    <table class="tier-table">
+      <thead><tr><th></th><th>开源 · MIT</th><th>主题包 · ¥9.9</th></tr></thead>
+      <tbody>
+        <tr><td>Hekouwang / Dark（免费 V2）</td><td class="y">✓</td><td>从公开仓单独安装</td></tr>
+        <tr><td>Hekouwang V1 / V2 Pro / V3–V6（+ Dark）</td><td class="n">—</td><td class="y">12 个 CSS</td></tr>
+        <tr><td>同一套 1rem · 1.65 · 48–96rem 响应式阅读列 / 纸面铺满窗口 · 纸感</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>付费阅读工艺（更深纸影 · 标题点缀 · 引用/代码块）</td><td class="n">—</td><td class="y">✓</td></tr>
+        <tr><td>一年更新 + 微信答疑</td><td class="n">—</td><td class="y">✓</td></tr>
+      </tbody>
+    </table>
+
+    <div class="ask" id="compare-shots" style="margin-top:28px">
+      <span class="lb">six visual systems · 1.3.1</span>
+      <b>六套付费主题 · 浅深实机截图</b>。以下图片使用定稿 CSS 在 macOS Typora 中拍摄，点击可查看原图。每套都展示标题、正文、引用、代码和表格；<a href="https://github.com/huiyonghkw/hekouwang-typora-theme-skill/blob/main/UPGRADE.md">升级说明</a>列出从旧版切换的步骤。
+    </div>
+    <div class="premium-gallery">
+      <article class="premium-card">
+        <h3>V1 · 石墨青绿</h3><p>冷蓝灰与薄荷青的技术文档气质，紫色链接帮助定位。</p>
+        <div class="premium-pair">
+          <figure><a href="../previews/r/v1-light.webp"><img src="../previews/r/v1-light.webp" alt="V1 石墨青绿浅色主题在 macOS Typora 中的实机截图" width="1921" height="1028" loading="lazy" decoding="async"></a><figcaption>浅色 · 点图放大</figcaption></figure>
+          <figure><a href="../previews/r/v1-dark.webp"><img src="../previews/r/v1-dark.webp" alt="V1 石墨青绿深色主题在 macOS Typora 中的实机截图" width="1921" height="1028" loading="lazy" decoding="async"></a><figcaption>深色 · 点图放大</figcaption></figure>
+        </div>
+      </article>
+      <article class="premium-card">
+        <h3>V2 Pro · 典藏编辑</h3><p>胡桃墨、古铜与暖纸色，双线装饰、无衬线标题与首字下沉；与免费 V2 分开安装。</p>
+        <div class="premium-pair">
+          <figure><a href="../previews/r/v2-pro-light.webp"><img src="../previews/r/v2-pro-light.webp" alt="V2 Pro 典藏编辑浅色主题在 macOS Typora 中的实机截图" width="1921" height="1028" loading="lazy" decoding="async"></a><figcaption>浅色 · 点图放大</figcaption></figure>
+          <figure><a href="../previews/r/v2-pro-dark.webp"><img src="../previews/r/v2-pro-dark.webp" alt="V2 Pro 典藏编辑深色主题在 macOS Typora 中的实机截图" width="1921" height="1028" loading="lazy" decoding="async"></a><figcaption>深色 · 点图放大</figcaption></figure>
+        </div>
+      </article>
+      <article class="premium-card">
+        <h3>V3 · 海军蓝财经</h3><p>海军蓝与黄铜，把表格和数据阅读放在前面。</p>
+        <div class="premium-pair">
+          <figure><a href="../previews/r/v3-light.webp"><img src="../previews/r/v3-light.webp" alt="V3 海军蓝财经浅色主题在 macOS Typora 中的实机截图" width="1921" height="1028" loading="lazy" decoding="async"></a><figcaption>浅色 · 点图放大</figcaption></figure>
+          <figure><a href="../previews/r/v3-dark.webp"><img src="../previews/r/v3-dark.webp" alt="V3 海军蓝财经深色主题在 macOS Typora 中的实机截图" width="1921" height="1028" loading="lazy" decoding="async"></a><figcaption>深色 · 点图放大</figcaption></figure>
+        </div>
+      </article>
+      <article class="premium-card">
+        <h3>V4 · 冰蓝玻璃</h3><p>冰蓝、雾面叠片与直角，适合轻量产品文档。</p>
+        <div class="premium-pair">
+          <figure><a href="../previews/r/v4-light.webp"><img src="../previews/r/v4-light.webp" alt="V4 冰蓝玻璃浅色主题在 macOS Typora 中的实机截图" width="1921" height="1028" loading="lazy" decoding="async"></a><figcaption>浅色 · 点图放大</figcaption></figure>
+          <figure><a href="../previews/r/v4-dark.webp"><img src="../previews/r/v4-dark.webp" alt="V4 冰蓝玻璃深色主题在 macOS Typora 中的实机截图" width="1921" height="1028" loading="lazy" decoding="async"></a><figcaption>深色 · 点图放大</figcaption></figure>
+        </div>
+      </article>
+      <article class="premium-card">
+        <h3>V5 · 紫晶电青 HUD</h3><p>浅色紫晶壳配青色信号；深色冷靛紫壳配电青点缀。</p>
+        <div class="premium-pair">
+          <figure><a href="../previews/r/v5-light.webp"><img src="../previews/r/v5-light.webp" alt="V5 紫晶电青 HUD 浅色主题在 macOS Typora 中的实机截图" width="1921" height="1028" loading="lazy" decoding="async"></a><figcaption>浅色 · 点图放大</figcaption></figure>
+          <figure><a href="../previews/r/v5-dark.webp"><img src="../previews/r/v5-dark.webp" alt="V5 紫晶电青 HUD 深色主题在 macOS Typora 中的实机截图" width="1921" height="1028" loading="lazy" decoding="async"></a><figcaption>深色 · 点图放大</figcaption></figure>
+        </div>
+      </article>
+      <article class="premium-card">
+        <h3>V6 · 李紫焰彩</h3><p>李紫、珊瑚橙与粉色，暖色杂志感留给重点。</p>
+        <div class="premium-pair">
+          <figure><a href="../previews/r/v6-light.webp"><img src="../previews/r/v6-light.webp" alt="V6 李紫焰彩浅色主题在 macOS Typora 中的实机截图" width="1921" height="1028" loading="lazy" decoding="async"></a><figcaption>浅色 · 点图放大</figcaption></figure>
+          <figure><a href="../previews/r/v6-dark.webp"><img src="../previews/r/v6-dark.webp" alt="V6 李紫焰彩深色主题在 macOS Typora 中的实机截图" width="1921" height="1028" loading="lazy" decoding="async"></a><figcaption>深色 · 点图放大</figcaption></figure>
+        </div>
+      </article>
+    </div>
+
+    <div class="buy-steps">
+      <div class="buy-step"><div class="sq">01</div><div>
+        <div class="tt">付款 ¥9.9（买断）</div>
+        <div class="ds">规范目标为<strong>支付宝 SkillPay</strong>履约；上架完成前仍可用下方收款码私发同一专业版 zip（过渡，E1 过门后主 CTA 改平台）。微信支付、支付宝均可。</div>
+      </div></div>
+      <div class="buy-step"><div class="sq">02</div><div>
+        <div class="tt">加我，发付款截图</div>
+        <div class="ds">微信 <code>huiyonghkw</code>，备注「Typora主题」。</div>
+      </div></div>
+      <div class="buy-step"><div class="sq">03</div><div>
+        <div class="tt">收 zip，按安装手册装上</div>
+        <div class="ds">我只发付费 zip。装法看本页 <a href="#unlock"><b>装付费包</b></a>（解压后 <code>./unlock.sh</code>，或公开仓 <code>./scripts/unlock.sh 包.zip</code>）。不用 GitHub 账号。</div>
+      </div></div>
+    </div>
+
+    <div class="qrgrp">
+      <div class="ghd"><span class="n">01</span>付款 · 二选一</div>
+      <div class="qr">
+        <div class="qrbox">
+          <img src="../images/pay-wechat.png" alt="微信支付收款码" width="560" height="596" loading="lazy">
+          <div class="lbl"><b>微信支付</b> · ¥9.9</div>
+        </div>
+        <div class="qrbox">
+          <img src="../images/pay-alipay.png" alt="支付宝收款码" width="560" height="622" loading="lazy">
+          <div class="lbl"><b>支付宝</b> · ¥9.9</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="qrgrp">
+      <div class="ghd"><span class="n">02</span>然后加我</div>
+      <div class="qr">
+        <div class="qrbox">
+          <img src="../images/wechat-qr.png" alt="微信加好友二维码" width="560" height="560" loading="lazy">
+          <div class="lbl"><b>扫码加我</b></div>
+        </div>
+        <div class="wxid">
+          <div class="k">或者直接搜微信号</div>
+          <div class="id">huiyonghkw</div>
+          <div class="n">把付款截图发我，备注「Typora主题」。我发 zip；装法见 <a href="#unlock">本页「装付费包」</a>。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ask">
+      <span class="lb">no risk</span>
+      <b>七天无理由退款。</b>先装免费 V2、过两天再决定完全没问题 —— 它不是试用版，也不会到期。
+    </div>
+    <div class="ask">
+      <span class="lb">outside china</span>
+      <b>在海外、微信支付和支付宝都用不了？</b>目前还没接信用卡收款，这点我就直说了。
+      邮件 <a href="mailto:huiyonghkw@gmail.com">huiyonghkw@gmail.com</a>，我们另想办法；拿到的是同一个 zip、同样一年更新。
+    </div>
+    <div class="ask">
+      <span class="lb">license</span>
+      付费包仅供个人使用，请勿二次分发。免费 V2 仍是 MIT（公开仓 <code>LICENSE</code>）。
+    </div>
+  </section>
+
+  <section id="unlock">
+    <div class="sec-label">Unlock · Paid pack</div>
+    <h2 class="sec">付费包安装手册</h2>
+    <p class="buy-sub">收到 zip 后来这里 · 不用记命令</p>
+    <p class="prose">付费包追加 <b>Hekouwang V1 / V2 Pro / V3–V6</b>（各含 Dark，共 12 个 CSS）。免费的 <b>Hekouwang / Hekouwang Dark</b>（V2）仍走公开仓 <a href="#install">Install</a>。色板与工艺源码只在 zip 里，不会出现在公开 GitHub 树。</p>
+
+    <div class="buy-steps">
+      <div class="buy-step"><div class="sq">01</div><div>
+        <div class="tt">确认 zip 能解压</div>
+        <div class="ds">文件名类似 <code>hekouwang-typora-theme-skill-&lt;version&gt;-paid.zip</code>。解压后应有 <code>unlock.sh</code>、<code>theme/</code>（12 个 CSS）、<code>LICENSE-PRO.txt</code>、<code>VERSION</code>。<br>
+        若打不开或提示损坏：多半是微信传输截断——让我重发，或改用文件传输助手 / 网盘再下一次。</div>
+      </div></div>
+      <div class="buy-step"><div class="sq">02</div><div>
+        <div class="tt">还没装免费 V2？先装</div>
+        <div class="ds">已装过可跳过。未装则：</div>
+      </div></div>
+    </div>
+    <div class="install" style="margin-top:14px">
+      <div class="ch">
+        <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="lab">free V2 · once</span>
+      </div>
+      <pre><span class="p">$</span> <span class="o">git clone</span> <span class="arg">https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill.git</span>
+<span class="p">$</span> <span class="o">cd</span> <span class="arg">hekouwang-typora-theme-skill</span> <span class="o">&amp;&amp;</span> <span class="o">./scripts/install.sh</span></pre>
+    </div>
+
+    <div class="buy-steps" style="margin-top:22px">
+      <div class="buy-step"><div class="sq">03</div><div>
+        <div class="tt">安装付费包（二选一）</div>
+        <div class="ds"><b>方式 A · 推荐</b>：解压后在包目录执行 <code>chmod +x ./unlock.sh &amp;&amp; ./unlock.sh</code><br>
+        <b>方式 B</b>：在公开仓目录执行 <code>./scripts/unlock.sh ~/Downloads/你的包.zip</code><br>
+        成功时终端会列出 12 个 CSS 已装进 Typora 主题目录。</div>
+      </div></div>
+      <div class="buy-step"><div class="sq">04</div><div>
+        <div class="tt">Cmd+Q 完全退出 Typora，再打开</div>
+        <div class="ds">点红点不够。重开后：菜单 <b>主题 / Themes</b> → 选 <b>Hekouwang V1 / V2 Pro / V3–V6</b>（或对应 Dark）。<br>
+        macOS 主题目录：<code>~/Library/Application Support/abnerworks.Typora/themes/</code></div>
+      </div></div>
+    </div>
+
+    <div class="ask" style="margin-top:22px">
+      <span class="lb">checklist</span>
+      <b>装好后菜单里应有：</b>
+      <ul class="unlock-check">
+        <li>Hekouwang / Hekouwang Dark（免费 V2）</li>
+        <li>Hekouwang V1 / V1 Dark（石墨青绿）</li>
+        <li>Hekouwang V2 Pro / V2 Pro Dark（典藏编辑）</li>
+        <li>Hekouwang V3 / V3 Dark（海军蓝财经）</li>
+        <li>Hekouwang V4 / V4 Dark（冰蓝玻璃）</li>
+        <li>Hekouwang V5 / V5 Dark（紫晶电青 HUD）</li>
+        <li>Hekouwang V6 / V6 Dark（李紫焰彩）</li>
+      </ul>
+    </div>
+
+    <div class="ask">
+      <span class="lb">faq</span>
+      <b>菜单里没有 V1 / V2 Pro / V3–V6？</b>先看 unlock 有无报错，再 Cmd+Q 重开；主题目录里应能看到 <code>hekouwang-v2-pro.css</code> 等。<br>
+      <b>Windows / Linux？</b>本包按 macOS 路径验收。其他系统：Typora → Open Theme Folder，手动拷入 zip 里 <code>theme/*.css</code>，再重启。<br>
+      <b>能否转发给别人？</b>不能。见包内 <code>LICENSE-PRO.txt</code>。
+    </div>
+
+    <div class="ask">
+      <span class="lb">support</span>
+      装崩了找我：微信 <code>huiyonghkw</code> · 备注「Typora主题」· 本页锚点
+      <a href="https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/#unlock">#unlock</a>
+    </div>
+  </section>
+
+  <p class="sources">
+    <b>来源</b><br>
+    主题仓库 · <a href="https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill" target="_blank" rel="noopener">huiyonghkw/hekouwang-typora-theme-skill</a><br>
+    Lite Skill · <a href="https://github.com/huiyonghkw/hekouwang-typora-theme-skill/blob/main/SKILL.md" target="_blank" rel="noopener">SKILL.md</a>（hekouwang-typora-theme-lite-skill）· v2.0.2<br>
+    验收样张 · <a href="https://github.com/huiyonghkw/hekouwang-typora-theme-skill/blob/main/demo/%E9%AA%8C%E6%94%B6%E6%A0%B7%E5%BC%A0.md" target="_blank" rel="noopener">demo/验收样张.md</a><br>
+    Typora Gallery · <a href="https://theme.typora.io" target="_blank" rel="noopener">theme.typora.io</a><br>
+    视觉外壳 · hekouwang-content-skill · V1科技白
+  </p>
+
+  <footer>
+    <div class="foot-brand">会勇禾口王的AI笔记</div>
+    <div class="foot-meta">
+      <a href="https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill" target="_blank" rel="noopener">GitHub</a>
+      · MIT（主题）
+      · <a href="https://github.com/huiyonghkw/hekouwang-typora-theme-skill/blob/main/SKILL.md" target="_blank" rel="noopener">hekouwang-typora-theme-lite-skill</a>（MIT）
+    </div>
+  </footer>
+</main>
+
+<script>
+(function(){
+  var chrome = document.getElementById('chrome');
+  var buttons = document.querySelectorAll('.tog button');
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var mode = btn.getAttribute('data-mode');
+      chrome.setAttribute('data-mode', mode);
+      buttons.forEach(function(b){ b.classList.toggle('on', b === btn); });
+    });
+  });
+  var prog = document.getElementById('prog');
+  function onScroll(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    prog.style.width = (max > 0 ? (h.scrollTop / max * 100) : 0) + '%';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>

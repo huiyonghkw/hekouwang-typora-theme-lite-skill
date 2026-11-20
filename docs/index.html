@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>会勇禾口王 · Typora 长文阅读主题</title>
+<meta name="description" content="会勇禾口王 Typora 长文阅读主题：正文 1rem · 行高 1.65 · 阅读列 48–96rem；侧栏收起全幅；编辑与 PDF 导出同一套体验。免费 V2（MIT）；专业版 ¥9.9 买断六套视觉。">
+<meta property="og:title" content="会勇禾口王 · Typora 长文阅读主题">
+<meta property="og:description" content="专为连续阅读与写作设计的 Typora 主题。阅读指标、纸感与 PDF 整页同色——免费可装；专业版解锁六套视觉。">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/">
+<link rel="icon" href="images/icon-typora.svg" type="image/svg+xml">
+<meta name="theme-color" content="#060908">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        ink: "#060908",
+        slateink: "#0c1210",
+        mist: "#d7e0da",
+        mute: "#7f8b84",
+        jade: "#3dd6a5",
+        warm: "#c9a06a",
+      },
+      maxWidth: { site: "78rem" },
+      letterSpacing: { brand: "0.12em" },
+    },
+  },
+};
+</script>
+<link rel="stylesheet" href="site.css">
+</head>
+<body class="bg-ink text-mist antialiased overflow-x-hidden">
+
+<div id="prog"></div>
+<div id="pointer-glow" aria-hidden="true"></div>
+<div class="film-grain" aria-hidden="true"></div>
+
+<header id="site-nav" class="fixed inset-x-0 top-0 z-50 px-4 pt-4 md:px-6 md:pt-5">
+  <div id="nav-shell" class="mx-auto flex max-w-site items-center justify-between gap-4 rounded-2xl px-4 py-3 transition-all duration-500 md:px-5">
+    <a href="#hero" class="brand-mark">
+      <img src="images/icon-typora.svg" width="28" height="28" alt="">
+      <span class="brand-lockup text-[0.92rem] md:text-[1rem]">
+        <span class="brand-name">会勇禾口王</span>
+        <span class="brand-div" aria-hidden="true"></span>
+        <span class="brand-product">Typora 主题</span>
+      </span>
+    </a>
+    <button id="nav-toggle" type="button" class="rounded-xl border border-white/10 px-3 py-2 text-sm text-mist/80 md:hidden" aria-expanded="false" aria-controls="nav-panel">菜单</button>
+    <nav id="nav-panel" class="nav-panel absolute left-4 right-4 top-[4.5rem] hidden flex-col gap-1 rounded-2xl border border-white/10 bg-ink/95 p-4 backdrop-blur-xl md:static md:flex md:flex-row md:items-center md:gap-7 md:border-0 md:bg-transparent md:p-0 md:backdrop-blur-none">
+      <a href="#value" class="rounded-lg px-2 py-2 text-[13px] tracking-wide text-mist/65 transition hover:text-white md:py-0">价值</a>
+      <a href="#formats" class="rounded-lg px-2 py-2 text-[13px] tracking-wide text-mist/65 transition hover:text-white md:py-0">格式</a>
+      <a href="#pdf" class="rounded-lg px-2 py-2 text-[13px] tracking-wide text-mist/65 transition hover:text-white md:py-0">PDF</a>
+      <a href="#pro" class="rounded-lg px-2 py-2 text-[13px] tracking-wide text-mist/65 transition hover:text-white md:py-0">版本</a>
+      <a href="#preview" class="rounded-lg px-2 py-2 text-[13px] tracking-wide text-mist/65 transition hover:text-white md:py-0">预览</a>
+      <a href="#install" class="rounded-lg px-2 py-2 text-[13px] tracking-wide text-mist/65 transition hover:text-white md:py-0">安装</a>
+      <a href="#buy" class="btn-mag mt-1 inline-flex items-center justify-center rounded-full bg-jade px-4 py-2 text-[13px] font-semibold text-ink transition hover:bg-white md:mt-0">¥9.9 买断</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero：品牌左对齐 + 全幅纸面（本站原布局） -->
+<section id="hero" class="relative min-h-[100svh] overflow-hidden grain">
+  <div id="hero-shot" class="hero-shot absolute inset-0 scale-105" role="img" aria-label="免费 V2 浅色主题在 Typora 中的纸面预览"></div>
+  <div class="hero-vignette absolute inset-0"></div>
+  <div class="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-ink to-transparent"></div>
+
+  <div class="relative mx-auto flex min-h-[100svh] max-w-site flex-col justify-end px-5 pb-16 pt-32 md:px-8 md:pb-24">
+    <div class="hero-copy max-w-6xl">
+      <p class="font-display text-[clamp(2rem,5.5vw,4.25rem)] leading-none tracking-tight text-white">会勇禾口王</p>
+      <p class="mt-3 font-mono-hkw text-[11px] uppercase tracking-[0.32em] text-jade md:text-xs">Typora · 中文长文阅读主题</p>
+      <h1 class="font-display mt-8 max-w-5xl text-[clamp(1.75rem,4.2vw,3.35rem)] leading-[1.18] text-white/95">
+        把 Markdown 变成一张<br class="hidden sm:block">适合连续读写的纸
+      </h1>
+      <p class="mt-7 max-w-2xl text-[15px] leading-relaxed text-mist/70 md:text-lg">
+        不追求像海报。正文 <strong class="text-white">1rem</strong> · 行高 <strong class="text-white">1.65</strong> · 居中
+        <strong class="text-white">48–96rem</strong> 阅读列 · 纸面随窗口铺满——从开头读到结尾，节奏一直安静清楚。
+      </p>
+      <div class="mt-8 flex flex-wrap gap-2 font-mono-hkw text-[11px] tracking-wide text-mute md:text-xs">
+        <span class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5">阅读指标钉死</span>
+        <span class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5">侧栏收起即全幅</span>
+        <span class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5">PDF 整页同色</span>
+        <span class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5">免费已是完整主题</span>
+      </div>
+      <div class="mt-10 flex flex-wrap items-center gap-3">
+        <a href="#install" class="btn-mag btn-mag--jade group inline-flex items-center gap-2 rounded-full bg-jade px-7 py-3.5 text-[15px] font-semibold text-ink transition duration-500 hover:bg-white">
+          安装免费 V2
+          <span aria-hidden="true" class="transition duration-500 group-hover:translate-x-1">→</span>
+        </a>
+        <a href="live/" class="inline-flex items-center rounded-full border border-white/12 bg-white/[0.04] px-6 py-3.5 text-[15px] text-mist/90 backdrop-blur-md transition duration-500 hover:border-white/25 hover:bg-white/[0.08]">在线试读 · 真 CSS</a>
+        <a href="#buy" class="inline-flex items-center px-3 py-3.5 text-[15px] text-mist/55 transition hover:text-white">专业版 ¥9.9</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 指标条 -->
+<div class="border-y border-white/[0.05] bg-black/25">
+  <div class="mx-auto grid max-w-site grid-cols-2 gap-px md:grid-cols-4">
+    <div class="px-5 py-7 md:px-8 md:py-9">
+      <div class="metric-num font-display text-3xl md:text-4xl">1rem</div>
+      <div class="mt-2 text-xs text-mute md:text-sm">正文字号 · 不挤不散</div>
+    </div>
+    <div class="px-5 py-7 md:px-8 md:py-9">
+      <div class="metric-num font-display text-3xl md:text-4xl">1.65</div>
+      <div class="mt-2 text-xs text-mute md:text-sm">行高 · 长文可连读</div>
+    </div>
+    <div class="px-5 py-7 md:px-8 md:py-9">
+      <div class="metric-num font-display text-3xl md:text-4xl">48–96</div>
+      <div class="mt-2 text-xs text-mute md:text-sm">阅读列 rem · 随窗伸缩</div>
+    </div>
+    <div class="px-5 py-7 md:px-8 md:py-9">
+      <div class="metric-num font-display text-3xl md:text-4xl">3rem</div>
+      <div class="mt-2 text-xs text-mute md:text-sm">两侧留白 · 纸宽多 6rem</div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <!-- 核心价值 -->
+  <section id="value" class="reveal mx-auto max-w-site px-5 py-28 md:px-8 md:py-40" data-reveal>
+    <p class="font-mono-hkw text-[11px] tracking-[0.28em] text-jade">WHY IT MATTERS</p>
+    <h2 class="font-display mt-5 max-w-3xl text-3xl text-white md:text-5xl">产品价值在硬约束，不在换肤</h2>
+    <p class="mt-6 max-w-2xl text-[15px] leading-relaxed text-mist/65 md:text-base">
+      长时间读写 Markdown 时，标题、段落、代码、表格与图片应保持同一种节奏，而不是各自争夺注意力。以下为产品固定下来的体验决策。
+    </p>
+
+    <div class="mt-16 grid gap-px overflow-hidden rounded-[1.75rem] border border-white/[0.08] bg-white/[0.06] sm:grid-cols-2 lg:grid-cols-3">
+      <article class="value-cell p-7 md:p-9" data-reveal-child>
+        <p class="font-mono-hkw text-[10px] tracking-[0.22em] text-jade">01 · METRICS</p>
+        <h3 class="mt-4 text-xl font-semibold text-white">中文长文阅读指标</h3>
+        <p class="mt-4 text-sm leading-relaxed text-mute md:text-[15px]">
+          正文 1rem、行高 1.65；段落与标题居中落在「窗口 − 16rem」的阅读列（48–96rem）。纸面比阅读列宽 6rem，专供代码与宽表——松而不散。
+        </p>
+      </article>
+      <article class="value-cell p-7 md:p-9" data-reveal-child>
+        <p class="font-mono-hkw text-[10px] tracking-[0.22em] text-jade">02 · HIERARCHY</p>
+        <h3 class="mt-4 text-xl font-semibold text-white">层级清楚，不用竖条喧宾</h3>
+        <p class="mt-4 text-sm leading-relaxed text-mute md:text-[15px]">
+          标题靠字号、字重与留白建立秩序；代码、引用、表格各有边界，却不会把文章切成一堆卡片。
+        </p>
+      </article>
+      <article class="value-cell p-7 md:p-9" data-reveal-child>
+        <p class="font-mono-hkw text-[10px] tracking-[0.22em] text-jade">03 · FULL BLEED</p>
+        <h3 class="mt-4 text-xl font-semibold text-white">侧栏收起，纸面全幅</h3>
+        <p class="mt-4 text-sm leading-relaxed text-mute md:text-[15px]">
+          隐藏文件树后，纸边、gutter 与投影一起消失，白纸铺满内容区；正文仍稳在阅读列里。
+        </p>
+      </article>
+      <article class="value-cell p-7 md:p-9" data-reveal-child>
+        <p class="font-mono-hkw text-[10px] tracking-[0.22em] text-jade">04 · ONE EXPERIENCE</p>
+        <h3 class="mt-4 text-xl font-semibold text-white">编辑 · 专注 · 导出同一套</h3>
+        <p class="mt-4 text-sm leading-relaxed text-mute md:text-[15px]">
+          常规窗口保留纸感壳层；源码与专注模式各自照顾图片、任务框与代码。导出 PDF 先压平浮层，再走排版精装——不是截一张编辑器图。
+        </p>
+      </article>
+      <article class="value-cell p-7 md:p-9" data-reveal-child>
+        <p class="font-mono-hkw text-[10px] tracking-[0.22em] text-jade">05 · CJK</p>
+        <h3 class="mt-4 text-xl font-semibold text-white">中英混排有明确字栈</h3>
+        <p class="mt-4 text-sm leading-relaxed text-mute md:text-[15px]">
+          西文随包 Inter（OFL），中文使用系统字体；不捆绑大型中文字体，也守住授权边界。Windows 另有独立字栈与 ClearType 适配。
+        </p>
+      </article>
+      <article class="value-cell p-7 md:p-9" data-reveal-child>
+        <p class="font-mono-hkw text-[10px] tracking-[0.22em] text-jade">06 · COMPLETE FREE</p>
+        <h3 class="mt-4 text-xl font-semibold text-white">免费档已是完整主题</h3>
+        <p class="mt-4 text-sm leading-relaxed text-mute md:text-[15px]">
+          免费版功能完整。专业版解锁六套独立色彩、材质与标题工艺；与免费版<strong class="font-normal text-mist/75">共享同一套阅读指标</strong>。
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 16 种格式 -->
+  <section id="formats" class="reveal border-y border-white/[0.04] bg-black/25" data-reveal>
+    <div class="mx-auto max-w-site px-5 py-28 md:px-8 md:py-40">
+      <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div class="max-w-2xl">
+          <p class="font-mono-hkw text-[11px] tracking-[0.28em] text-jade">16 FORMATS</p>
+          <h2 class="font-display mt-5 text-3xl text-white md:text-5xl">Markdown 常见格式，一张样张验完</h2>
+          <p class="mt-5 text-[15px] leading-relaxed text-mist/65 md:text-base">
+            验收样张铺满 16 类块：正文混排、引用、列表、代码、表格、公式、Mermaid、Callout……
+            自动轮播真机截图，说明主题价值不在换肤，而在<strong class="text-mist">每一种格式都清楚可读</strong>。
+          </p>
+        </div>
+        <div class="flex items-center gap-3 font-mono-hkw text-xs text-mute">
+          <span id="fmt-count" class="text-jade">01 / 16</span>
+          <button type="button" id="fmt-pause" class="rounded-full border border-white/12 px-3 py-1.5 text-mist/70 transition hover:border-white/25 hover:text-white" aria-pressed="false">暂停</button>
+        </div>
+      </div>
+
+      <div class="fmt-stage mt-14 grid gap-8 lg:grid-cols-[0.9fr_1.35fr] lg:items-stretch" id="fmt-stage">
+        <div class="fmt-rail" role="tablist" aria-label="支持的格式">
+          <button type="button" role="tab" aria-selected="true" data-fmt="0" class="fmt-item is-on"><span class="fmt-num">01</span><span>正文与中英混排</span></button>
+          <button type="button" role="tab" aria-selected="false" data-fmt="1" class="fmt-item"><span class="fmt-num">02</span><span>引用</span></button>
+          <button type="button" role="tab" aria-selected="false" data-fmt="2" class="fmt-item"><span class="fmt-num">03</span><span>列表</span></button>
+          <button type="button" role="tab" aria-selected="false" data-fmt="3" class="fmt-item"><span class="fmt-num">04</span><span>代码</span></button>
+          <button type="button" role="tab" aria-selected="false" data-fmt="4" class="fmt-item"><span class="fmt-num">05</span><span>表格</span></button>
+          <button type="button" role="tab" aria-selected="false" data-fmt="5" class="fmt-item"><span class="fmt-num">06</span><span>数学公式</span></button>
+          <button type="button" role="tab" aria-selected="false" data-fmt="6" class="fmt-item"><span class="fmt-num">07</span><span>Mermaid 图表</span></button>
+          <button type="button" role="tab" aria-selected="false" data-fmt="7" class="fmt-item"><span class="fmt-num">08</span><span>Callout 提示块</span></button>
+          <button type="button" role="tab" aria-selected="false" data-fmt="8" class="fmt-item"><span class="fmt-num">09</span><span>分隔线与其他</span></button>
+          <button type="button" role="tab" aria-selected="false" data-fmt="9" class="fmt-item"><span class="fmt-num">10</span><span>定稿截图</span></button>
+          <button type="button" role="tab" aria-selected="false" data-fmt="10" class="fmt-item"><span class="fmt-num">11</span><span>验收清单</span></button>
+          <button type="button" role="tab" aria-selected="false" data-fmt="11" class="fmt-item"><span class="fmt-num">12</span><span>宽屏长文</span></button>
+          <button type="button" role="tab" aria-selected="false" data-fmt="12" class="fmt-item"><span class="fmt-num">13</span><span>图片与长链接</span></button>
+          <button type="button" role="tab" aria-selected="false" data-fmt="13" class="fmt-item"><span class="fmt-num">14</span><span>十二列表格</span></button>
+          <button type="button" role="tab" aria-selected="false" data-fmt="14" class="fmt-item"><span class="fmt-num">15</span><span>超长单行代码</span></button>
+          <button type="button" role="tab" aria-selected="false" data-fmt="15" class="fmt-item"><span class="fmt-num">16</span><span>模式与导出矩阵</span></button>
+        </div>
+
+        <div class="fmt-frame relative overflow-hidden rounded-[1.5rem] border border-white/[0.1] bg-ink/60 shadow-[0_40px_100px_rgba(0,0,0,0.45)]">
+          <div class="fmt-progress" aria-hidden="true"><i id="fmt-progress-bar"></i></div>
+          <div class="fmt-shots relative aspect-[16/10] w-full">
+            <img id="fmt-img-a" class="fmt-shot is-active" src="previews/r/formats/f01.webp" alt="正文与中英混排" width="960" height="577" decoding="async">
+            <img id="fmt-img-b" class="fmt-shot" src="previews/r/formats/f02.webp" alt="" width="960" height="577" decoding="async" aria-hidden="true">
+          </div>
+          <div class="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 via-ink/35 to-transparent p-5 md:p-6">
+            <p id="fmt-caption" class="text-sm text-white md:text-base">01 · 正文与中英混排</p>
+          </div>
+          <div class="absolute bottom-4 right-4 z-10 flex gap-2">
+            <button type="button" id="fmt-prev" class="fmt-nav-btn" aria-label="上一项">‹</button>
+            <button type="button" id="fmt-next" class="fmt-nav-btn" aria-label="下一项">›</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PDF -->
+  <section id="pdf" class="reveal border-y border-white/[0.04] bg-black/20" data-reveal>
+    <div class="mx-auto max-w-site px-5 py-28 md:px-8 md:py-40">
+      <div class="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+        <div>
+          <p class="font-mono-hkw text-[11px] tracking-[0.28em] text-warm">EXPORT · PDF</p>
+          <h2 class="font-display mt-5 text-3xl text-white md:text-5xl">导出先压平，再精装</h2>
+          <p class="mt-6 text-[15px] leading-relaxed text-mist/65 md:text-base">
+            多数主题把编辑器纸感原样带进 PDF，结果是<strong class="text-mist">外圈底色 + 中间白柱</strong>。
+            本主题对免费与专业共 14 套皮肤共用导出规则：整页画布同色，拆掉浮卡片，再做块级精装。
+            样张用验收文档铺满标题、引用、列表、代码与表格——Markdown 常见格式导出后仍然清楚。
+          </p>
+          <ul class="mt-10 space-y-5 text-[15px]">
+            <li class="flex gap-4 border-t border-white/[0.06] pt-5">
+              <span class="font-mono-hkw text-jade">01</span>
+              <span class="text-mist/80"><b class="text-white">整页同色</b> — 浅色跟 gutter，深色跟正文底；页边距交给 Typora 导出设置。</span>
+            </li>
+            <li class="flex gap-4 border-t border-white/[0.06] pt-5">
+              <span class="font-mono-hkw text-jade">02</span>
+              <span class="text-mist/80"><b class="text-white">块级精装</b> — H2 底签名线（无左边竖条）、代码块抬升、直角表与斑马纹。</span>
+            </li>
+            <li class="flex gap-4 border-t border-white/[0.06] pt-5">
+              <span class="font-mono-hkw text-jade">03</span>
+              <span class="text-mist/80"><b class="text-white">改完 Cmd+Q</b> — 切换主题不会重载已改 CSS；不退出，导出仍是旧样式。</span>
+            </li>
+          </ul>
+          <p class="mt-8 text-sm text-mute">
+            <a href="previews/r/export-a4.pdf" class="text-jade transition hover:underline">打开 A4 导出样张 PDF</a>
+          </p>
+        </div>
+        <figure class="relative">
+          <div class="absolute -inset-6 rounded-[2rem] bg-jade/[0.08] blur-3xl" aria-hidden="true"></div>
+          <a href="previews/r/export-a4.webp" class="shot relative block overflow-hidden rounded-[1.5rem] border border-white/[0.1] shadow-[0_40px_100px_rgba(0,0,0,0.45)]">
+            <img src="previews/r/export-a4.webp" alt="免费 V2 · 验收样张 A4 导出首页（标题、引用、列表、代码、表格）" width="620" height="877" loading="lazy" decoding="async" class="aspect-[3/4] w-full object-cover object-top">
+            <figcaption class="pointer-events-none absolute bottom-0 left-0 z-10 p-5 text-sm text-white">免费 V2 · 验收样张 A4 首页</figcaption>
+          </a>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 版本 -->
+  <section id="pro" class="reveal mx-auto max-w-site px-5 py-28 md:px-8 md:py-40" data-reveal>
+    <p class="font-mono-hkw text-[11px] tracking-[0.28em] text-jade">VERSIONS</p>
+    <h2 class="font-display mt-5 max-w-3xl text-3xl text-white md:text-5xl">免费写完长文；专业换六套视觉</h2>
+    <p class="mt-6 max-w-2xl text-[15px] leading-relaxed text-mist/65 md:text-base">
+      免费 V2 已是完整长文阅读主题。专业版买断解锁 V1 / V2 Pro / V3–V6（各含浅深，12 CSS）——
+      <b class="text-white">V2 Pro ≠ 免费 V2</b>，不同菜单项与 CSS。
+    </p>
+
+    <div class="mt-14 grid gap-6 lg:grid-cols-2">
+      <div class="rounded-[1.75rem] border border-white/[0.08] bg-white/[0.03] p-8 md:p-10" data-reveal-child>
+        <p class="font-mono-hkw text-[11px] text-jade">FREE · MIT</p>
+        <h3 class="mt-3 text-2xl font-semibold text-white">Hekouwang / Dark</h3>
+        <p class="mt-2 text-sm text-mute">skill V2 · 日常写作、通用长文</p>
+        <ul class="mt-8 space-y-3 text-[15px] text-mist/75">
+          <li class="flex gap-3"><span class="text-jade">+</span>纯白纸面 · 暖灰壳 · 墨绿点缀</li>
+          <li class="flex gap-3"><span class="text-jade">+</span>完整阅读指标与 PDF 导出规则</li>
+          <li class="flex gap-3"><span class="text-jade">+</span>主题工程 Lite Skill</li>
+          <li class="flex gap-3"><span class="text-jade">+</span>公开仓可改可分享</li>
+        </ul>
+        <a href="#install" class="mt-10 inline-flex text-sm font-medium text-jade transition hover:text-white">安装免费版 →</a>
+      </div>
+      <div class="rounded-[1.75rem] border border-jade/25 bg-jade/[0.06] p-8 md:p-10" data-reveal-child>
+        <p class="font-mono-hkw text-[11px] text-warm">PRO · ¥9.9 买断</p>
+        <h3 class="mt-3 text-2xl font-semibold text-white">六套独立视觉系统</h3>
+        <p class="mt-2 text-sm text-mute">同一阅读指标 · 换色板与标题工艺</p>
+        <ul class="mt-8 space-y-3 text-[15px] text-mist/80">
+          <li class="flex gap-3"><span class="text-jade">+</span>V1 石墨青绿 · V2 Pro 典藏 · V3 财经</li>
+          <li class="flex gap-3"><span class="text-jade">+</span>V4 冰蓝玻璃 · V5 HUD · V6 焰彩</li>
+          <li class="flex gap-3"><span class="text-jade">+</span>专业版 Agent Skill + unlock</li>
+          <li class="flex gap-3"><span class="text-jade">+</span>一次性买断 · SkillPay 履约</li>
+        </ul>
+        <a href="#buy" class="mt-10 inline-flex text-sm font-medium text-jade transition hover:text-white">查看买断 →</a>
+      </div>
+    </div>
+
+    <div class="mt-10 flex gap-2 overflow-x-auto pb-2 md:gap-3" data-reveal-child>
+      <div class="min-w-[7rem] flex-1 rounded-2xl bg-gradient-to-br from-[#3d4a52] to-[#2ec4a0] p-4 ring-1 ring-jade/40"><div class="font-mono-hkw text-[10px] text-white/80">V1 · 1:1</div><div class="mt-5 text-sm text-white">石墨青绿</div></div>
+      <div class="min-w-[7rem] flex-1 rounded-2xl bg-gradient-to-br from-[#5c4033] to-[#c4a574] p-4 ring-1 ring-jade/40"><div class="font-mono-hkw text-[10px] text-white/80">V2 Pro · 1:1</div><div class="mt-5 text-sm text-white">典藏编辑</div></div>
+      <div class="min-w-[7rem] flex-1 rounded-2xl bg-gradient-to-br from-[#1a2a44] to-[#c9a227] p-4 ring-1 ring-jade/40"><div class="font-mono-hkw text-[10px] text-white/80">V3 · 1:1</div><div class="mt-5 text-sm text-white">海军蓝财经</div></div>
+      <div class="min-w-[7rem] flex-1 rounded-2xl bg-gradient-to-br from-[#7eb8d4] to-[#e8f4fa] p-4 ring-1 ring-jade/40"><div class="font-mono-hkw text-[10px] text-ink/70">V4 · 1:1</div><div class="mt-5 text-sm text-ink">冰蓝玻璃</div></div>
+      <div class="min-w-[7rem] flex-1 rounded-2xl bg-gradient-to-br from-[#2a1848] to-[#2ec4c9] p-4 ring-1 ring-jade/40"><div class="font-mono-hkw text-[10px] text-white/80">V5 · 1:1</div><div class="mt-5 text-sm text-white">紫晶电青</div></div>
+      <div class="min-w-[7rem] flex-1 rounded-2xl bg-gradient-to-br from-[#5a2a4a] to-[#e07860] p-4 ring-1 ring-jade/40"><div class="font-mono-hkw text-[10px] text-white/80">V6 · 1:1</div><div class="mt-5 text-sm text-white">李紫焰彩</div></div>
+    </div>
+
+    <div class="mt-14 overflow-hidden rounded-[1.75rem] border border-white/[0.08] bg-ink/40" data-reveal-child>
+      <div class="grid grid-cols-[1.35fr_0.9fr_0.9fr] text-[13px] md:text-[15px]">
+        <div class="border-b border-white/[0.06] px-5 py-4 text-mute md:px-7"></div>
+        <div class="border-b border-white/[0.06] px-4 py-4 font-medium text-mist/70 md:px-6">免费</div>
+        <div class="border-b border-white/[0.06] px-4 py-4 font-medium text-jade md:px-6">专业</div>
+        <div class="tier-row border-b border-white/[0.04] px-5 py-4 text-mist/80 md:px-7">完整长文主题（可读可写可导出）</div>
+        <div class="tier-row border-b border-white/[0.04] px-4 py-4 text-jade md:px-6">✓</div>
+        <div class="tier-row border-b border-white/[0.04] px-4 py-4 text-jade md:px-6">✓</div>
+        <div class="tier-row border-b border-white/[0.04] px-5 py-4 text-mist/80 md:px-7">阅读指标 1 / 1.65 / 48–96</div>
+        <div class="tier-row border-b border-white/[0.04] px-4 py-4 text-jade md:px-6">✓</div>
+        <div class="tier-row border-b border-white/[0.04] px-4 py-4 text-jade md:px-6">✓</div>
+        <div class="tier-row border-b border-white/[0.04] px-5 py-4 text-mist/80 md:px-7">V1 / V2 Pro / V3–V6（+ Dark）</div>
+        <div class="tier-row border-b border-white/[0.04] px-4 py-4 text-mute md:px-6">—</div>
+        <div class="tier-row border-b border-white/[0.04] px-4 py-4 text-jade md:px-6">12 CSS</div>
+        <div class="tier-row px-5 py-4 text-mist/80 md:px-7">专业版 Skill · unlock</div>
+        <div class="tier-row px-4 py-4 text-mute md:px-6">Lite</div>
+        <div class="tier-row px-4 py-4 text-jade md:px-6">付费包</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 预览：大舞台 + 胶片条 -->
+  <section id="preview" class="reveal preview-section border-y border-white/[0.04]" data-reveal>
+    <div class="preview-atmosphere" aria-hidden="true"></div>
+    <div class="mx-auto max-w-site px-5 py-28 md:px-8 md:py-40">
+      <div class="preview-head">
+        <div class="max-w-2xl">
+          <p class="font-mono-hkw text-[11px] tracking-[0.28em] text-jade">PREVIEW</p>
+          <h2 class="font-display mt-5 text-3xl text-white md:text-5xl">真机纸面，格式一眼清楚</h2>
+          <p class="mt-5 text-[15px] leading-relaxed text-mist/65 md:text-base">
+            验收样张同屏实拍：标题层级、行内样式、引用、列表、任务框、代码与表格。
+            点选下方主题，大图切换；也可打开
+            <a href="live/" class="text-jade underline-offset-4 transition hover:underline">live 试读页</a>
+            切浅深色 / 字号 / 列宽。
+          </p>
+        </div>
+        <div class="preview-tabs" role="tablist" aria-label="预览筛选">
+          <button type="button" role="tab" data-gallery="all" aria-selected="true" class="preview-tab is-on">全部</button>
+          <button type="button" role="tab" data-gallery="free" aria-selected="false" class="preview-tab">免费 V2</button>
+          <button type="button" role="tab" data-gallery="pro" aria-selected="false" class="preview-tab">专业六套</button>
+        </div>
+      </div>
+
+      <div id="gallery" class="preview-showcase mt-14" data-show="all">
+        <figure class="preview-hero">
+          <div class="preview-hero-frame">
+            <img id="preview-hero-img" class="preview-hero-img" src="previews/r/v2-light.webp" alt="免费 V2 · 浅色 · 列表 / 引用 / 行内样式" width="1920" height="1154" decoding="async">
+            <img id="preview-hero-img-b" class="preview-hero-img" src="previews/r/v2-dark.webp" alt="" width="1920" height="1154" decoding="async" aria-hidden="true">
+          </div>
+          <figcaption class="preview-hero-meta">
+            <span id="preview-hero-kicker" class="font-mono-hkw text-[11px] tracking-[0.22em] text-jade">FREE · V2</span>
+            <span id="preview-hero-title" class="preview-hero-title">浅色纸面</span>
+            <span id="preview-hero-note" class="preview-hero-note">列表 / 引用 / 行内样式</span>
+            <span id="preview-hero-index" class="font-mono-hkw text-xs text-mute">01 / 08</span>
+          </figcaption>
+        </figure>
+
+        <div class="preview-rail-wrap">
+          <div id="preview-rail" class="preview-rail" role="listbox" aria-label="主题样张" aria-activedescendant="preview-thumb-0">
+            <button type="button" role="option" id="preview-thumb-0" class="preview-thumb is-on is-free" aria-selected="true"
+              data-tier="free" data-src="previews/r/v2-light.webp"
+              data-kicker="FREE · V2" data-title="浅色纸面" data-note="列表 / 引用 / 行内样式"
+              data-swatch="linear-gradient(135deg,#f8f8f5,#2e6f5e)">
+              <span class="preview-thumb-swatch" style="background:linear-gradient(135deg,#f8f8f5,#2e6f5e)"></span>
+              <img src="previews/r/v2-light.webp" alt="" width="320" height="180" loading="lazy" decoding="async" class="no-zoom">
+              <span class="preview-thumb-label">V2 浅</span>
+            </button>
+            <button type="button" role="option" id="preview-thumb-1" class="preview-thumb is-free" aria-selected="false"
+              data-tier="free" data-src="previews/r/v2-dark.webp"
+              data-kicker="FREE · V2" data-title="深色墨玉" data-note="验收样张 · 暗色纸面"
+              data-swatch="linear-gradient(135deg,#151816,#74b7a2)">
+              <span class="preview-thumb-swatch" style="background:linear-gradient(135deg,#151816,#74b7a2)"></span>
+              <img src="previews/r/v2-dark.webp" alt="" width="320" height="180" loading="lazy" decoding="async" class="no-zoom">
+              <span class="preview-thumb-label">V2 深</span>
+            </button>
+            <button type="button" role="option" id="preview-thumb-2" class="preview-thumb is-pro" aria-selected="false"
+              data-tier="pro" data-src="previews/r/v1-light.webp"
+              data-kicker="PRO · V1" data-title="石墨青绿" data-note="技术文档气质"
+              data-swatch="linear-gradient(135deg,#3d4a52,#2ec4a0)">
+              <span class="preview-thumb-swatch" style="background:linear-gradient(135deg,#3d4a52,#2ec4a0)"></span>
+              <img src="previews/r/v1-light.webp" alt="" width="320" height="180" loading="lazy" decoding="async" class="no-zoom">
+              <span class="preview-thumb-label">V1</span>
+            </button>
+            <button type="button" role="option" id="preview-thumb-3" class="preview-thumb is-pro" aria-selected="false"
+              data-tier="pro" data-src="previews/r/v2-pro-light.webp"
+              data-kicker="PRO · V2 Pro" data-title="典藏编辑" data-note="随笔与长评"
+              data-swatch="linear-gradient(135deg,#5c4033,#c4a574)">
+              <span class="preview-thumb-swatch" style="background:linear-gradient(135deg,#5c4033,#c4a574)"></span>
+              <img src="previews/r/v2-pro-light.webp" alt="" width="320" height="180" loading="lazy" decoding="async" class="no-zoom">
+              <span class="preview-thumb-label">V2 Pro</span>
+            </button>
+            <button type="button" role="option" id="preview-thumb-4" class="preview-thumb is-pro" aria-selected="false"
+              data-tier="pro" data-src="previews/r/v3-light.webp"
+              data-kicker="PRO · V3" data-title="海军蓝财经" data-note="表格与复盘"
+              data-swatch="linear-gradient(135deg,#1a2a44,#c9a227)">
+              <span class="preview-thumb-swatch" style="background:linear-gradient(135deg,#1a2a44,#c9a227)"></span>
+              <img src="previews/r/v3-light.webp" alt="" width="320" height="180" loading="lazy" decoding="async" class="no-zoom">
+              <span class="preview-thumb-label">V3</span>
+            </button>
+            <button type="button" role="option" id="preview-thumb-5" class="preview-thumb is-pro" aria-selected="false"
+              data-tier="pro" data-src="previews/r/v4-light.webp"
+              data-kicker="PRO · V4" data-title="冰蓝玻璃" data-note="轻量产品文档"
+              data-swatch="linear-gradient(135deg,#7eb8d4,#e8f4fa)">
+              <span class="preview-thumb-swatch" style="background:linear-gradient(135deg,#7eb8d4,#e8f4fa)"></span>
+              <img src="previews/r/v4-light.webp" alt="" width="320" height="180" loading="lazy" decoding="async" class="no-zoom">
+              <span class="preview-thumb-label">V4</span>
+            </button>
+            <button type="button" role="option" id="preview-thumb-6" class="preview-thumb is-pro" aria-selected="false"
+              data-tier="pro" data-src="previews/r/v5-light.webp"
+              data-kicker="PRO · V5" data-title="紫晶电青" data-note="方案 / 演示笔记"
+              data-swatch="linear-gradient(135deg,#2a1848,#2ec4c9)">
+              <span class="preview-thumb-swatch" style="background:linear-gradient(135deg,#2a1848,#2ec4c9)"></span>
+              <img src="previews/r/v5-light.webp" alt="" width="320" height="180" loading="lazy" decoding="async" class="no-zoom">
+              <span class="preview-thumb-label">V5</span>
+            </button>
+            <button type="button" role="option" id="preview-thumb-7" class="preview-thumb is-pro" aria-selected="false"
+              data-tier="pro" data-src="previews/r/v6-light.webp"
+              data-kicker="PRO · V6" data-title="李紫焰彩" data-note="创作手稿"
+              data-swatch="linear-gradient(135deg,#5a2a4a,#e07860)">
+              <span class="preview-thumb-swatch" style="background:linear-gradient(135deg,#5a2a4a,#e07860)"></span>
+              <img src="previews/r/v6-light.webp" alt="" width="320" height="180" loading="lazy" decoding="async" class="no-zoom">
+              <span class="preview-thumb-label">V6</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 安装 -->
+  <section id="install" class="reveal" data-reveal>
+    <div class="mx-auto max-w-site px-5 py-28 md:px-8 md:py-40">
+      <p class="font-mono-hkw text-[11px] tracking-[0.28em] text-jade">INSTALL</p>
+      <h2 class="font-display mt-5 text-3xl text-white md:text-5xl">两分钟开始写</h2>
+      <p class="mt-6 max-w-xl text-[15px] text-mist/65">装完必须 <b class="text-white">Cmd+Q 完全退出</b> Typora 再开，主题菜单才会刷新。</p>
+
+      <div class="mt-16 grid gap-14 lg:grid-cols-2">
+        <div>
+          <h3 class="text-lg font-semibold text-white">免费 V2</h3>
+          <div class="mt-5 overflow-hidden rounded-2xl border border-white/[0.08] bg-ink/80 shadow-[0_40px_100px_rgba(0,0,0,0.45)]">
+            <div class="flex items-center gap-2 border-b border-white/[0.06] px-4 py-3">
+              <span class="h-2.5 w-2.5 rounded-full bg-[#ff5f57]"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-[#febc2e]"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-[#28c840]"></span>
+              <span class="ml-3 font-mono-hkw text-[11px] text-mute">macOS · free</span>
+            </div>
+            <pre class="sc overflow-x-auto p-5 font-mono-hkw text-[12.5px] leading-7 text-mist/85 md:p-6 md:text-[13px]"><span class="text-mute"># clone &amp; install</span>
+$ <span class="text-jade">git clone</span> https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill.git
+$ <span class="text-jade">cd</span> hekouwang-typora-theme-lite-skill &amp;&amp; <span class="text-jade">./scripts/install.sh</span>
+<span class="text-mute"># 选 Hekouwang / Hekouwang Dark</span></pre>
+          </div>
+          <p class="mt-4 text-sm text-mute">Windows 用仓库内 <code class="font-mono-hkw">install-windows.ps1</code>。也可只拷 <code class="font-mono-hkw">theme/hekouwang*.css</code> 与 <code class="font-mono-hkw">theme/hekouwang/</code>。</p>
+        </div>
+
+        <div>
+          <h3 id="unlock" class="scroll-mt-28 text-lg font-semibold text-white">专业版 unlock</h3>
+          <ol class="timeline mt-6 space-y-0 pl-1">
+            <li class="relative flex gap-5 pb-10">
+              <span class="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-jade/30 bg-ink font-mono-hkw text-xs text-jade">01</span>
+              <div class="pt-1.5">
+                <div class="font-medium text-white">确认 zip</div>
+                <p class="mt-2 text-sm leading-relaxed text-mute">应有 unlock.sh、theme/（12 CSS）、LICENSE-PRO.txt。</p>
+              </div>
+            </li>
+            <li class="relative flex gap-5 pb-10">
+              <span class="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-jade/30 bg-ink font-mono-hkw text-xs text-jade">02</span>
+              <div class="pt-1.5">
+                <div class="font-medium text-white">执行 unlock</div>
+                <p class="mt-2 text-sm leading-relaxed text-mute">包内 <code class="font-mono-hkw text-mist/60">./unlock.sh</code>，或公开仓 <code class="font-mono-hkw text-mist/60">./scripts/unlock.sh 包.zip</code>。</p>
+              </div>
+            </li>
+            <li class="relative flex gap-5">
+              <span class="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-jade/30 bg-ink font-mono-hkw text-xs text-jade">03</span>
+              <div class="pt-1.5">
+                <div class="font-medium text-white">Cmd+Q 后选主题</div>
+                <p class="mt-2 text-sm leading-relaxed text-mute">菜单选 Hekouwang V1 / V2 Pro / V3–V6（或 Dark）。</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 购买 -->
+  <section id="buy" class="reveal relative overflow-hidden border-t border-white/[0.04]" data-reveal>
+    <div class="pointer-events-none absolute left-1/2 top-1/3 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-jade/[0.09] blur-[100px]"></div>
+    <div class="relative mx-auto max-w-site px-5 py-32 text-center md:px-8 md:py-44">
+      <p class="font-mono-hkw text-[11px] tracking-[0.28em] text-jade">BUY · SKILLPAY</p>
+      <h2 class="font-display mt-5 text-3xl text-white md:text-5xl">同一套指标，六套气质</h2>
+      <p class="mx-auto mt-6 max-w-lg text-[15px] leading-relaxed text-mist/65">
+        免费已经够写长文。买断是为了在技术文档、典藏随笔、财经复盘、玻璃轻文档、HUD 方案稿与焰彩手稿之间切换——不必重学排版。
+      </p>
+      <div class="mt-12">
+        <span class="font-display metric-num text-[clamp(4.5rem,14vw,8.5rem)] leading-none">¥9.9</span>
+        <div class="mt-2 text-sm text-jade">一次性买断 · 无订阅</div>
+      </div>
+      <div class="mt-12 flex flex-wrap items-center justify-center gap-3">
+        <a href="#skillpay-pending" class="cta-skillpay btn-mag btn-mag--solid inline-flex items-center rounded-full bg-white px-8 py-4 text-[15px] font-semibold text-ink transition duration-500 hover:bg-jade">前往 SkillPay 购买</a>
+        <a href="#install" class="inline-flex items-center rounded-full border border-white/12 px-7 py-4 text-[15px] text-mist/80 transition hover:border-white/25 hover:text-white">先装免费 V2</a>
+      </div>
+      <p id="skillpay-tip" class="mx-auto mt-6 hidden max-w-md rounded-2xl border border-warm/25 bg-warm/[0.08] px-4 py-3 text-left text-sm text-warm/95 outline-none" tabindex="-1">
+        SkillPay 购买通道即将开放。开放前如需专业版，请邮件联系
+        <a href="mailto:huiyonghkw@gmail.com" class="underline underline-offset-2">huiyonghkw@gmail.com</a>。
+      </p>
+      <p class="mx-auto mt-14 max-w-lg text-xs leading-relaxed text-mute/80">
+        七天无理由退款 · 免费 MIT · 专业版 LICENSE-PRO<br>
+        <a href="mailto:huiyonghkw@gmail.com" class="text-mist/60 transition hover:text-jade">huiyonghkw@gmail.com</a>
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-bar" aria-hidden="true"></div>
+  <div class="mx-auto max-w-site px-5 md:px-8">
+    <div class="site-footer-top">
+      <a href="#hero" class="site-footer-brand">
+        <img src="images/icon-typora.svg" width="30" height="30" alt="">
+        <div>
+          <b>会勇禾口王 · Typora 主题</b>
+          <span>长文阅读主题 · 指标优先于皮肤</span>
+        </div>
+      </a>
+      <div class="site-footer-col">
+        <span class="site-footer-k">TYPEFACE 字体</span>
+        <span>HKW Sans SC</span>
+      </div>
+      <div class="site-footer-col">
+        <span class="site-footer-k">UPDATED 更新</span>
+        <span>2026-11</span>
+      </div>
+    </div>
+    <div class="site-footer-bottom">
+      <span>© 2026 会勇禾口王</span>
+      <div class="site-footer-links">
+        <a href="https://skillpay.alipay.com/public/huiyonghkw" target="_blank" rel="noreferrer">AI 商店</a>
+        <a href="https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="live/">试读</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+# Anthropic 专有字体 —— 绝不入库、绝不分发
+theme/hekouwang/fonts-local/
+*.ttf
+!theme/hekouwang/fonts/*.ttf
+
+.DS_Store
+__pycache__/
+*.pyc
+
+# playwright-cli 浏览器调试产物（日志 / 页面快照）
+.playwright-cli/
+
+# 标准挂载：Pro / 作战地图 / 产物（均不进主仓 git）
+edition/
+roadmap/
+dist/
+archive/
+# 官网旧页归档在 docs/archive/，须进主仓 Pages
+!docs/archive/
+!docs/archive/**
+# 每个服务一个独立私有仓；父仓不跟踪（可保留 services/README.md）
+services/*/
+!services/README.md
+# 防误建同名目录（旧 public worktree 已废止，见 STRUCTURE.md）
+public/
+
+# 付费 CSS 生成物（源在 edition/；构建写入 theme/）
+theme/hekouwang-v1.css
+theme/hekouwang-v1-dark.css
+theme/hekouwang-v2-pro.css
+theme/hekouwang-v2-pro-dark.css
+theme/hekouwang-v3.css
+theme/hekouwang-v3-dark.css
+theme/hekouwang-v4.css
+theme/hekouwang-v4-dark.css
+theme/hekouwang-v5.css
+theme/hekouwang-v5-dark.css
+theme/hekouwang-v6.css
+theme/hekouwang-v6-dark.css
+
+*.zip
+hekouwang-typora-theme-pack-*.zip
+
+# 本机 Agent 发现目录（本仓不靠项目内 softlink）
+.claude/
+.cursor/

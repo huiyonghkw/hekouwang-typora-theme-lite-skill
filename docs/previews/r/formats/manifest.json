@@ -1,0 +1,18 @@
+[
+  {"id": "01", "file": "f01.webp", "label": "正文与中英混排"},
+  {"id": "02", "file": "f02.webp", "label": "引用"},
+  {"id": "03", "file": "f03.webp", "label": "列表"},
+  {"id": "04", "file": "f04.webp", "label": "代码"},
+  {"id": "05", "file": "f05.webp", "label": "表格"},
+  {"id": "06", "file": "f06.webp", "label": "数学公式"},
+  {"id": "07", "file": "f07.webp", "label": "Mermaid 图表"},
+  {"id": "08", "file": "f08.webp", "label": "Callout 提示块"},
+  {"id": "09", "file": "f09.webp", "label": "分隔线与其他"},
+  {"id": "10", "file": "f10.webp", "label": "定稿截图"},
+  {"id": "11", "file": "f11.webp", "label": "验收清单"},
+  {"id": "12", "file": "f12.webp", "label": "宽屏长文"},
+  {"id": "13", "file": "f13.webp", "label": "图片与长链接"},
+  {"id": "14", "file": "f14.webp", "label": "十二列表格"},
+  {"id": "15", "file": "f15.webp", "label": "超长单行代码"},
+  {"id": "16", "file": "f16.webp", "label": "模式与导出矩阵"}
+]
