@@ -82,7 +82,7 @@ def sub_fm(key, value, s):
     return re.sub(rf"(?m)^{key}: .+$", f"{key}: {value}", s, count=1)
 text = sub_fm("name", "hekouwang-typora-theme-skill", text)
 text = sub_fm("slug", "hekouwang-typora-theme-skill", text)
-text = sub_fm("displayName", "Typora 主题工程（专业版 · hekouwang）", text)
+text = sub_fm("displayName", "会勇禾口王 · Typora 主题工程", text)
 text = sub_fm("license", "Proprietary", text)
 text = sub_fm("version", ver, text)
 text = sub_fm(
@@ -232,3 +232,4 @@ PY
 ok "验包通过 → $OUT"
 printf "\n${g}SkillPay：上传此 zip（路径 dist/<version>/）；E1 前过渡可邮件交付同一文件${o}\n"
 printf "  大小：%s\n" "$(du -h "$OUT" | cut -f1 | tr -d ' ')"
+printf "  ${b}上传后必查：${o}商品名称改回「会勇禾口王 · Typora 主题工程」；描述清空后只贴 listing-skillpay.md（防叠加超 500 字）\n"
