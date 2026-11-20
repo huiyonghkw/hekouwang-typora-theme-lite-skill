@@ -107,12 +107,14 @@ text = re.sub(
 )
 text = text.replace("[`STRUCTURE.md`](STRUCTURE.md)", "仓库 STRUCTURE.md（公开仓）")
 text = text.replace("[LICENSE.txt](LICENSE.txt)", "`LICENSE`（MIT 部分）与 `LICENSE-PRO.txt`")
-text = re.sub(r"(?m)^\*\*主题产物（本仓 · 免费）\*\*.+$",
-              "**主题产物（本包）**：免费 V2 + 付费 V1/V2 Pro/V3–V6（见 `theme/`）",
-              text, count=1)
-text = re.sub(r"(?m)^\*\*付费六套\*\*.+$",
-              "**付费六套**：已在本包；`./unlock.sh` 或公开仓 `./scripts/unlock.sh 本zip`。",
-              text, count=1)
+text = text.replace(
+    "- **主题产物（本仓 · 免费）**：`theme/hekouwang.css` + `hekouwang-dark.css`（= V2 编辑）",
+    "- **主题产物（本包）**：免费 V2 + 付费 V1/V2 Pro/V3–V6（见 `theme/`）",
+)
+text = text.replace(
+    "- **付费六套**（V1/V2 Pro/V3–V6）：专业版 zip / 私有仓；`./scripts/unlock.sh 包.zip`。付费 V2 Pro ≠ 免费 V2。",
+    "- **付费六套**：已在本包；`./unlock.sh` 或公开仓 `./scripts/unlock.sh 本zip`。付费 V2 Pro ≠ 免费 V2。",
+)
 if not text.endswith("\n"):
     text += "\n"
 text = text.rstrip() + "\n\n" + paid
