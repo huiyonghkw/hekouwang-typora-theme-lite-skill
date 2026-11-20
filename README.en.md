@@ -23,7 +23,7 @@ Captured in Typora on macOS with the 2.0.1 CSS (re-shot on 2026-10-21). 2.0.2 on
 
 | Light | Dark |
 |---|---|
-| ![Free V2 light preview](docs/previews/v2-light.webp) | ![Free V2 dark preview](docs/previews/v2-dark.webp) |
+| ![Free V2 light preview](docs/previews/r/v2-light.webp) | ![Free V2 dark preview](docs/previews/r/v2-dark.webp) |
 
 ## Install
 
@@ -31,7 +31,7 @@ macOS:
 
 ```bash
 git clone https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill.git
-cd hekouwang-typora-theme-skill
+cd hekouwang-typora-theme-lite-skill
 ./scripts/install.sh
 ```
 
@@ -39,7 +39,7 @@ Windows PowerShell:
 
 ```powershell
 git clone https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill.git
-cd hekouwang-typora-theme-skill
+cd hekouwang-typora-theme-lite-skill
 .\scripts\install-windows.ps1
 ```
 
@@ -64,12 +64,12 @@ These are **Typora screenshots on macOS using the latest 2.0.1 CSS**. Open an im
 
 | Paid theme | Light | Dark |
 |---|---|---|
-| **V1 · Graphite & mint** | ![V1 light preview](docs/previews/v1-light.webp) | ![V1 dark preview](docs/previews/v1-dark.webp) |
-| **V2 Pro · Editorial** | ![V2 Pro light preview](docs/previews/v2-pro-light.webp) | ![V2 Pro dark preview](docs/previews/v2-pro-dark.webp) |
-| **V3 · Finance** | ![V3 light preview](docs/previews/v3-light.webp) | ![V3 dark preview](docs/previews/v3-dark.webp) |
-| **V4 · Glass** | ![V4 light preview](docs/previews/v4-light.webp) | ![V4 dark preview](docs/previews/v4-dark.webp) |
-| **V5 · HUD** | ![V5 light preview](docs/previews/v5-light.webp) | ![V5 dark preview](docs/previews/v5-dark.webp) |
-| **V6 · Ember** | ![V6 light preview](docs/previews/v6-light.webp) | ![V6 dark preview](docs/previews/v6-dark.webp) |
+| **V1 · Graphite & mint** | ![V1 light preview](docs/previews/r/v1-light.webp) | ![V1 dark preview](docs/previews/r/v1-dark.webp) |
+| **V2 Pro · Editorial** | ![V2 Pro light preview](docs/previews/r/v2-pro-light.webp) | ![V2 Pro dark preview](docs/previews/r/v2-pro-dark.webp) |
+| **V3 · Finance** | ![V3 light preview](docs/previews/r/v3-light.webp) | ![V3 dark preview](docs/previews/r/v3-dark.webp) |
+| **V4 · Glass** | ![V4 light preview](docs/previews/r/v4-light.webp) | ![V4 dark preview](docs/previews/r/v4-dark.webp) |
+| **V5 · HUD** | ![V5 light preview](docs/previews/r/v5-light.webp) | ![V5 dark preview](docs/previews/r/v5-dark.webp) |
+| **V6 · Ember** | ![V6 light preview](docs/previews/r/v6-light.webp) | ![V6 dark preview](docs/previews/r/v6-dark.webp) |
 
 See the [live site](https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/#buy) for the paid pack and the [2.0.2 upgrade guide](UPGRADE.md) for installation steps. The Chinese README is the canonical product page; see [README.zh.md](README.zh.md) for engineering detail.
 

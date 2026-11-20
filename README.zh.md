@@ -46,7 +46,7 @@ python3 scripts/verify_render.py --css theme/hekouwang.css --fonts "Hekouwang Sa
 
 | 浅色 | 深色 |
 |---|---|
-| ![免费 V2 浅色截图](docs/previews/v2-light.webp) | ![免费 V2 深色截图](docs/previews/v2-dark.webp) |
+| ![免费 V2 浅色截图](docs/previews/r/v2-light.webp) | ![免费 V2 深色截图](docs/previews/r/v2-dark.webp) |
 
 ---
 
@@ -60,12 +60,12 @@ python3 scripts/verify_render.py --css theme/hekouwang.css --fonts "Hekouwang Sa
 
 | 付费主题 | 浅色 | 深色 |
 |---|---|---|
-| **V1 石墨青绿**<br>冷蓝灰 / 薄荷青 / 紫色链接 | ![V1 石墨青绿浅色预览](docs/previews/v1-light.webp) | ![V1 石墨青绿深色预览](docs/previews/v1-dark.webp) |
-| **V2 Pro 典藏编辑**<br>胡桃墨 / 古铜 / 暖纸色 | ![V2 Pro 典藏编辑浅色预览](docs/previews/v2-pro-light.webp) | ![V2 Pro 典藏编辑深色预览](docs/previews/v2-pro-dark.webp) |
-| **V3 财经**<br>海军蓝 / 黄铜 / 表格秩序 | ![V3 财经浅色预览](docs/previews/v3-light.webp) | ![V3 财经深色预览](docs/previews/v3-dark.webp) |
-| **V4 玻璃**<br>冰蓝 / 雾面叠片 / 直角 | ![V4 玻璃浅色预览](docs/previews/v4-light.webp) | ![V4 玻璃深色预览](docs/previews/v4-dark.webp) |
-| **V5 HUD**<br>紫晶 / 冷靛紫 / 青色信号 | ![V5 HUD 浅色预览](docs/previews/v5-light.webp) | ![V5 HUD 深色预览](docs/previews/v5-dark.webp) |
-| **V6 焰彩**<br>李紫 / 珊瑚橙 / 粉色 | ![V6 焰彩浅色预览](docs/previews/v6-light.webp) | ![V6 焰彩深色预览](docs/previews/v6-dark.webp) |
+| **V1 石墨青绿**<br>冷蓝灰 / 薄荷青 / 紫色链接 | ![V1 石墨青绿浅色预览](docs/previews/r/v1-light.webp) | ![V1 石墨青绿深色预览](docs/previews/r/v1-dark.webp) |
+| **V2 Pro 典藏编辑**<br>胡桃墨 / 古铜 / 暖纸色 | ![V2 Pro 典藏编辑浅色预览](docs/previews/r/v2-pro-light.webp) | ![V2 Pro 典藏编辑深色预览](docs/previews/r/v2-pro-dark.webp) |
+| **V3 财经**<br>海军蓝 / 黄铜 / 表格秩序 | ![V3 财经浅色预览](docs/previews/r/v3-light.webp) | ![V3 财经深色预览](docs/previews/r/v3-dark.webp) |
+| **V4 玻璃**<br>冰蓝 / 雾面叠片 / 直角 | ![V4 玻璃浅色预览](docs/previews/r/v4-light.webp) | ![V4 玻璃深色预览](docs/previews/r/v4-dark.webp) |
+| **V5 HUD**<br>紫晶 / 冷靛紫 / 青色信号 | ![V5 HUD 浅色预览](docs/previews/r/v5-light.webp) | ![V5 HUD 深色预览](docs/previews/r/v5-dark.webp) |
+| **V6 焰彩**<br>李紫 / 珊瑚橙 / 粉色 | ![V6 焰彩浅色预览](docs/previews/r/v6-light.webp) | ![V6 焰彩深色预览](docs/previews/r/v6-dark.webp) |
 
 ---
 
@@ -146,7 +146,7 @@ Anthropic Sans 实测 **581 字符、CJK 汉字 0 个**（连中文标点都没�
 
 ```bash
 git clone https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill.git
-cd hekouwang-typora-theme-skill
+cd hekouwang-typora-theme-lite-skill
 ./scripts/install.sh
 ```
 
@@ -162,7 +162,7 @@ cd hekouwang-typora-theme-skill
 
 ```powershell
 git clone https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill.git
-cd hekouwang-typora-theme-skill
+cd hekouwang-typora-theme-lite-skill
 .\scripts\install-windows.ps1
 ```
 
