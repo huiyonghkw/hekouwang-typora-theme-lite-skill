@@ -7,6 +7,11 @@ theme/hekouwang/fonts-local/
 __pycache__/
 *.pyc
 
+# 密钥与本机环境（永不入库）
+.env
+.env.*
+!.env.example
+
 # playwright-cli 浏览器调试产物（日志 / 页面快照）
 .playwright-cli/
 

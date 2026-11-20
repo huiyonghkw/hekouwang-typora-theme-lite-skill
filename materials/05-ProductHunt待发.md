@@ -33,7 +33,7 @@ macOS-tested. Would love feedback on readability after a 2-hour writing session.
 ## Link
 
 ```
-https://github.com/huiyonghkw/hekouwang-typora-theme-skill
+https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill
 ```
 
-Secondary: https://huiyonghkw.github.io/hekouwang-typora-theme-skill/
+Secondary: https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/

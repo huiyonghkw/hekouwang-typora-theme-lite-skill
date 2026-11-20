@@ -41,7 +41,7 @@ Happy to answer Typora-specific quirks (theme reload, font probing, dark sidebar
 ## URL
 
 ```
-https://github.com/huiyonghkw/hekouwang-typora-theme-skill
+https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill
 ```
 
 ## 若被 flag

@@ -5,7 +5,7 @@
 > 迁移执行手册：`~/.user-agents/standards/hekouwang-skill-monetize-playbook.md`  
 > 本文件只写本仓特例与成熟度档位。渠道 × 版本见 [`RELEASE.md`](RELEASE.md)。  
 > 公开面策略：**A. Lite 引流**。版本同号：根 `VERSION` ↔ `edition/VERSION` ↔ `SKILL.md` / `_meta.json` / `edition/meta.paid.json`（`bump_version.py --check`）。  
-> 更新：2026-11-20（纠偏：与 terminal/writer 同构；废除旁路 lite 工作树）
+> 更新：2026-11-20（对齐 terminal/writer；废止 `plans/`；链接真源 = lite）
 
 ---
 
@@ -13,7 +13,8 @@
 
 | 档 | 本仓状态 |
 |---|---|
-| **现况** | **L3** + 付费化 **E0**：主仓 = Lite；Pro ∈ `edition/`；白名单 Pro **Skill** 包（`pack.sh`）；Lite ClawHub 包；bump；`dist/<version>/`；日常 **`git push origin`**；Pages = 公开仓 **`docs/`** |
+| **现况** | **L2+ / 冲 L3** + 付费化 **E0→E1**：主仓 = Lite；Pro ∈ `edition/`；白名单 Pro Skill 包；Lite ClawHub/SkillHub 包；bump；`dist/<version>/`；日常 `git push origin`；Pages = `docs/` |
+| **L3 未闭环** | SkillPay 商品深链未上架（E1）；`HKW_URL_SKILLPAY` 暂为商店货架 |
 
 ---
 
@@ -22,7 +23,7 @@
 | 版本 | 命名 | 交付 |
 |---|---|---|
 | 专业版 | `hekouwang-typora-theme-skill` | `dist/<version>/…-paid.zip` / SkillPay |
-| 免费版 | `hekouwang-typora-theme-lite-skill` | GitHub + Pages + ClawHub |
+| 免费版 | `hekouwang-typora-theme-lite-skill` | GitHub + Pages + ClawHub + SkillHub 社区 |
 
 根 `SKILL.md` = Lite（MIT）；`edition/SKILL.paid-section.md` = Pro 增补（`pack.sh` 拼接）。
 
@@ -39,9 +40,9 @@ hekouwang-typora-theme-skill/   # 本机开发家；origin = 公开 Lite
 ├── RELEASE.md · STRUCTURE.md · .clawhubignore
 ├── VERSION                     = edition/VERSION
 ├── edition/                    本地仓：Pro 增量（无公开远程）
-├── roadmap/                    本地仓：升级与作战地图
-├── services/README.md
-└── dist/<version>/             不版控；Lite zip + Pro paid zip
+├── roadmap/                    本地仓：升级与作战地图（含 evidence/ 发版回执）
+├── services/README.md          本期无按次服务（C1）
+└── dist/<version>/             不版控；仅 zip（Lite + Pro）
 ```
 
 ```text
@@ -50,7 +51,8 @@ hekouwang-typora-theme-skill/   # 本机开发家；origin = 公开 Lite
 ```
 
 **不再使用 `public/` worktree。**  
-**不另开本机旁路目录 `hekouwang-typora-theme-lite-skill/`。**
+**不另开本机旁路目录 `hekouwang-typora-theme-lite-skill/`。**  
+**禁止再建 `plans/`（已更名为 `roadmap/`）。**
 
 ---
 
@@ -72,8 +74,10 @@ hekouwang-typora-theme-skill/   # 本机开发家；origin = 公开 Lite
 | `python3 scripts/bump_version.py --check` | 双产物同号门 |
 | `python3 scripts/build.py --tier free\|paid` | 构建 CSS |
 | `./scripts/pack.sh` | Pro → `dist/<version>/…-skill-…-paid.zip` |
-| `./scripts/pack-skill-zip.sh` | Lite → `dist/<version>/…-lite-skill-….zip` |
+| `./scripts/pack-skill-zip.sh` | Lite → `dist/<version>/…-lite-skill-….zip`（含免费 V2 CSS；剔 SkillHub 拒收项） |
 | `./scripts/unlock.sh <zip>` | 装付费包；开发树可同步回 `edition/` |
+
+对外 URL 真源：`scripts/links.sh`（必须指向 `*-lite-skill` Pages）。
 
 ---
 
@@ -81,6 +85,7 @@ hekouwang-typora-theme-skill/   # 本机开发家；origin = 公开 Lite
 
 - 免费版与专业版同名  
 - 给 `edition/`、`roadmap/` 加公开远程  
-- 把「必选 `public/`」或「旁路 lite 工作树」写回本仓流程  
+- 把「必选 `public/`」或「旁路 lite 工作树」或根目录 `plans/` 写回本仓流程  
 - `materials/` / listing 进 Skill/ClawHub 包  
-- 把 Pro 源提交进 `origin`（公开 Lite）  
+- 把 Pro 源 / 付费 CSS 提交进 `origin`（公开 Lite）  
+- Lite 包内出现无扩展名 `LICENSE`/`VERSION`、`docs/fonts/` 字体二进制（SkillHub 400）  

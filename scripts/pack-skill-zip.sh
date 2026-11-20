@@ -59,9 +59,18 @@ for p in materials listing-skillpay.md edition roadmap plans services dist archi
   rm -rf "$DEST/$p"
 done
 
-# SkillHub：无扩展名顶层文件 / 字体二进制会 400（保留 LICENSE.txt）
+# 付费 CSS 不得进 Lite 包（本机可能已构建）
+rm -f "$DEST"/theme/hekouwang-v{1,3,4,5,6}.css \
+  "$DEST"/theme/hekouwang-v{1,3,4,5,6}-dark.css \
+  "$DEST"/theme/hekouwang-v2-pro.css \
+  "$DEST"/theme/hekouwang-v2-pro-dark.css
+rm -rf "$DEST/theme/hekouwang/fonts-local"
+
+# SkillHub：无扩展名顶层文件 / 任意字体二进制会 400（保留 LICENSE.txt；主题靠系统字体回退）
 rm -f "$DEST/LICENSE" "$DEST/VERSION"
 rm -rf "$DEST/docs/fonts"
+find "$DEST" \( -name '*.woff2' -o -name '*.woff' -o -name '*.otf' -o -name '*.ttf' \) -type f -delete
+# 空 fonts 目录可留 README/OFL；无二进制即可
 
 # 维护者工具不进 ClawHub / SkillHub 包
 for p in scripts/pack.sh scripts/pack-skill-zip.sh scripts/bump_version.py \
@@ -73,6 +82,9 @@ done
 [ -f "$DEST/SKILL.md" ] || { bad "包内缺 SKILL.md"; exit 1; }
 [ -f "$DEST/_meta.json" ] || { bad "包内缺 _meta.json"; exit 1; }
 [ -f "$DEST/LICENSE.txt" ] || { bad "包内缺 LICENSE.txt"; exit 1; }
+[ -f "$DEST/theme/hekouwang.css" ] || { bad "包内缺免费 V2 theme/hekouwang.css"; exit 1; }
+[ -f "$DEST/theme/hekouwang-dark.css" ] || { bad "包内缺 theme/hekouwang-dark.css"; exit 1; }
+[ ! -e "$DEST/theme/hekouwang-v1.css" ] || { bad "Lite 包不得含付费 CSS"; exit 1; }
 [ ! -e "$DEST/LICENSE" ] || { bad "包内不得含无扩展名 LICENSE（SkillHub 拒收）"; exit 1; }
 [ ! -e "$DEST/VERSION" ] || { bad "包内不得含无扩展名 VERSION（SkillHub 拒收）"; exit 1; }
 [ ! -e "$DEST/docs/fonts" ] || { bad "包内不得含 docs/fonts/（SkillHub 拒收字体）"; exit 1; }

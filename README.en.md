@@ -71,7 +71,7 @@ These are **Typora screenshots on macOS using the latest 2.0.1 CSS**. Open an im
 | **V5 · HUD** | ![V5 light preview](docs/previews/r/v5-light.webp) | ![V5 dark preview](docs/previews/r/v5-dark.webp) |
 | **V6 · Ember** | ![V6 light preview](docs/previews/r/v6-light.webp) | ![V6 dark preview](docs/previews/r/v6-dark.webp) |
 
-See the [live site](https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/#buy) for the paid pack and the [2.0.2 upgrade guide](UPGRADE.md) for installation steps. The Chinese README is the canonical product page; see [README.zh.md](README.zh.md) for engineering detail.
+Buy path: SkillPay on the [live site](https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/#buy) (¥9.9 one-time). Before the SkillPay listing opens, email `huiyonghkw@gmail.com` for the same paid zip. See [UPGRADE.md](UPGRADE.md) for install steps; [README.zh.md](README.zh.md) for engineering detail.
 
 ## License
 

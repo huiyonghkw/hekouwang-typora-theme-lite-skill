@@ -74,7 +74,7 @@ cd hekouwang-typora-theme-lite-skill
 | | 内容 | 授权 |
 |---|---|---|
 | **免费 V2** | `Hekouwang` / `Hekouwang Dark`（本仓） | MIT |
-| **专业版** | V1 / V2 Pro / V3–V6，各浅+深共 12 个 CSS | SkillPay 买断 ¥9.9 · 见 [`edition/LICENSE-PRO.txt`](edition/LICENSE-PRO.txt)（专业包内） |
+| **专业版** | V1 / V2 Pro / V3–V6，各浅+深共 12 个 CSS | SkillPay 买断 ¥9.9 · 许可见专业包内 `LICENSE-PRO.txt` |
 
 免费版是完整长文主题，不是功能阉割。专业版换的是六套独立色彩与标题工艺，阅读指标与免费版相同。菜单名：**Hekouwang V1**、**Hekouwang V1 Dark** 等。购买与解锁说明：[体验站 · 购买](https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/#buy)。
 

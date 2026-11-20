@@ -21,9 +21,27 @@ docs/live/
 docs/fonts/
 docs/*.html
 
-# 主题成品与 demo（clone 仓库用；ClawHub 瘦身包可另裁）
-theme/
+# demo 与验收样张不进安装包；免费 V2 CSS 必须进包（装主题可自给）
 demo/
+# 付费 CSS 即使本机已构建，也不得进 Lite 包
+theme/hekouwang-v1.css
+theme/hekouwang-v1-dark.css
+theme/hekouwang-v2-pro.css
+theme/hekouwang-v2-pro-dark.css
+theme/hekouwang-v3.css
+theme/hekouwang-v3-dark.css
+theme/hekouwang-v4.css
+theme/hekouwang-v4-dark.css
+theme/hekouwang-v5.css
+theme/hekouwang-v5-dark.css
+theme/hekouwang-v6.css
+theme/hekouwang-v6-dark.css
+theme/hekouwang/fonts-local/
+# SkillHub / 部分商店拒收字体二进制；CSS 仍进包，字形走系统回退
+*.woff2
+*.woff
+*.otf
+# 根 gitignore 已管 Anthropic ttf；此处再挡安装包
 
 # SkillHub 拒收无扩展名顶层文件（保留 LICENSE.txt；版本见 SKILL.md / _meta.json）
 /LICENSE

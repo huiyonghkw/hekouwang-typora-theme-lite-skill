@@ -29,7 +29,9 @@ if [ -f "$SCRIPT_DIR/links.sh" ]; then
 elif [ -f "$SCRIPT_DIR/scripts/links.sh" ]; then
   . "$SCRIPT_DIR/scripts/links.sh"
 else
-  HKW_URL_BUY="https://huiyonghkw.github.io/hekouwang-typora-theme-skill/#buy"
+  HKW_URL_BUY="https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/#buy"
+  HKW_URL_SITE="https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/"
+  HKW_URL_REPO="https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill"
 fi
 
 THEME_DIR="$HOME/Library/Application Support/abnerworks.Typora/themes"
@@ -202,5 +204,6 @@ echo "  Done. Quit Typora completely (Cmd+Q) and reopen."
 echo "  Themes menu · Pack："
 echo "    • Hekouwang V1 / V2 Pro / V3–V6  (+ Dark)"
 echo "  Free V2（若还没装）：clone 公开仓后 ./scripts/install.sh"
-echo "  图文安装手册：${HKW_URL_BUY%/\#buy}/#unlock"
-echo "  更新 / 答疑：微信 hekouwang · ${HKW_URL_BUY}"
+echo "  图文安装手册：${HKW_URL_SITE}#unlock"
+echo "  购买 / 更新：${HKW_URL_BUY}"
+echo "  售后邮件：huiyonghkw@gmail.com（微信仅人工答疑，非收银）"

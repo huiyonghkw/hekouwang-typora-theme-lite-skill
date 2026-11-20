@@ -156,7 +156,7 @@ cat > "$DEST/README.txt" <<EOF
 hekouwang Typora 主题工程 · 专业版 Skill
 版本 $PACK_VERSION · ¥9.9 买断口径
 
-本包是支付宝 SkillPay / 私发交付的专业版 Skill（hekouwang-typora-theme-skill）：
+本包是支付宝 SkillPay 交付的专业版 Skill（hekouwang-typora-theme-skill）：
 - Agent：读 SKILL.md；付费色板在 scripts/palettes.paid.json
 - Typora：跑 ./unlock.sh 安装 V1 / V2 Pro / V3–V6（各含 Dark，共 12 CSS）
 
@@ -230,5 +230,5 @@ if "name: hekouwang-typora-theme-lite-skill" in skill.split("---", 2)[1]:
 print(len(need), "required ok; no leaks; Pro SKILL name ok")
 PY
 ok "验包通过 → $OUT"
-printf "\n${g}SkillPay / 私发：上传或发送此 zip${o}\n"
+printf "\n${g}SkillPay：上传此 zip（路径 dist/<version>/）；E1 前过渡可邮件交付同一文件${o}\n"
 printf "  大小：%s\n" "$(du -h "$OUT" | cut -f1 | tr -d ' ')"

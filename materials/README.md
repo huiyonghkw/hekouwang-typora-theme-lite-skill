@@ -5,10 +5,10 @@
 
 # hekouwang-typora-theme-skill · 工具首发包
 
-- **体验站：** https://huiyonghkw.github.io/hekouwang-typora-theme-skill/
-- **仓库：** https://github.com/huiyonghkw/hekouwang-typora-theme-skill
+- **体验站：** https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/
+- **仓库：** https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill
 - **免费档：** Hekouwang / Hekouwang Dark（V2 编辑 · MIT）
-- **付费档：** V1 / V3–V6 共六套皮肤（¥9.9 · zip 私发）
+- **付费档：** V1 / V2 Pro / V3–V6 共六套皮肤（¥9.9 买断 · SkillPay；E1 前邮件交付同一 paid zip）
 
 ## 首发顺序（建议）
 
@@ -27,10 +27,10 @@
 
 | 用途 | URL |
 |---|---|
-| 中文验收样张 | `https://raw.githubusercontent.com/huiyonghkw/hekouwang-typora-theme-skill/main/docs/screenshot-zh.png` |
-| 整窗侧栏 | `https://raw.githubusercontent.com/huiyonghkw/hekouwang-typora-theme-skill/main/docs/screenshot-window.png` |
-| 连续代码块 | `https://raw.githubusercontent.com/huiyonghkw/hekouwang-typora-theme-skill/main/docs/screenshot-fences-zh.png` |
-| V1 科技 | `https://raw.githubusercontent.com/huiyonghkw/hekouwang-typora-theme-skill/main/docs/V1.png` |
+| 中文验收样张 | `https://raw.githubusercontent.com/huiyonghkw/hekouwang-typora-theme-lite-skill/main/docs/screenshot-zh.png` |
+| 整窗侧栏 | `https://raw.githubusercontent.com/huiyonghkw/hekouwang-typora-theme-lite-skill/main/docs/screenshot-window.png` |
+| 连续代码块 | `https://raw.githubusercontent.com/huiyonghkw/hekouwang-typora-theme-lite-skill/main/docs/screenshot-fences-zh.png` |
+| V1 科技 | `https://raw.githubusercontent.com/huiyonghkw/hekouwang-typora-theme-lite-skill/main/docs/V1.png` |
 
 知乎 / 掘金：**必须下载 PNG 本地上传**，外链会裂。
 

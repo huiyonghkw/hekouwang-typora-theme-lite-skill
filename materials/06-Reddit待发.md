@@ -12,7 +12,7 @@ I made a Typora theme for long Chinese writing sessions (fixed 1rem / 1.65 / 52e
 
 **Body:**
 ```
-GitHub: https://github.com/huiyonghkw/hekouwang-typora-theme-skill
+GitHub: https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill
 
 I write long Markdown in Chinese daily. Most themes feel like chat bubbles once paragraphs get dense — tight leading, random measure.
 

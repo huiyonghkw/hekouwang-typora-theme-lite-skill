@@ -16,11 +16,9 @@
 | 档 | 主题菜单 | 说明 |
 |---|---|---|
 | **免费 · MIT** | **Hekouwang** / **Hekouwang Dark** | = skill **V2 编辑**（纯白纸面、暖灰外框、墨色标题、墨绿点缀、直角纸卡；深色墨玉黑）。Gallery 入口也是这一档。公开仓只发这一档。 |
-| **付费包 · ¥9.9** | **Hekouwang V1 / V2 Pro / V3–V6**（各含 Dark） | 石墨青绿 / 典藏编辑 / 海军蓝财经 / 冰蓝玻璃 / 紫晶电青 HUD / 李紫焰彩，六套浅深共 12 个 CSS；**色板与工艺不进公开仓**，只随 zip 私发 |
+| **付费包 · ¥9.9** | **Hekouwang V1 / V2 Pro / V3–V6**（各含 Dark） | 石墨青绿 / 典藏编辑 / 海军蓝财经 / 冰蓝玻璃 / 紫晶电青 HUD / 李紫焰彩，六套浅深共 12 个 CSS；**色板与工艺不进公开仓**，随 SkillPay / 专业版 zip 交付 |
 
-**怎么买：** 落地页购买区（微信/支付宝 · 微信 `hekouwang`，备注「Typora主题」）→ 我私发 zip → 按落地页 [装付费包](https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/#unlock) 一键装进 Typora。
-
-→ [huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/#buy](https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/#buy)
+**怎么买：** 主 CTA 为支付宝 SkillPay（见体验站 [购买区](https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/#buy)）。通道开放前如需专业版，邮件 `huiyonghkw@gmail.com` 交付同一 `*-paid.zip`。装包见 [unlock](https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/#unlock)。微信仅人工答疑，不作为收银。
 
 免费色板在 `scripts/palettes.json`；付费色板不进公开仓。阅读指标在 `scripts/tokens.json`。公开仓重建：`python3 scripts/build.py`（默认只出免费档）。
 
@@ -34,7 +32,7 @@ python3 scripts/verify_export_pdf.py        # A4/A5 长代码、长表和页边�
 python3 scripts/verify_render.py --css theme/hekouwang.css --fonts "Hekouwang Sans,Hekouwang Sans Fb" --vars bg-color,text-color
 ```
 
-联系付费包：**微信 hekouwang**（备注「Typora主题」）· GitHub **@huiyonghkw**
+联系：邮件 **huiyonghkw@gmail.com** · GitHub **@huiyonghkw** · 购买页见上
 
 ---
 
@@ -187,7 +185,7 @@ cd hekouwang-typora-theme-lite-skill
 # 或解压后在包内：./unlock.sh
 ```
 
-（我这边打包装：`./scripts/pack.sh` → 桌面 zip，微信私发。）
+（打包装：`./scripts/pack.sh` → `dist/<version>/*-paid.zip`，SkillPay 上传或 E1 前邮件交付。）
 
 ## 定制
 

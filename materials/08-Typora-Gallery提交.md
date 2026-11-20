@@ -22,7 +22,7 @@ Reading-first Typora theme for long Chinese sessions. Fixed metrics: 1rem body, 
 
 **Author:** huiyonghkw
 
-**Repo:** https://github.com/huiyonghkw/hekouwang-typora-theme-skill
+**Repo:** https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill
 
 **Screenshot:** use `docs/screenshot-window.png` (shows full window)
 
