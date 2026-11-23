@@ -18,9 +18,12 @@ __pycache__/
 # 标准挂载：Pro / 作战地图 / 产物（均不进主仓 git）
 edition/
 roadmap/
-plans/  # 已废止，真源用 roadmap/；误建即忽略
+# 已废止，真源用 roadmap/；误建即忽略
+plans/
 dist/
 archive/
+# 运营物料：本地挂载，不入库（货架文案 / 截图 / 收款码 / 买家指南）
+materials/
 # 官网旧页归档在 docs/archive/，须进主仓 Pages
 !docs/archive/
 !docs/archive/**
@@ -47,6 +50,7 @@ theme/hekouwang-v6-dark.css
 *.zip
 hekouwang-typora-theme-pack-*.zip
 
-# 本机 Agent 发现目录（本仓不靠项目内 softlink）
+# 本机 Agent / 浏览器工作目录（本仓不靠项目内 softlink）
 .claude/
 .cursor/
+.gstack/
