@@ -37,7 +37,8 @@ hekouwang-typora-theme-skill/   # 本机开发家；origin = 公开 Lite
 ├── SKILL.md · _meta.json       Lite（name: *-lite-skill）
 ├── scripts/ · references/ · theme/ · demo/
 ├── docs/                       GitHub Pages（含付费档预览图，引流用，非 Pro 源码）
-├── materials/ · listing-skillpay.md
+├── listing-skillpay.md         货架文案（入库）
+├── materials/                  本地运营物料（不入库，见 .gitignore）
 ├── RELEASE.md · STRUCTURE.md · .clawhubignore
 ├── VERSION                     = edition/VERSION
 ├── edition/                    本地仓：Pro 增量（无公开远程）
@@ -88,5 +89,6 @@ hekouwang-typora-theme-skill/   # 本机开发家；origin = 公开 Lite
 - 给 `edition/`、`roadmap/` 加公开远程  
 - 把「必选 `public/`」或「旁路 lite 工作树」或根目录 `plans/` 写回本仓流程  
 - `materials/` / listing 进 Skill/ClawHub 包  
+- `materials/` 提交进主仓 git（本机挂载，见 `.gitignore`）  
 - 把 Pro 源 / 付费 CSS 提交进 `origin`（公开 Lite）  
 - Lite 包内出现无扩展名 `LICENSE`/`VERSION`、`docs/fonts/` 字体二进制（SkillHub 400）  

@@ -133,5 +133,5 @@ scripts/verify_layout.py / verify_export_pdf.py / verify_render.py
 theme/                   成品 CSS 与随包字体（Inter, OFL）
 demo/                    验收样张
 docs/                    GitHub Pages
-materials/               货架 / 首发物料（不进安装包）
+materials/               本机运营物料（不入库、不进安装包）
 ```

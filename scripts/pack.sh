@@ -157,7 +157,7 @@ text = text.replace(
 )
 text = text.replace(
     "docs/                    GitHub Pages\n"
-    "materials/               货架 / 首发物料（不进安装包）\n",
+    "materials/               本机运营物料（不入库、不进安装包）\n",
     "",
 )
 if not text.endswith("\n"):

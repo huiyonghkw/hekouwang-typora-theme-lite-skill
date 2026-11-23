@@ -34,11 +34,11 @@
 
 ### 材料 2 · 图片（优先 · 官网首屏）
 
-`materials/skillpay/02-site-hero-2880x2000.jpg`
+`materials/skillpay/02-site-hero-2880x2000.jpg`（本机物料，不入库）
 
 体验站首屏截图（2880×2000，约 259 KB）：标题、买断价、真机预览入口。来源：`https://huiyonghkw.github.io/hekouwang-typora-theme-lite-skill/`
 
-备选（主题四格对比）：`materials/skillpay/01-themes-2880x2000.png`（约 911 KB）。只能占一个图片位，优先官网首屏。
+备选（主题四格对比）：`materials/skillpay/01-themes-2880x2000.png`（本机物料，不入库；约 911 KB）。只能占一个图片位，优先官网首屏。
 
 ### 材料 3 · 文字（224 字）
 
