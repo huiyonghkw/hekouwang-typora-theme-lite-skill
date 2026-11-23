@@ -61,8 +61,8 @@ scripts/sync_preview.py
 .github/
 .claude/
 .cursor/
+.gstack/
 .gitignore
-STRUCTURE.md
 RELEASE.md
 AGENTS.md
 UPGRADE.md
@@ -72,3 +72,7 @@ CHANGELOG.md
 skill-card.md
 .env
 *.zip
+# STRUCTURE.md 进包（SKILL 有链接）；站点运行时非必需
+docs/site.css
+docs/site.js
+docs/archive/

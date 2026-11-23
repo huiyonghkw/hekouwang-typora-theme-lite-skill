@@ -44,6 +44,9 @@ done < "$IGNORE"
 
 rsync -a \
   --exclude='.git/' \
+  --exclude='.gstack/' \
+  --exclude='.cursor/' \
+  --exclude='.claude/' \
   --exclude='dist/' \
   --exclude='edition/' \
   --exclude='roadmap/' \
@@ -53,11 +56,14 @@ rsync -a \
   "${RSYNC_EXCLUDES[@]}" \
   "$ROOT/" "$DEST/"
 
-# 强制再剔（与标准铁律对账）
+# 强制再剔（与标准铁律对账；STRUCTURE.md 保留——SKILL 有链）
 for p in materials listing-skillpay.md edition roadmap plans services dist archive \
-  STRUCTURE.md RELEASE.md .clawhubignore .gitignore .github; do
+  RELEASE.md .clawhubignore .gitignore .github .gstack .cursor .claude; do
   rm -rf "$DEST/$p"
 done
+# 站点非运行时
+rm -f "$DEST/docs/site.css" "$DEST/docs/site.js"
+rm -rf "$DEST/docs/archive"
 
 # 付费 CSS 不得进 Lite 包（本机可能已构建）
 rm -f "$DEST"/theme/hekouwang-v{1,3,4,5,6}.css \
@@ -105,12 +111,23 @@ python3 - "$OUT" "$TOP" <<'PY'
 import sys, zipfile
 out, top = sys.argv[1], sys.argv[2]
 need = [f"{top}/SKILL.md", f"{top}/_meta.json", f"{top}/references/tokens.md"]
-forbid_substr = ("/materials/", "/edition/", "/listing-skillpay.md", "/roadmap/", "/plans/", "/docs/fonts/")
+forbid_substr = (
+    "/materials/",
+    "/edition/",
+    "/listing-skillpay.md",
+    "/roadmap/",
+    "/plans/",
+    "/docs/fonts/",
+    "/.gstack/",
+    "/.cursor/",
+    "/.claude/",
+)
 z = zipfile.ZipFile(out)
 if z.testzip():
     print("CORRUPT:", z.testzip())
     sys.exit(1)
 names = z.namelist()
+need.append(f"{top}/STRUCTURE.md")
 missing = [n for n in need if n not in names]
 if missing:
     print("MISSING:", *missing, sep="\n  ")
@@ -118,17 +135,27 @@ if missing:
 leaked = [n for n in names if any(s in n for s in forbid_substr)]
 # SkillHub 拒收：顶层无扩展名 LICENSE/VERSION；任意字体二进制
 bad_ext = []
+oversized = []
 for n in names:
     if n.endswith("/"):
         continue
+    info = z.getinfo(n)
+    if info.file_size > 1_000_000:
+        oversized.append(f"{n} ({info.file_size})")
     rel = n[len(top) + 1 :] if n.startswith(top + "/") else n
     base = rel.split("/")[-1]
     if rel in ("LICENSE", "VERSION") or base.endswith((".woff2", ".woff", ".otf", ".ttf")):
         bad_ext.append(n)
-if leaked or bad_ext:
-    print("LEAKED / SkillHub-reject:")
-    for n in (leaked + bad_ext)[:30]:
+if leaked or bad_ext or oversized:
+    print("LEAKED / SkillHub-reject / oversized:")
+    for n in (leaked + bad_ext + oversized)[:40]:
         print(" ", n)
+    sys.exit(1)
+if sum(1 for n in names if not n.endswith("/")) > 80:
+    print("WARN: file count high:", sum(1 for n in names if not n.endswith("/")))
+total = sum(z.getinfo(n).file_size for n in names if not n.endswith("/"))
+if total > 50 * 1024 * 1024:
+    print("PACKAGE TOO LARGE:", total)
     sys.exit(1)
 lic_txt = f"{top}/LICENSE.txt"
 if lic_txt not in names:
