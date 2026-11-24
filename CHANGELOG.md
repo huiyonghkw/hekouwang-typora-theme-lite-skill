@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- **fix · 宽屏表格：** 取消 1–3 列小表的 `48rem` 硬顶；改为按内容变宽、最多到阅读列，避免长单元格被挤成一字一行。首列统一 `min-width: 4.5rem`。`verify_layout` 增加 dense 两列表回归。
+
 ## 2.0.3 — 2026-11-20
 
 - 付费化 E0→**E1**：`pack.sh` 产出 SkillPay 专业版 Skill 白名单包；`listing-skillpay.md` 对齐买断 ¥9.9。

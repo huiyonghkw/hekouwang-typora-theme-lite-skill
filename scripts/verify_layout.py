@@ -96,6 +96,9 @@ PROBE_JS = """
     sevenTable:box('seven-table'), tierFigure:box('tier-figure'), directFourTable:box('direct-four-table'),
     denseFigure:box('dense-figure'),
     denseTable:box('dense-table'), mixed:box('mixed'),
+    denseTwoFigure:box('dense-two-figure'),
+    denseTwoTable:box('dense-two-table'),
+    denseTwoFirst:box('dense-two-first'),
     denseFourFigure:box('dense-four-figure'),
     denseFourTable:box('dense-four-table'),
     denseFourCell:box('dense-four-cell'),
@@ -138,6 +141,12 @@ def fixture(css: Path, extra_css: str = "") -> str:
 <tbody><tr>{wide_row}</tr></tbody></table></figure>
 <figure id="sparse-figure"><table id="sparse-table"><thead><tr><th>项目</th><th>状态</th></tr></thead>
 <tbody><tr><td>A</td><td>完成</td></tr></tbody></table></figure>
+<figure class="md-table-fig table-figure" id="dense-two-figure"><table class="md-table" id="dense-two-table">
+<thead><tr><th>问题</th><th>结论</th></tr></thead>
+<tbody><tr>
+<td id="dense-two-first">能不能接入</td>
+<td>能。能。按「先本地联调 → 再切预发 → 最后生产」推进；网约车监管平台上报链路、鉴权与回执核对都已具备，长结论文本在宽屏下应尽量单行展开而不是被硬顶挤成竖条。</td>
+</tr></tbody></table></figure>
 <figure class="md-table-fig table-figure" id="four-figure"><table class="md-table" id="four-table">{short_table(4)}</table></figure>
 <figure class="md-table-fig table-figure" id="six-figure"><table class="md-table" id="six-table">{short_table(6)}</table></figure>
 <figure class="md-table-fig table-figure" id="tier-figure"><table class="md-table" id="tier-table">
@@ -321,9 +330,21 @@ def validate(data: dict, css_name: str, requested_width: int,
     need(data["sourceLines"]["width"] <= data["prose"]["width"] + data["rootSize"] * 7 + 3,
          f"source mode is too wide ({data['sourceLines']['width']:.0f}px)")
     if requested_width >= 1440:
-        need(data["sparseTable"]["width"] <= data["rootSize"] * 48 + 2,
-             f"small table exceeded the 48rem cap "
-             f"({data['sparseTable']['width']:.0f}px)")
+        # 短内容的 1–3 列表按内容收缩，不应被拉满阅读列。
+        need(data["sparseTable"]["width"] <= data["prose"]["width"] * 0.55 + 2,
+             f"short two-column table should stay compact "
+             f"({data['sparseTable']['width']:.0f}/{data['prose']['width']:.0f}px)")
+        need(data["denseTwoTable"]["width"] <= data["prose"]["width"] + 3,
+             f"dense two-column table exceeds the reading column "
+             f"({data['denseTwoTable']['width']:.0f}/{data['prose']['width']:.0f}px)")
+        need(data["denseTwoFirst"]["width"] >= data["rootSize"] * 4.4,
+             f"dense two-column first cell was squeezed into a vertical strip "
+             f"({data['denseTwoFirst']['width']:.0f}px)")
+        # 阅读列本身宽于 48rem 时，长两列表必须能越过旧硬顶。
+        if max_reading_rem > 48:
+            need(data["denseTwoTable"]["width"] > data["rootSize"] * 48 + 2,
+                 f"dense two-column table stayed under the old 48rem cap "
+                 f"({data['denseTwoTable']['width']:.0f}px)")
     if requested_width == 2048:
         need(data["prose"]["width"] >= data["rootSize"] * 64,
              f"prose does not use the wide desktop ({data['prose']['width']:.0f}px)")

@@ -679,11 +679,17 @@ body:not(.pin-outline) #write {
   margin-left: auto;
   margin-right: auto;
 }
-/* 一至三列的小表不拉满宽栏：48rem 左对齐正文，避免三列各占 500px。 */
+/* 一至三列：按内容变宽，最多到阅读列。短表保持紧凑；长单元格不再被
+   48rem 硬顶挤成一字一行（宽屏两侧大片空白却仍强行换行）。 */
 #write > figure:has(> table):not(:has(> table tr > :nth-child(4))) {
-  max-width: min(100%, var(--hk-reading-measure), 48rem);
+  width: fit-content;
+  max-width: min(100%, var(--hk-reading-measure));
   margin-left: max(0px, calc((100% - var(--hk-reading-measure)) / 2));
   margin-right: auto;
+}
+#write > figure:has(> table):not(:has(> table tr > :nth-child(4))) > table {
+  width: max-content;
+  max-width: 100%;
 }
 /* 单元格至少留出可读宽度。窄窗中由 Typora 的 figure 自身滚动，
    避免长中文、代码和 URL 被挤成一两个字一行。 */
@@ -711,8 +717,8 @@ body:not(.pin-outline) #write {
   margin-right: auto;
 }
 #write > table:not(:has(tr > :nth-child(4))) {
-  width: min(100%, var(--hk-reading-measure), 48rem);
-  max-width: min(100%, var(--hk-reading-measure), 48rem);
+  width: max-content;
+  max-width: min(100%, var(--hk-reading-measure));
   margin-left: max(0px, calc((100% - var(--hk-reading-measure)) / 2));
   margin-right: auto;
 }
@@ -725,8 +731,8 @@ body:not(.pin-outline) #write {
 #write table td:first-child {
   overflow-wrap: break-word;
 }
-/* 多列表格的首列给一个下限，避免「编号」被挤成两行 */
-#write table:has(tr > :nth-child(4)) :is(th, td):first-child {
+/* 首列下限：避免「问题」「编号」被挤成竖排一字；多列表同样生效。 */
+#write table :is(th, td):first-child {
   min-width: 4.5rem;
 }
 #write table th {
