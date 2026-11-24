@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-2.0.3-06a88c" alt="version 2.0.3">
+  <img src="https://img.shields.io/badge/version-2.0.4-06a88c" alt="version 2.0.4">
   <img src="https://img.shields.io/badge/license-MIT-00d4aa" alt="MIT">
   <img src="https://img.shields.io/badge/Typora-macOS%20%7C%20Windows-6a45e0" alt="Typora macOS Windows">
 </p>
