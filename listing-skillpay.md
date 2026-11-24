@@ -4,7 +4,8 @@
 > **本期不做** SkillHub 按次。  
 > 改版本前先改本文件，再改平台，再上传包。不进安装包。  
 > 平台商品描述上限 **500 字**（去换行计）；上传包常把 `SKILL.md` 的 description **叠加上去**导致超长——上传后必须清空再粘贴。  
-> **商品页：** https://skillpay.alipay.com/shelf/product?productId=P0806000213890180&merchantCode=huiyonghkw
+> **商品页：** https://skillpay.alipay.com/shelf/product?productId=P0806000213890180&merchantCode=huiyonghkw  
+> **在售包版本：** 2.0.4（2026-11-24 审核通过并发布）
 
 ## 商品名称
 
@@ -52,6 +53,14 @@
 安装：SkillPay 履约拿到 paid zip 后按包内 SKILL.md / unlock.sh 装进 Typora 主题目录，完全退出并重开后选 Hekouwang V1…V6。免费 V2 可先 clone 公开仓 hekouwang-typora-theme-lite-skill 跑 ./scripts/install.sh。售卖为 ¥9.9 一次性买断，试用 0 次；个人使用禁止二次分发，权益以 SkillPay 履约为准。不含后端、密钥或本地许可证校验。不适合只想要一张静态配色、或不写中文长文的人。
 ```
 
+## 版本更新日志（上限 200 字 · 上传新包时粘贴）
+
+当前在售：**2.0.4**（113 字）
+
+```text
+【2.0.4 · 2026-11-24】修宽屏 1–3 列表 48rem 硬顶：按内容扩到阅读列，触顶可横滚，首列不再挤成一字。本机有付费 CSS 时 install 可顺带装 V1–V6。装完请完全退出 Typora 再开。
+```
+
 ## 售卖设定
 
 | 项 | 值 |
@@ -68,5 +77,6 @@
 2. 本文件 ↔ 平台名称/描述/价一致  
 3. `./scripts/pack.sh` → `dist/<version>/*-paid.zip`  
 4. 上传后立刻：名称改回「会勇禾口王 · Typora 主题工程」；描述清空后只贴本文件正文  
-5. 补充材料：按上序粘贴 3 段文字 + 上传 `02-site-hero-*.jpg` → 提交审核  
-6. 核对在售文件名含版本号与价格  
+5. 版本更新日志：粘贴本文件「版本更新日志」段（≤200 字）  
+6. 补充材料：按上序粘贴 3 段文字 + 上传 `02-site-hero-*.jpg` → 提交审核  
+7. 核对在售文件名含版本号与价格  

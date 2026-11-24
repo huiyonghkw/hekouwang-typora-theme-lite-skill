@@ -4,7 +4,7 @@
 > 本仓特例：[`STRUCTURE.md`](STRUCTURE.md) · 技术方案：`roadmap/产品技术方案-typora-theme-2.1.md`  
 > 公开面 = **策略 A**。拍板 **A1+B1+C1**（SkillPay 买断 ¥9.9；无按次）。  
 > 双产物：`python3 scripts/bump_version.py --check`  
-> 更新：2026-11-20（**E1 过门**：SkillPay 商品已过审上架）
+> 更新：2026-11-24（**2.0.4**：SkillPay 在售包已审过发布；Lite 已发 ClawHub / SkillHub）
 
 ## 一、产品
 
@@ -19,9 +19,9 @@
 | 渠道 | 产品 | 包 / 源 | 价格 / 说明 | 线上状态 |
 |---|---|---|---|---|
 | GitHub / Pages | 免费版 | `origin` → `*-lite-skill`；Pages = **`docs/`** | MIT | 已上线 |
-| ClawHub | 免费版 | `./scripts/pack-skill-zip.sh` → `dist/<v>/…-lite-skill-….zip` | 免费 | 随发版上传 |
-| 腾讯 SkillHub（社区） | 免费版 | 同上 Lite zip | 免费 | **2.0.3 已发** `@indiv-huiyonghkw/…-lite-skill` |
-| 支付宝 SkillPay | 专业版 | `listing-skillpay.md` → `./scripts/pack.sh` → `dist/<v>/…-paid.zip` | **¥9.9 买断** | **已过审上架** |
+| ClawHub | 免费版 | `./scripts/pack-skill-zip.sh` → `dist/<v>/…-lite-skill-….zip` | 免费 | **2.0.4 已发** |
+| 腾讯 SkillHub（社区） | 免费版 | 同上 Lite zip | 免费 | **2.0.4 已发** `@indiv-huiyonghkw/…-lite-skill` |
+| 支付宝 SkillPay | 专业版 | `listing-skillpay.md` → `./scripts/pack.sh` → `dist/<v>/…-paid.zip` | **¥9.9 买断** | **2.0.4 已审过发布** |
 | SkillHub 按次 | — | — | — | **不做**（C1） |
 
 SkillPay 商品深链（真源亦见 `scripts/links.sh` → `HKW_URL_SKILLPAY`）：  
