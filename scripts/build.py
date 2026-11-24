@@ -805,14 +805,15 @@ body:not(.pin-outline) #write {
   border-collapse: collapse;
   border: 1px solid var(--hk-hairline);
 }
-/* 十列起的宽数据表：内容放得下时与阅读列对齐，放不下才向技术画布展开，
-   再宽则在自身滚动容器中滚动。 */
+/* ≥ table_wide_min_cols 列的宽数据表：内容放得下时与阅读列对齐，
+   放不下才向技术画布展开，再宽则在自身滚动容器中滚动。
+   nth 由 tokens layout.table_* 注入（默认 compact≤3 → nth 4；wide≥10 → nth 10）。 */
 @media screen {
-  #write figure > table:has(tr > :nth-child(10)) {
+  #write figure > table:has(tr > :nth-child(${layout_table_wide_nth})) {
     min-width: max-content;
     max-width: none;
   }
-  #write > figure:has(> table tr > :nth-child(10)) {
+  #write > figure:has(> table tr > :nth-child(${layout_table_wide_nth})) {
     box-sizing: border-box;
     width: fit-content;
     min-width: min(100%, var(--hk-reading-measure));
@@ -821,56 +822,54 @@ body:not(.pin-outline) #write {
     margin-right: auto;
   }
   /* 多列表多为短数值，收窄单元格左右留白，免得只因留白就横向滚动。 */
-  #write table:has(tr > :nth-child(10)) :is(th, td) {
+  #write table:has(tr > :nth-child(${layout_table_wide_nth})) :is(th, td) {
     padding-left: 0.55rem;
     padding-right: 0.55rem;
   }
 }
-/* 常规六列及以下表格填满响应式阅读列。 */
-#write > figure:has(> table):not(:has(> table tr > :nth-child(10))) {
+/* compact+1 .. wide-1 列：填满响应式阅读列。 */
+#write > figure:has(> table):not(:has(> table tr > :nth-child(${layout_table_wide_nth}))) {
   box-sizing: border-box;
   max-width: min(100%, var(--hk-reading-measure));
   margin-left: auto;
   margin-right: auto;
 }
-/* 一至三列：按内容变宽，最多到阅读列。短表保持紧凑；长单元格不再被
-   48rem 硬顶挤成一字一行（宽屏两侧大片空白却仍强行换行）。 */
-#write > figure:has(> table):not(:has(> table tr > :nth-child(4))) {
+/* 1..compact 列：按内容变宽；触顶阅读列后 figure 横向滚动，避免挤成一字一行。
+   紧凑表开 overflow 会挡列拖拽把手——此类表很少拖列，可读性优先。 */
+#write > figure:has(> table):not(:has(> table tr > :nth-child(${layout_table_compact_nth}))) {
   width: fit-content;
   max-width: min(100%, var(--hk-reading-measure));
   margin-left: max(0px, calc((100% - var(--hk-reading-measure)) / 2));
   margin-right: auto;
+  overflow-x: auto;
 }
-#write > figure:has(> table):not(:has(> table tr > :nth-child(4))) > table {
+#write > figure:has(> table):not(:has(> table tr > :nth-child(${layout_table_compact_nth}))) > table {
   width: max-content;
-  max-width: 100%;
+  max-width: none;
 }
-/* 单元格至少留出可读宽度。窄窗中由 Typora 的 figure 自身滚动，
-   避免长中文、代码和 URL 被挤成一两个字一行。 */
-/* 只有窄窗才给表格 figure 加滚动；桌面上的 overflow 会裁掉 Typora
-   的列拖拽 overlay，列边界就不出现 ew-resize 把手。 */
+/* 窄窗：中列表也给单元格下限 + 局部滚动（桌面中列表仍靠折行，保留列拖拽）。 */
 @media screen and (max-width: 1100px) {
-  body:not(.typora-export) #write > figure:has(> table):not(:has(> table tr > :nth-child(10))) {
+  body:not(.typora-export) #write > figure:has(> table):not(:has(> table tr > :nth-child(${layout_table_wide_nth}))) {
     overflow-x: auto;
   }
-  body:not(.typora-export) #write > figure:has(> table):not(:has(> table tr > :nth-child(10))) > table {
+  body:not(.typora-export) #write > figure:has(> table):not(:has(> table tr > :nth-child(${layout_table_wide_nth}))) > table {
     max-width: none;
   }
-  body:not(.typora-export) #write > figure:has(> table):not(:has(> table tr > :nth-child(10))) > table th,
-  body:not(.typora-export) #write > figure:has(> table):not(:has(> table tr > :nth-child(10))) > table td {
+  body:not(.typora-export) #write > figure:has(> table):not(:has(> table tr > :nth-child(${layout_table_wide_nth}))) > table th,
+  body:not(.typora-export) #write > figure:has(> table):not(:has(> table tr > :nth-child(${layout_table_wide_nth}))) > table td {
     min-width: 7rem;
   }
-  body:not(.typora-export) #write > figure:has(> table):not(:has(> table tr > :nth-child(10))) > table td:has(code) {
+  body:not(.typora-export) #write > figure:has(> table):not(:has(> table tr > :nth-child(${layout_table_wide_nth}))) > table td:has(code) {
     min-width: 12rem;
   }
 }
-#write > table:not(:has(tr > :nth-child(10))) {
+#write > table:not(:has(tr > :nth-child(${layout_table_wide_nth}))) {
   width: min(100%, var(--hk-reading-measure));
   max-width: min(100%, var(--hk-reading-measure));
   margin-left: auto;
   margin-right: auto;
 }
-#write > table:not(:has(tr > :nth-child(4))) {
+#write > table:not(:has(tr > :nth-child(${layout_table_compact_nth}))) {
   width: max-content;
   max-width: min(100%, var(--hk-reading-measure));
   margin-left: max(0px, calc((100% - var(--hk-reading-measure)) / 2));
@@ -878,7 +877,7 @@ body:not(.pin-outline) #write {
 }
 #write table th,
 #write table td {
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 /* 首列多是编号 / 字段名：允许折行，但别把 P01 拆成 P0 / 1 */
 #write table th:first-child,
@@ -888,6 +887,11 @@ body:not(.pin-outline) #write {
 /* 首列下限：避免「问题」「编号」被挤成竖排一字；多列表同样生效。 */
 #write table :is(th, td):first-child {
   min-width: 4.5rem;
+}
+/* 紧凑表（标签/结论）首列尽量不拆字；过长时由 figure 横向滚动承接。 */
+#write table:not(:has(tr > :nth-child(${layout_table_compact_nth}))) :is(th, td):first-child {
+  white-space: nowrap;
+  overflow-wrap: normal;
 }
 #write table th {
   font-weight: 700;
@@ -904,11 +908,11 @@ body:not(.pin-outline) #write {
   vertical-align: top;
   font-variant-numeric: tabular-nums;
 }
-/* 十列起只留横向分隔，避免宽表变成 Excel 网格。 */
-#write figure:has(> table tr > :nth-child(10)) th,
-#write figure:has(> table tr > :nth-child(10)) td,
-#write > table:has(tr > :nth-child(10)) th,
-#write > table:has(tr > :nth-child(10)) td {
+/* 宽表只留横向分隔，避免变成 Excel 网格。 */
+#write figure:has(> table tr > :nth-child(${layout_table_wide_nth})) th,
+#write figure:has(> table tr > :nth-child(${layout_table_wide_nth})) td,
+#write > table:has(tr > :nth-child(${layout_table_wide_nth})) th,
+#write > table:has(tr > :nth-child(${layout_table_wide_nth})) td {
   border-left: 0;
   border-right: 0;
 }
@@ -1611,6 +1615,16 @@ def check(css):
                 f"字号用了 px：`{selector}` 里 {fm.group(0)}"
                 f"（规范要求 rem，否则 Typora 偏好里的字号调节失效）"
             )
+
+    # 禁止表格再写 48rem 硬顶（阅读列 clamp 下限的 48rem 仍合法）。
+    if re.search(
+        r"(?:max-)?width:\s*min\([^;]*var\(--hk-reading-measure\)\s*,\s*48rem\)",
+        head_css,
+    ):
+        problems.append(
+            "表格仍含 48rem 硬顶（min(..., var(--hk-reading-measure), 48rem)）——"
+            "1–3 列应按内容变宽、最多到阅读列"
+        )
     return problems
 
 
@@ -1844,6 +1858,20 @@ def build(tokens, dark=False, banner_name=None, premium=False, flavor=""):
     c.setdefault("accent3", c.get("accent2", c["accent"]))
 
     v = flatten({k: val for k, val in t.items() if k not in ("dark", "_craft")})
+    # 表格列档：tokens 里是「最多/最少列数」，CSS :nth-child 要的是阈值下标。
+    layout = t.get("layout") or {}
+    try:
+        compact_max = int(layout.get("table_compact_max_cols", 3))
+        wide_min = int(layout.get("table_wide_min_cols", 10))
+    except (TypeError, ValueError) as exc:
+        raise ValueError("layout.table_compact_max_cols / table_wide_min_cols 须为整数") from exc
+    if compact_max < 1 or wide_min <= compact_max:
+        raise ValueError(
+            f"表格列档非法：compact_max={compact_max}, wide_min={wide_min} "
+            f"（须 compact≥1 且 wide > compact）"
+        )
+    v["layout_table_compact_nth"] = str(compact_max + 1)
+    v["layout_table_wide_nth"] = str(wide_min)
     a = t["alpha"]
     accent = c["accent"]
     accent2 = c["accent2"]
@@ -2021,12 +2049,14 @@ def main():
         for preset_name in built:
             # 合并逻辑只有一处：resolve_theme（palette 覆盖基座 → preset 覆盖 type/layout）
             t, preset = resolve_theme(tokens, theme, preset_name)
+            preset_suffix = preset.get("slug_suffix") or ""
             for dark in (False, True):
-                name = f"{slug}{suffix}{'-dark' if dark else ''}.css"
+                name = f"{slug}{suffix}{preset_suffix}{'-dark' if dark else ''}.css"
                 banner = (
-                    f"{menu}{'-dark' if dark else ''} — Typora theme"
+                    f"{menu}{preset_suffix}{'-dark' if dark else ''} — Typora theme"
                     f" ({label}{', dark' if dark else ''} · {theme_tier}"
-                    f" · skill {theme.get('id', '').upper()})"
+                    f" · skill {theme.get('id', '').upper()}"
+                    f"{'' if preset_name == 'work' else f' · preset {preset_name}'})"
                 )
                 css = build(
                     t,

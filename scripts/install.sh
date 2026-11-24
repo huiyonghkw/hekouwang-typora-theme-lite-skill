@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 #
-# hekouwang · install free default (V2) to Typora themes folder
+# hekouwang · install themes to Typora themes folder
 #
 # Usage:
-#   ./scripts/install.sh                          # install free themes (recommended)
+#   ./scripts/install.sh                          # free V2；本机有 edition + 付费 CSS 时顺带装付费
+#   ./scripts/install.sh --paid                   # 强制尝试安装付费 12 套（缺文件则报错）
+#   ./scripts/install.sh --free-only              # 只装免费 V2
 #   ./scripts/install.sh --use-local-anthropic    # additionally link Anthropic fonts (see below)
 #
-# 付费六套（V1/V2 Pro/V3–V6）不在公开仓。SkillPay 买完用：
+# 公开仓买家无 edition：仍用 SkillPay zip：
 #   ./scripts/unlock.sh ~/Downloads/hekouwang-typora-theme-skill-*-paid.zip
 # 购买页见 scripts/links.sh → HKW_URL_BUY
 #
@@ -41,11 +43,23 @@ SRC_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 . "$SRC_DIR/scripts/links.sh"
 THEME_DIR="$HOME/Library/Application Support/abnerworks.Typora/themes"
 USE_LOCAL_ANTHROPIC=0
+MODE="auto"   # auto | paid | free-only
+
+PAID_VARIANTS=(
+  hekouwang-v1 hekouwang-v1-dark
+  hekouwang-v2-pro hekouwang-v2-pro-dark
+  hekouwang-v3 hekouwang-v3-dark
+  hekouwang-v4 hekouwang-v4-dark
+  hekouwang-v5 hekouwang-v5-dark
+  hekouwang-v6 hekouwang-v6-dark
+)
 
 for arg in "$@"; do
   case "$arg" in
     --use-local-anthropic) USE_LOCAL_ANTHROPIC=1 ;;
-    -h|--help) sed -n '2,28p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    --paid) MODE="paid" ;;
+    --free-only) MODE="free-only" ;;
+    -h|--help) sed -n '2,30p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'; exit 0 ;;
     *) echo "unknown option: $arg" >&2; exit 1 ;;
   esac
 done
@@ -53,7 +67,22 @@ done
 ok()   { printf '  ✅ %s\n' "$*"; }
 warn() { printf '  ⚠️  %s\n' "$*"; }
 
-echo "hekouwang · install (free · V2)"
+should_install_paid=0
+case "$MODE" in
+  paid) should_install_paid=1 ;;
+  free-only) should_install_paid=0 ;;
+  auto)
+    if [ -d "$SRC_DIR/edition" ] && [ -f "$SRC_DIR/theme/hekouwang-v1.css" ]; then
+      should_install_paid=1
+    fi
+    ;;
+esac
+
+if [ "$should_install_paid" -eq 1 ]; then
+  echo "hekouwang · install (free V2 + paid V1–V6)"
+else
+  echo "hekouwang · install (free · V2)"
+fi
 echo "────────────────────────────────────────"
 
 # ---- preflight (safe to abort: nothing touched yet) ----
@@ -66,16 +95,28 @@ if [ ! -f "$SRC_DIR/theme/$SLUG.css" ]; then
   echo "Missing $SRC_DIR/theme/$SLUG.css — run: python3 scripts/build.py --tier free" >&2
   exit 1
 fi
+if [ "$should_install_paid" -eq 1 ]; then
+  missing=0
+  for variant in "${PAID_VARIANTS[@]}"; do
+    if [ ! -f "$SRC_DIR/theme/$variant.css" ]; then
+      warn "missing theme/$variant.css"
+      missing=1
+    fi
+  done
+  if [ "$missing" -ne 0 ]; then
+    echo "付费 CSS 不齐 —— 先 python3 scripts/build.py（需 edition/），或改用 --free-only" >&2
+    exit 1
+  fi
+fi
 
-# 公开仓只装免费默认 V2
 VARIANTS=(
   "$SLUG" "$SLUG-dark"
 )
-# 旧版曾安装 claude 变体，安装时清掉，避免主题菜单残留
 LEGACY_REMOVE=(
   "$SLUG-claude"
   "$SLUG-claude-dark"
 )
+
 # ---- theme css（免费 V2） ----
 for variant in "${VARIANTS[@]}"; do
   src="$SRC_DIR/theme/$variant.css"
@@ -86,6 +127,18 @@ for variant in "${VARIANTS[@]}"; do
     warn "failed to copy $variant.css — check folder permissions"
   fi
 done
+
+# ---- paid V1–V6（本机 edition 或 --paid）----
+if [ "$should_install_paid" -eq 1 ]; then
+  for variant in "${PAID_VARIANTS[@]}"; do
+    src="$SRC_DIR/theme/$variant.css"
+    if cp "$src" "$THEME_DIR/$variant.css" 2>/dev/null; then
+      ok "installed $variant.css"
+    else
+      warn "failed to copy $variant.css — check folder permissions"
+    fi
+  done
+fi
 
 for variant in "${LEGACY_REMOVE[@]}"; do
   if [ -f "$THEME_DIR/$variant.css" ]; then
@@ -128,10 +181,15 @@ echo "────────────────────────�
 echo "  Done. Quit Typora completely (Cmd+Q) and reopen."
 echo "  Themes menu · Free："
 echo "    • Hekouwang / Hekouwang Dark   （skill V2 编辑）"
-echo
-echo "  Pack · V1 / V2 Pro / V3–V6（¥9.9）："
-echo "    ${HKW_URL_SKILLPAY:-$HKW_URL_BUY}"
-echo "    买完：./scripts/unlock.sh ~/Downloads/hekouwang-typora-theme-skill-*-paid.zip"
+if [ "$should_install_paid" -eq 1 ]; then
+  echo "  Themes menu · Paid："
+  echo "    • Hekouwang V1–V6 / V2 Pro（浅 + 深，共 12 项）"
+else
+  echo
+  echo "  Pack · V1 / V2 Pro / V3–V6（¥9.9）："
+  echo "    ${HKW_URL_SKILLPAY:-$HKW_URL_BUY}"
+  echo "    买完：./scripts/unlock.sh ~/Downloads/hekouwang-typora-theme-skill-*-paid.zip"
+fi
 echo
 echo "  Note: switching themes does NOT reload a modified CSS file."
 echo "  You must fully quit and relaunch Typora."

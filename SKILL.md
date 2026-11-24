@@ -5,7 +5,7 @@ displayName: Typora 主题工程 · Lite（hekouwang）
 summary: Typora theme engineering / CJK long-form markdown — tokens.json CSS build, color sampling, contrast/layout audits, font probe. Free V2 light+dark.
 license: MIT
 homepage: https://github.com/huiyonghkw/hekouwang-typora-theme-lite-skill
-version: 2.0.3
+version: 2.0.4
 description: "当需要改 Typora 主题配色/字号/行高、用 tokens 生成 CSS、采样真实色值、排查主题不生效或发布主题库时使用"
 allowed-tools: Bash, Read, Write, Edit, Glob, Grep
 ---
@@ -41,7 +41,7 @@ python3 scripts/build.py                    # → 同 free（本仓无 edition�
 python3 scripts/test_contrast_check.py     # → 7 个单测（对比度数学 + 出货 CSS）
 python3 scripts/verify_layout.py --all      # → 免费 2 + 付费 12 套 × 7 档窗口、窄屏与表格预检
 python3 scripts/verify_export_pdf.py        # → A4/A5、长代码与长表 PDF 预检
-./scripts/install.sh                        # 装进 Typora（直接覆盖，不自动备份）
+./scripts/install.sh                        # 装进 Typora（有 edition 时顺带付费 12 套；--free-only / --paid）
 python3 scripts/verify_render.py --css theme/hekouwang.css \
   --fonts "Hekouwang Sans,Hekouwang Sans Fb" --vars bg-color,text-color
 ```

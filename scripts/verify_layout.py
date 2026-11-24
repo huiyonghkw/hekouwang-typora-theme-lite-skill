@@ -334,9 +334,10 @@ def validate(data: dict, css_name: str, requested_width: int,
         need(data["sparseTable"]["width"] <= data["prose"]["width"] * 0.55 + 2,
              f"short two-column table should stay compact "
              f"({data['sparseTable']['width']:.0f}/{data['prose']['width']:.0f}px)")
-        need(data["denseTwoTable"]["width"] <= data["prose"]["width"] + 3,
-             f"dense two-column table exceeds the reading column "
-             f"({data['denseTwoTable']['width']:.0f}/{data['prose']['width']:.0f}px)")
+        # 紧凑长表：figure 限在阅读列内；表体可 max-content 超出并由 figure 滚动。
+        need(data["denseTwoFigure"]["width"] <= data["prose"]["width"] + 3,
+             f"dense two-column figure exceeds the reading column "
+             f"({data['denseTwoFigure']['width']:.0f}/{data['prose']['width']:.0f}px)")
         need(data["denseTwoFirst"]["width"] >= data["rootSize"] * 4.4,
              f"dense two-column first cell was squeezed into a vertical strip "
              f"({data['denseTwoFirst']['width']:.0f}px)")
@@ -345,6 +346,11 @@ def validate(data: dict, css_name: str, requested_width: int,
             need(data["denseTwoTable"]["width"] > data["rootSize"] * 48 + 2,
                  f"dense two-column table stayed under the old 48rem cap "
                  f"({data['denseTwoTable']['width']:.0f}px)")
+        if data["denseTwoTable"]["width"] > data["denseTwoFigure"]["width"] + 3:
+            need(data["denseTwoFigure"]["overflowX"] in ("auto", "scroll")
+                 and data["denseTwoFigure"]["scrollWidth"]
+                 > data["denseTwoFigure"]["clientWidth"] + 3,
+                 "dense two-column table overflows without local scrolling")
     if requested_width == 2048:
         need(data["prose"]["width"] >= data["rootSize"] * 64,
              f"prose does not use the wide desktop ({data['prose']['width']:.0f}px)")

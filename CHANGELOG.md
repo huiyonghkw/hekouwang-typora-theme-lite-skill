@@ -2,7 +2,12 @@
 
 ## Unreleased
 
-- **fix · 宽屏表格：** 取消 1–3 列小表的 `48rem` 硬顶；改为按内容变宽、最多到阅读列，避免长单元格被挤成一字一行。首列统一 `min-width: 4.5rem`。`verify_layout` 增加 dense 两列表回归。
+## 2.0.4 — 2026-11-24
+
+- **fix · 宽屏表格：** 取消 1–3 列 `48rem` 硬顶；按内容变宽、最多到阅读列，触顶后 figure 局部横向滚动；首列 `min-width` + 紧凑表首列 `nowrap`。
+- **tokens：** `layout.table_compact_max_cols` / `table_wide_min_cols` 驱动选择器；新增可选 `_presets.read`（更窄散文阅读列，默认不构建）。
+- **安装：** `install.sh` / `install-windows.ps1` 在本机有 `edition/` + 付费 CSS 时顺带装 V1–V6（`--paid` / `--free-only`）。
+- **门禁：** 构建断言禁止表格 `48rem` 硬顶；`verify_layout` 覆盖 dense 两列表；`sync_preview --check` 继续守 docs/live。
 
 ## 2.0.3 — 2026-11-20
 

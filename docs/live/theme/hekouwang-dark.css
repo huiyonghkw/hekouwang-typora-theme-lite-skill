@@ -651,8 +651,9 @@ body:not(.pin-outline) #write {
   border-collapse: collapse;
   border: 1px solid var(--hk-hairline);
 }
-/* 十列起的宽数据表：内容放得下时与阅读列对齐，放不下才向技术画布展开，
-   再宽则在自身滚动容器中滚动。 */
+/* ≥ table_wide_min_cols 列的宽数据表：内容放得下时与阅读列对齐，
+   放不下才向技术画布展开，再宽则在自身滚动容器中滚动。
+   nth 由 tokens layout.table_* 注入（默认 compact≤3 → nth 4；wide≥10 → nth 10）。 */
 @media screen {
   #write figure > table:has(tr > :nth-child(10)) {
     min-width: max-content;
@@ -672,23 +673,27 @@ body:not(.pin-outline) #write {
     padding-right: 0.55rem;
   }
 }
-/* 常规六列及以下表格填满响应式阅读列。 */
+/* compact+1 .. wide-1 列：填满响应式阅读列。 */
 #write > figure:has(> table):not(:has(> table tr > :nth-child(10))) {
   box-sizing: border-box;
   max-width: min(100%, var(--hk-reading-measure));
   margin-left: auto;
   margin-right: auto;
 }
-/* 一至三列的小表不拉满宽栏：48rem 左对齐正文，避免三列各占 500px。 */
+/* 1..compact 列：按内容变宽；触顶阅读列后 figure 横向滚动，避免挤成一字一行。
+   紧凑表开 overflow 会挡列拖拽把手——此类表很少拖列，可读性优先。 */
 #write > figure:has(> table):not(:has(> table tr > :nth-child(4))) {
-  max-width: min(100%, var(--hk-reading-measure), 48rem);
+  width: fit-content;
+  max-width: min(100%, var(--hk-reading-measure));
   margin-left: max(0px, calc((100% - var(--hk-reading-measure)) / 2));
   margin-right: auto;
+  overflow-x: auto;
 }
-/* 单元格至少留出可读宽度。窄窗中由 Typora 的 figure 自身滚动，
-   避免长中文、代码和 URL 被挤成一两个字一行。 */
-/* 只有窄窗才给表格 figure 加滚动；桌面上的 overflow 会裁掉 Typora
-   的列拖拽 overlay，列边界就不出现 ew-resize 把手。 */
+#write > figure:has(> table):not(:has(> table tr > :nth-child(4))) > table {
+  width: max-content;
+  max-width: none;
+}
+/* 窄窗：中列表也给单元格下限 + 局部滚动（桌面中列表仍靠折行，保留列拖拽）。 */
 @media screen and (max-width: 1100px) {
   body:not(.typora-export) #write > figure:has(> table):not(:has(> table tr > :nth-child(10))) {
     overflow-x: auto;
@@ -711,23 +716,28 @@ body:not(.pin-outline) #write {
   margin-right: auto;
 }
 #write > table:not(:has(tr > :nth-child(4))) {
-  width: min(100%, var(--hk-reading-measure), 48rem);
-  max-width: min(100%, var(--hk-reading-measure), 48rem);
+  width: max-content;
+  max-width: min(100%, var(--hk-reading-measure));
   margin-left: max(0px, calc((100% - var(--hk-reading-measure)) / 2));
   margin-right: auto;
 }
 #write table th,
 #write table td {
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 /* 首列多是编号 / 字段名：允许折行，但别把 P01 拆成 P0 / 1 */
 #write table th:first-child,
 #write table td:first-child {
   overflow-wrap: break-word;
 }
-/* 多列表格的首列给一个下限，避免「编号」被挤成两行 */
-#write table:has(tr > :nth-child(4)) :is(th, td):first-child {
+/* 首列下限：避免「问题」「编号」被挤成竖排一字；多列表同样生效。 */
+#write table :is(th, td):first-child {
   min-width: 4.5rem;
+}
+/* 紧凑表（标签/结论）首列尽量不拆字；过长时由 figure 横向滚动承接。 */
+#write table:not(:has(tr > :nth-child(4))) :is(th, td):first-child {
+  white-space: nowrap;
+  overflow-wrap: normal;
 }
 #write table th {
   font-weight: 700;
@@ -744,7 +754,7 @@ body:not(.pin-outline) #write {
   vertical-align: top;
   font-variant-numeric: tabular-nums;
 }
-/* 十列起只留横向分隔，避免宽表变成 Excel 网格。 */
+/* 宽表只留横向分隔，避免变成 Excel 网格。 */
 #write figure:has(> table tr > :nth-child(10)) th,
 #write figure:has(> table tr > :nth-child(10)) td,
 #write > table:has(tr > :nth-child(10)) th,

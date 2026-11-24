@@ -76,6 +76,10 @@ type / layout 是"读文件时的默认真相"。
 | `layout.write_margin_top` | `1rem` | 常规窗口纸面顶部间距，窄窗口为 `0.75rem` |
 | `layout.write_pad_*` | 见文件 | 写作区内边距 |
 | `layout.measure_gutter` | `4rem` | 栏宽流体时两侧预留的窗口底色 |
+| `layout.table_compact_max_cols` | `3` | 1..N 列按内容变宽；构建写成 `:nth-child(N+1)` |
+| `layout.table_wide_min_cols` | `10` | ≥N 列走技术画布；构建写成 `:nth-child(N)` |
+
+另有 `_presets.read`（散文更窄阅读列，最多约 `52rem`）：默认不进 `presets_built`；需要时把 `_meta.presets_built` 改成 `["work","read"]` 会多出 `*-read.css`。日常窄栏仍可用 `hekouwang.user.css` 覆盖 `--hk-reading-measure`。
 
 **纸感不在这里** —— `paper.*` 归 `palettes.json`（见上表）。想关掉纸感改
 `palettes.json` 的 `themes[].paper.enabled`，不是 tokens.json。
