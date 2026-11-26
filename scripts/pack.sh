@@ -2,7 +2,7 @@
 #
 # hekouwang · 打专业版 SkillPay zip（白名单：Lite 运行面 ∪ edition）
 #
-#   ./scripts/pack.sh                         # → dist/<version>/…-paid.zip
+#   ./scripts/pack.sh                         # → dist/skillpay/…-paid.zip
 #   ./scripts/pack.sh /path/to/out.zip
 #
 # 包内 = Agent 专业版 Skill（SKILL.md name: *-skill）+ 付费 12 CSS + unlock。
@@ -42,7 +42,7 @@ if [ -f "$EDITION/VERSION" ]; then
 else
   PACK_VERSION="$(tr -d '[:space:]' < "$ROOT/VERSION")"
 fi
-DIST_DIR="$ROOT/dist/${PACK_VERSION}"
+DIST_DIR="$ROOT/dist/skillpay"
 DEFAULT_OUT="${DIST_DIR}/hekouwang-typora-theme-skill-${PACK_VERSION}-paid.zip"
 OUT="${1:-$DEFAULT_OUT}"
 STAGE="$(mktemp -d "${TMPDIR:-/tmp}/hkw-typora-pack-stage.XXXXXX")"
@@ -148,7 +148,7 @@ text = text.replace(
     "scripts/palettes.paid.json / craft_paid.py   付费色板与工艺（本包）",
 )
 text = text.replace(
-    "scripts/pack.sh          打专业版 zip → dist/<version>/…-paid.zip\n",
+    "scripts/pack.sh          打专业版 zip → dist/skillpay/…-paid.zip\n",
     "",
 )
 text = text.replace(
@@ -256,7 +256,7 @@ EOF
 ok "README / 许可"
 
 mkdir -p "$DIST_DIR"
-find "$ROOT/dist" -mindepth 1 -maxdepth 1 ! -name "$PACK_VERSION" -exec rm -rf {} + 2>/dev/null || true
+# 渠道轴：不清理兄弟渠道目录（dist/clawhub 等）
 rm -f "$OUT"
 (
   cd "$STAGE"
@@ -330,7 +330,7 @@ if f"{top}/LICENSE.txt" not in names:
 print(len(need), "required ok; no leaks; Pro SKILL/LICENSE ok")
 PY
 ok "验包通过 → $OUT"
-printf "\n${g}SkillPay：上传/更新此 zip → dist/<version>/${o}\n"
+printf "\n${g}SkillPay：上传/更新此 zip → dist/skillpay/${o}\n"
 printf "  商品页：%s\n" "$HKW_URL_SKILLPAY"
 printf "  大小：%s\n" "$(du -h "$OUT" | cut -f1 | tr -d ' ')"
 printf "  ${b}上传后必查：${o}商品名称「会勇禾口王 · Typora 主题工程」；描述清空后只贴 listing-skillpay.md\n"

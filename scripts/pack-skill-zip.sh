@@ -6,14 +6,14 @@
 #   ./scripts/pack-skill-zip.sh /path/to/out.zip
 #
 # 与根目录 .clawhubignore 对账；产物：
-#   dist/<version>/hekouwang-typora-theme-lite-skill-<version>.zip
+#   dist/clawhub/hekouwang-typora-theme-lite-skill-<version>.zip
 # ============================================================
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 IGNORE="$ROOT/.clawhubignore"
 VER="$(tr -d '[:space:]' < "$ROOT/edition/VERSION" 2>/dev/null || tr -d '[:space:]' < "$ROOT/VERSION")"
-DIST_DIR="$ROOT/dist/$VER"
+DIST_DIR="$ROOT/dist/clawhub"
 DEFAULT_OUT="$DIST_DIR/hekouwang-typora-theme-lite-skill-${VER}.zip"
 OUT="${1:-$DEFAULT_OUT}"
 STAGE="$(mktemp -d "${TMPDIR:-/tmp}/hkw-typora-lite-pack.XXXXXX")"

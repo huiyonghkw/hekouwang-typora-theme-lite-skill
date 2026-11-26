@@ -124,7 +124,7 @@ scripts/tokens.json      阅读指标真源（_presets.work）+ 字体栈 + 透�
 scripts/palettes.json    免费 V2 配色真源
 edition/scripts/         付费色板 + craft（本地仓；不进公开 git）
 scripts/build.py         默认：有 edition 则 free+paid；公开 CI 用 --tier free
-scripts/pack.sh          打专业版 zip → dist/<version>/…-paid.zip
+scripts/pack.sh          打专业版 zip → dist/skillpay/…-paid.zip
 scripts/unlock.sh        买家装付费 zip；开发树同步回 edition/
 scripts/install.sh       装进 Typora
 scripts/sample_colors.py 从截图采样真实色值

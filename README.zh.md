@@ -185,7 +185,7 @@ cd hekouwang-typora-theme-lite-skill
 # 或解压后在包内：./unlock.sh
 ```
 
-（打包装：`./scripts/pack.sh` → `dist/<version>/*-paid.zip`，上传 SkillPay 更新在售包。）
+（打包装：`./scripts/pack.sh` → `dist/skillpay/*-paid.zip`，上传 SkillPay 更新在售包。）
 
 ## 定制
 

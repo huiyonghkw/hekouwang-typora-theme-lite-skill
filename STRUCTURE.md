@@ -1,8 +1,8 @@
 # 目录结构（本仓库特例）
 
-> 组织标准（目录）：`~/.user-agents/standards/hekouwang-skill-structure.md`  
-> 付费化口径：`~/.user-agents/standards/hekouwang-skill-monetize.md`  
-> 迁移执行手册：`~/.user-agents/standards/hekouwang-skill-monetize-playbook.md`  
+> 组织标准（目录）：`~/.user-agents/standards/huiyonghkw/skills/skill-structure.md`  
+> 付费化口径：`~/.user-agents/standards/huiyonghkw/skills/skill-monetize.md`  
+> 迁移执行手册：`~/.user-agents/standards/huiyonghkw/skills/skill-monetize-playbook.md`  
 > 本文件只写本仓特例与成熟度档位。渠道 × 版本见 [`RELEASE.md`](RELEASE.md)。  
 > 公开面策略：**A. Lite 引流**。版本同号：根 `VERSION` ↔ `edition/VERSION` ↔ `SKILL.md` / `_meta.json` / `edition/meta.paid.json`（`bump_version.py --check`）。  
 > 更新：2026-11-20（对齐 terminal/writer；废止 `plans/`；链接真源 = lite）
@@ -13,9 +13,9 @@
 
 | 档 | 本仓状态 |
 |---|---|
-| **现况** | **L3** + 付费化：**SkillPay 商品已过审上架**；主仓 = Lite；Pro ∈ `edition/`；白名单 Pro 包；Lite ClawHub/SkillHub；bump；`dist/<version>/`；日常 `git push origin`；Pages = `docs/` |
+| **现况** | **L3** + 付费化：**SkillPay 商品已过审上架**；主仓 = Lite；Pro ∈ `edition/`；白名单 Pro 包；Lite ClawHub/SkillHub；bump；`dist/<channel>/`；日常 `git push origin`；Pages = `docs/` |
 | **商品深链** | `scripts/links.sh` → `HKW_URL_SKILLPAY`（P0806000213890180） |
-| **E1 留证** | 商品门已过；订单/安装留证可按需补 `roadmap/evidence/e1-order-*.md`（playbook 实单模板） |
+| **E1 留证** | 商品门已过；订单/安装留证可按需补 对话回执中的订单号（playbook 模板字段，不落盘） |
 
 ---
 
@@ -23,7 +23,7 @@
 
 | 版本 | 命名 | 交付 |
 |---|---|---|
-| 专业版 | `hekouwang-typora-theme-skill` | `dist/<version>/…-paid.zip` / SkillPay |
+| 专业版 | `hekouwang-typora-theme-skill` | `dist/skillpay/…-paid.zip` / SkillPay |
 | 免费版 | `hekouwang-typora-theme-lite-skill` | GitHub + Pages + ClawHub + SkillHub 社区 |
 
 根 `SKILL.md` = Lite（MIT）；`edition/SKILL.paid-section.md` = Pro 增补（`pack.sh` 拼接）。
@@ -44,7 +44,8 @@ hekouwang-typora-theme-skill/   # 本机开发家；origin = 公开 Lite
 ├── edition/                    本地仓：Pro 增量（无公开远程）
 ├── roadmap/                    本地仓：升级与作战地图（含 evidence/ 发版回执）
 ├── services/README.md          本期无按次服务（C1）
-└── dist/<version>/             不版控；仅 zip（Lite + Pro）
+├── dist/skillpay/             不版控；Pro zip（SkillPay）
+└── dist/clawhub/              不版控；Lite zip（ClawHub）
 ```
 
 ```text
@@ -75,8 +76,8 @@ hekouwang-typora-theme-skill/   # 本机开发家；origin = 公开 Lite
 |---|---|
 | `python3 scripts/bump_version.py --check` | 双产物同号门 |
 | `python3 scripts/build.py --tier free\|paid` | 构建 CSS |
-| `./scripts/pack.sh` | Pro → `dist/<version>/…-skill-…-paid.zip` |
-| `./scripts/pack-skill-zip.sh` | Lite → `dist/<version>/…-lite-skill-….zip`（含免费 V2 CSS；剔 SkillHub 拒收项） |
+| `./scripts/pack.sh` | Pro → `dist/skillpay/…-skill-…-paid.zip` |
+| `./scripts/pack-skill-zip.sh` | Lite → `dist/clawhub/…-lite-skill-….zip`（含免费 V2 CSS；剔 SkillHub 拒收项） |
 | `./scripts/unlock.sh <zip>` | 装付费包；开发树可同步回 `edition/` |
 
 对外 URL 真源：`scripts/links.sh`（必须指向 `*-lite-skill` Pages）。

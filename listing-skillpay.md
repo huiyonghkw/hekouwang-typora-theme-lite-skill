@@ -68,14 +68,14 @@
 | 售卖模式 | **一次性买断** |
 | 价格 | **¥9.9** |
 | 免费试用 | 0 |
-| 交付物 | `dist/<version>/hekouwang-typora-theme-skill-<version>-paid.zip` |
+| 交付物 | `dist/skillpay/hekouwang-typora-theme-skill-<version>-paid.zip` |
 | 许可 | Proprietary（`LICENSE-PRO.txt`） |
 
 ## 发版核对
 
 1. `bump_version.py --check`  
 2. 本文件 ↔ 平台名称/描述/价一致  
-3. `./scripts/pack.sh` → `dist/<version>/*-paid.zip`  
+3. `./scripts/pack.sh` → `dist/skillpay/*-paid.zip`  
 4. 上传后立刻：名称改回「会勇禾口王 · Typora 主题工程」；描述清空后只贴本文件正文  
 5. 版本更新日志：粘贴本文件「版本更新日志」段（≤200 字）  
 6. 补充材料：按上序粘贴 3 段文字 + 上传 `02-site-hero-*.jpg` → 提交审核  

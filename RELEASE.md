@@ -36,9 +36,9 @@ https://skillpay.alipay.com/shelf/product?productId=P0806000213890180&merchantCo
 | `origin` | `huiyonghkw/hekouwang-typora-theme-lite-skill`（公开） |
 | `paid` | `huiyonghkw/hekouwang-typora-theme-skill`（private，可选备份） |
 
-## 四、`dist/<version>/`
+## 四、`dist/<channel>/`
 
-目录内**默认只放 zip**（校验结果写 `roadmap/evidence/`）：
+每渠道目录默认只放该渠道 zip（校验结果随回执在对话返回，不落盘）：
 
 - `hekouwang-typora-theme-lite-skill-<version>.zip`  
 - `hekouwang-typora-theme-skill-<version>-paid.zip`
@@ -48,7 +48,7 @@ https://skillpay.alipay.com/shelf/product?productId=P0806000213890180&merchantCo
 1. bump → `--check`  
 2. `build.py --tier free`（有 edition 时再 `--tier paid`）  
 3. 对账 `listing-skillpay.md` ↔ 平台 ↔ 官网价  
-4. `pack.sh` / `pack-skill-zip.sh` → `dist/<version>/`  
+4. `pack.sh` / `pack-skill-zip.sh` → `dist/skillpay/` / `dist/clawhub/`  
 5. `git push origin`  
 6. SkillHub：publish Lite（同 version 不重复发）  
-7. SkillPay：上传 / 更新 paid zip；回执 `roadmap/evidence/`  
+7. SkillPay：上传 / 更新 `dist/skillpay/` 的 paid zip；回执在对话返回  
