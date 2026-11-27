@@ -3,6 +3,7 @@
 > 组织标准（目录）：`~/.user-agents/standards/huiyonghkw/skills/skill-structure.md`  
 > 付费化口径：`~/.user-agents/standards/huiyonghkw/skills/skill-monetize.md`  
 > 迁移执行手册：`~/.user-agents/standards/huiyonghkw/skills/skill-monetize-playbook.md`  
+> 最终产物与公开交付：`~/.user-agents/standards/huiyonghkw/skills/skill-delivery-quality.md`
 > 本文件只写本仓特例与成熟度档位。渠道 × 版本见 [`RELEASE.md`](RELEASE.md)。  
 > 公开面策略：**A. Lite 引流**。版本同号：根 `VERSION` ↔ `edition/VERSION` ↔ `SKILL.md` / `_meta.json` / `edition/meta.paid.json`（`bump_version.py --check`）。  
 > 更新：2026-11-20（对齐 terminal/writer；废止 `plans/`；链接真源 = lite）
@@ -81,6 +82,19 @@ hekouwang-typora-theme-skill/   # 本机开发家；origin = 公开 Lite
 | `./scripts/unlock.sh <zip>` | 装付费包；开发树可同步回 `edition/` |
 
 对外 URL 真源：`scripts/links.sh`（必须指向 `*-lite-skill` Pages）。
+
+---
+
+## 最终交付门禁映射
+
+| 验收轴 | 本仓原生路径 |
+|---|---|
+| 版本与构建 | `bump_version.py --check`、`build.py --tier free\|paid`、`pack.sh`、`pack-skill-zip.sh` |
+| 视觉与安装 | `verify_layout.py --all`、真机截图、macOS / Windows 安装与重启验证 |
+| 公开交付 | `docs/`、公开 `origin/main`、ClawHub latest 与文件清单回读 |
+| SkillPay 文案 | `listing-skillpay.md` 与当版 `dist/skillpay/skillpay.md` 逐字一致；版本日志必须保留完整商品描述，上传 ZIP 后从该文件重贴 |
+
+**尚未覆盖**：最终包 Markdown 链接与锚点、双构建 zip 哈希一致、公开外链 HTTP 校验、完整宿主 Agent 行为验收。上述项目前不记 PASS；后续按 `skill-delivery-quality.md` 最小增量补齐，不重写现有构建链。
 
 ---
 
